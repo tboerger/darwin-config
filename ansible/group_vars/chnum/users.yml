@@ -1,0 +1,23 @@
+# Standards: 1.2
+---
+users_castles_force: False
+
+users_general:
+  - name: thomas
+    uid: 1000
+    comment: Thomas Boerger
+    shell: /bin/zsh
+    password: "{{ lookup('file', 'secrets/chnum/root_password.txt') | password_hash('sha512', lookup('file', 'secrets/chnum/root_salt.txt')) }}"
+    ohmyzsh: True
+    bashit: False
+    ssh_key:
+      generate: False
+    castles:
+      - tboerger/homeshick-base
+      - tboerger/homeshick-linux
+    groups:
+      - sudo
+    sshkeys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINaQYR0/Oj6k1H03kshz2J7rlGCaDSuaGPhhOs9FcZfn thomas@osiris
+
+...

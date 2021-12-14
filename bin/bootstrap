@@ -1,36 +1,50 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-if ! xcode-select -p 2>/dev/null
-then
-    echo "--> Installing xcode"
-    (
-        touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
-        softwareupdate -i "$(softwareupdate -l | grep 'Command Line Tools' | head -n1 | sed 's/^\* Label: //')"
-        rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
-    ) 2>&1 | sed 's/^/    /'
-fi
+case "$(uname)" in
+    "Darwin")
+        if ! xcode-select -p 2>/dev/null 1>&2; then
+            echo "--> Installing xcode"
+            touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+            softwareupdate -i "$(softwareupdate -l | grep 'Command Line Tools' | head -n1 | sed 's/^\* Label: //')"
+            rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+        fi
 
-if [ ! -L /usr/local/bin/ansible ]
-then
-    echo "--> Install ansible"
-    (
-        pip3 install --user ansible
-    ) 2>&1 | sed 's/^/    /'
-fi
+        if ! hash ansible 2>/dev/null; then
+            echo "--> Install ansible"
+            pip3 install --user ansible
+        fi
 
-if [ -d ${HOME}/.workstation ]
-then
+        ;;
+    "Linux")
+        if ! hash git 2>/dev/null; then
+            echo "--> Install git"
+            sudo apt install --yes git-core
+        fi
+
+        if ! hash ansible 2>/dev/null; then
+            echo "--> Install ansible"
+            sudo add-apt-repository --yes --update ppa:ansible/ansible
+            sudo apt install --yes ansible
+        fi
+
+        ;;
+    *)
+        echo "Unknown operating system"
+        exit 1
+esac
+
+if test -d ${HOME}/.workstation; then
     echo "--> Updating itself"
-    (
-        cd ${HOME}/.workstation
-        git stash && git pull --force
-    ) 2>&1 | sed 's/^/    /'
+    cd ${HOME}/.workstation
+    git pull --autostash --rebase
 else
     echo "--> Cloning itself"
-    (
-        git clone ${REPOSITORY_URL:-https://github.com/tboerger/workstation.git} ${HOME}/.workstation
-    ) 2>&1 | sed 's/^/    /'
+    git clone ${REPOSITORY_URL:-https://github.com/tboerger/workstation.git} ${HOME}/.workstation
 fi
+
+for FILE in $(ls ${HOME}/.workstation/bin/); do
+    ln -sf ${HOME}/.workstation/bin/${FILE} /usr/local/bin/workstation-${FILE}
+done
 
 echo "--> Finished bootstrap"

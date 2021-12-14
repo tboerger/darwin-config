@@ -1,19 +1,21 @@
 #!/usr/bin/env bash
 set -eo pipefail
-export PATH="${HOME}/Library/Python/3.7/bin:${PATH}"
 
-if ! which ansible-playbook > /dev/null
-then
+if [ -L $0 ]; then
+    ROOT=$(cd $(dirname $(readlink -e $0))/..; pwd)
+else
+    ROOT=$(cd $(dirname $0)/..; pwd)
+fi
+
+if ! hash ansible-playbook 2>/dev/null; then
     echo "Failed to detect ansible-playbook!"
     exit 1
 fi
 
-if [[ -f .vaultpasswd ]]
-then
-    VAULT_PASSWORD_FILE=.vaultpasswd
+if test -f ${ROOT}/.vaultpasswd; then
+    VAULT_PASSWORD_FILE=${ROOT}/.vaultpasswd
 else
-    if [[ -z "${ANSIBLE_VAULT_PASSWORD}" ]]
-    then
+    if test -z "${ANSIBLE_VAULT_PASSWORD}"; then
         echo "Missing ANSIBLE_VAULT_PASSWORD!"
         exit 2
     fi
@@ -22,8 +24,10 @@ else
     echo ${ANSIBLE_VAULT_PASSWORD} >| ${VAULT_PASSWORD_FILE}
 fi
 
-exec ansible-playbook \
-    --vault-password-file ${VAULT_PASSWORD_FILE} \
-    --inventory-file ansible/inventory/macos.ini \
-    ansible/playbook.yml \
-    "$@"
+pushd ${ROOT} >/dev/null
+    exec ansible-playbook \
+        --vault-password-file ${VAULT_PASSWORD_FILE} \
+        --inventory-file ansible/inventory/static \
+        ansible/playbook.yml \
+        "$@"
+popd >/dev/null

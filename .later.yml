@@ -2,6 +2,10 @@
 rules:
   exclude_files:
     - README.md
+    - LICENSE
+
     - bin/
+    - ansible/collections/
+    - ansible/requirements/
 
 ...

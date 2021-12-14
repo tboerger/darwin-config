@@ -1,155 +1,36 @@
+# Standards: 1.2
 ---
-- src: https://github.com/machippie/1password
+- src: https://github.com/rolehippie/users
   scm: git
   version: master
-- src: https://github.com/machippie/alfred
+- src: https://github.com/rolehippie/root
   scm: git
   version: master
-- src: https://github.com/machippie/appcleaner
+- src: https://github.com/rolehippie/sudo
   scm: git
   version: master
-- src: https://github.com/machippie/bartender
+- src: https://github.com/rolehippie/apt
   scm: git
   version: master
-- src: https://github.com/machippie/bill
+- src: https://github.com/rolehippie/groups
   scm: git
   version: master
-- src: https://github.com/machippie/buttercup
+- src: https://github.com/rolehippie/openssh
   scm: git
   version: master
-- src: https://github.com/machippie/clockify
+- src: https://github.com/rolehippie/base
   scm: git
   version: master
-- src: https://github.com/machippie/code
+- src: https://github.com/rolehippie/locales
   scm: git
   version: master
-- src: https://github.com/machippie/cronic
+- src: https://github.com/rolehippie/cronic
   scm: git
   version: master
-- src: https://github.com/machippie/discord
+- src: https://github.com/rolehippie/snapd
   scm: git
   version: master
-- src: https://github.com/machippie/dock
-  scm: git
-  version: master
-- src: https://github.com/machippie/docker
-  scm: git
-  version: master
-- src: https://github.com/machippie/finder
-  scm: git
-  version: master
-- src: https://github.com/machippie/firefox
-  scm: git
-  version: master
-- src: https://github.com/machippie/gimp
-  scm: git
-  version: master
-- src: https://github.com/machippie/gitter
-  scm: git
-  version: master
-- src: https://github.com/machippie/google-chrome
-  scm: git
-  version: master
-- src: https://github.com/machippie/hammerspoon
-  scm: git
-  version: master
-- src: https://github.com/machippie/homebrew
-  scm: git
-  version: master
-- src: https://github.com/machippie/input
-  scm: git
-  version: master
-- src: https://github.com/machippie/imusic
-  scm: git
-  version: master
-- src: https://github.com/machippie/istat-menus
-  scm: git
-  version: master
-- src: https://github.com/machippie/iterm2
-  scm: git
-  version: master
-- src: https://github.com/machippie/java
-  scm: git
-  version: master
-- src: https://github.com/machippie/keepingyouawake
-  scm: git
-  version: master
-- src: https://github.com/machippie/mas
-  scm: git
-  version: master
-- src: https://github.com/machippie/mattermost
-  scm: git
-  version: master
-- src: https://github.com/machippie/microsoft-office
-  scm: git
-  version: master
-- src: https://github.com/machippie/multimc
-  scm: git
-  version: master
-- src: https://github.com/machippie/owncloud
-  scm: git
-  version: master
-- src: https://github.com/machippie/riot
-  scm: git
-  version: master
-- src: https://github.com/machippie/rocketchat
-  scm: git
-  version: master
-- src: https://github.com/machippie/root
-  scm: git
-  version: master
-- src: https://github.com/machippie/ruby
-  scm: git
-  version: master
-- src: https://github.com/machippie/scratch
-  scm: git
-  version: master
-- src: https://github.com/machippie/screencapture
-  scm: git
-  version: master
-- src: https://github.com/machippie/screensaver
-  scm: git
-  version: master
-- src: https://github.com/machippie/skype
-  scm: git
-  version: master
-- src: https://github.com/machippie/slack
-  scm: git
-  version: master
-- src: https://github.com/machippie/spctl
-  scm: git
-  version: master
-- src: https://github.com/machippie/spectacle
-  scm: git
-  version: master
-- src: https://github.com/machippie/spotify
-  scm: git
-  version: master
-- src: https://github.com/machippie/steam
-  scm: git
-  version: master
-- src: https://github.com/machippie/sublime-text
-  scm: git
-  version: master
-- src: https://github.com/machippie/sudo
-  scm: git
-  version: master
-- src: https://github.com/machippie/system
-  scm: git
-  version: master
-- src: https://github.com/machippie/telegram
-  scm: git
-  version: master
-- src: https://github.com/machippie/textedit
-  scm: git
-  version: master
-- src: https://github.com/machippie/tunnelblick
-  scm: git
-  version: master
-- src: https://github.com/machippie/twitch
-  scm: git
-  version: master
-- src: https://github.com/machippie/users
+- src: https://github.com/rolehippie/multipath
   scm: git
   version: master
 
