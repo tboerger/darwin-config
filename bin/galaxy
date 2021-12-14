@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -eo pipefail
+export PATH="${HOME}/Library/Python/3.7/bin:${PATH}"
+
+if ! which ansible-galaxy > /dev/null
+then
+    echo "Failed to detect ansible-galaxy!"
+    exit 1
+fi
+
+exec ansible-galaxy \
+    install \
+    -r ansible/requirements.yml \
+    -p ansible/roles \
+    "$@"

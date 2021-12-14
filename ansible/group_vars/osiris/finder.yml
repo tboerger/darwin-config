@@ -1,0 +1,22 @@
+# Standards: 0.1
+---
+finder_folders:
+  - /Users/thomas/Developer
+
+finder_favorites:
+  - name: Home
+    path: "file:///Users/{{ finder_user }}"
+  - name: Applications
+    path: "file:///Applications"
+  - name: Desktop
+    path: "file:///Users/{{ finder_user }}/Desktop"
+  - name: Downloads
+    path: "file:///Users/{{ finder_user }}/Downloads"
+  - name: Developer
+    path: "file:///Users/{{ finder_user }}/Developer"
+  - name: ownCloud
+    path: "file:///Users/{{ finder_user }}/ownCloud"
+  - name: Company
+    path: "file:///Users/{{ finder_user }}/Company"
+
+...

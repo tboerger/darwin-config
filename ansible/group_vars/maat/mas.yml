@@ -1,0 +1,16 @@
+# Standards: 0.1
+---
+mas_email: "{{ lookup('file', 'secrets/maat/mas_email.txt') }}"
+mas_password: "{{ lookup('file', 'secrets/maat/mas_password.txt') }}"
+
+mas_upgrade: True
+
+mas_install_apps:
+  - name: Pages
+    id: 409201541
+  - name: Numbers
+    id: 409203825
+  - name: CloudApp
+    id: 417602904
+
+...

@@ -1,0 +1,27 @@
+# Standards: 0.1
+---
+dock_general_apps:
+  - /System/Applications/Launchpad.app
+  - /Applications/iTerm.app
+  - /Applications/Sublime Text.app
+  - /Applications/Visual Studio Code.app
+  - /Applications/Google Chrome.app
+  - /Applications/Firefox.app
+  - /Applications/Safari.app
+  - /System/Applications/Mail.app
+  - /Applications/Skype.app
+  - /Applications/Gitter.app
+  - /Applications/Discord.app
+  - /Applications/Slack.app
+  - /Applications/Rocket.Chat.app
+  - /Applications/Mattermost.app
+  - /Applications/Telegram.app
+  - /Applications/WhatsApp.app
+  - /Applications/Riot.app
+  - /Applications/LimeChat.app
+  - /Applications/Spotify.app
+
+dock_other_apps:
+  - /Users/thomas/Downloads
+
+...

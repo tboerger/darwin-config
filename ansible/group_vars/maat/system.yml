@@ -1,0 +1,8 @@
+# Standards: 0.1
+---
+system_hostname: maat
+system_available_languages: [de_DE, de]
+system_locale: de_DE@currency=EUR
+system_siri_language: de-DE
+
+...

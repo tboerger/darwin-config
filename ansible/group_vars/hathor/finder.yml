@@ -1,0 +1,15 @@
+# Standards: 0.1
+---
+finder_favorites:
+  - name: Home
+    path: "file:///Users/{{ finder_user }}"
+  - name: Applications
+    path: "file:///Applications"
+  - name: Desktop
+    path: "file:///Users/{{ finder_user }}/Desktop"
+  - name: Downloads
+    path: "file:///Users/{{ finder_user }}/Downloads"
+  - name: ownCloud
+    path: "file:///Users/{{ finder_user }}/ownCloud"
+
+...

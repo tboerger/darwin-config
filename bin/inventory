@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -eo pipefail
+export PATH="${HOME}/Library/Python/3.7/bin:${PATH}"
+
+if ! which ansible-inventory > /dev/null
+then
+    echo "Failed to detect ansible-inventory!"
+    exit 1
+fi
+
+if [[ -f .vaultpasswd ]]
+then
+    VAULT_PASSWORD_FILE=.vaultpasswd
+else
+    if [[ -z "${ANSIBLE_VAULT_PASSWORD}" ]]
+    then
+        echo "Missing ANSIBLE_VAULT_PASSWORD!"
+        exit 2
+    fi
+
+    VAULT_PASSWORD_FILE=$(mktemp)
+    echo ${ANSIBLE_VAULT_PASSWORD} >| ${VAULT_PASSWORD_FILE}
+fi
+
+exec ansible-inventory \
+    --vault-password-file ${VAULT_PASSWORD_FILE} \
+    --inventory-file ansible/inventory/macos.ini \
+    "$@"

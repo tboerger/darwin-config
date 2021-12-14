@@ -1,0 +1,7 @@
+---
+rules:
+  exclude_files:
+    - README.md
+    - bin/
+
+...

@@ -1,0 +1,6 @@
+# Standards: 0.1
+---
+ruby_global_gems:
+  - cloudapp_api
+
+...

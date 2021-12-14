@@ -1,0 +1,6 @@
+---
+
+istat_menus_license_email: "{{ lookup('file', 'secrets/maat/istat_menus_license_email.txt') }}"
+istat_menus_license_serial: "{{ lookup('file', 'secrets/maat/istat_menus_license_serial.txt') }}"
+
+...

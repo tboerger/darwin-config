@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+if ! xcode-select -p 2>/dev/null
+then
+    echo "--> Installing xcode"
+    (
+        touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+        softwareupdate -i "$(softwareupdate -l | grep 'Command Line Tools' | head -n1 | sed 's/^\* Label: //')"
+        rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+    ) 2>&1 | sed 's/^/    /'
+fi
+
+if [ ! -L /usr/local/bin/ansible ]
+then
+    echo "--> Install ansible"
+    (
+        pip3 install --user ansible
+    ) 2>&1 | sed 's/^/    /'
+fi
+
+if [ -d ${HOME}/.workstation ]
+then
+    echo "--> Updating itself"
+    (
+        cd ${HOME}/.workstation
+        git stash && git pull --force
+    ) 2>&1 | sed 's/^/    /'
+else
+    echo "--> Cloning itself"
+    (
+        git clone ${REPOSITORY_URL:-https://github.com/tboerger/workstation.git} ${HOME}/.workstation
+    ) 2>&1 | sed 's/^/    /'
+fi
+
+echo "--> Finished bootstrap"

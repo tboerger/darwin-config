@@ -1,0 +1,12 @@
+# Standards: 0.1
+---
+tunnelblick_global_configs:
+  - name: Office
+    host: '{{ lookup("file", "secrets/osiris/tunnelblick_office_host.txt") }}'
+    port: '{{ lookup("file", "secrets/osiris/tunnelblick_office_port.txt") }}'
+    ca: '{{ lookup("file", "secrets/osiris/tunnelblick_office_ca.txt") }}'
+    crt: '{{ lookup("file", "secrets/osiris/tunnelblick_office_crt.txt") }}'
+    key: '{{ lookup("file", "secrets/osiris/tunnelblick_office_key.txt") }}'
+    auth: '{{ lookup("file", "secrets/osiris/tunnelblick_office_auth.txt") }}'
+
+...

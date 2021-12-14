@@ -1,0 +1,24 @@
+# Standards: 0.1
+---
+mas_email: "{{ lookup('file', 'secrets/osiris/mas_email.txt') }}"
+mas_password: "{{ lookup('file', 'secrets/osiris/mas_password.txt') }}"
+
+mas_upgrade: True
+
+mas_install_apps:
+  - name: Pages
+    id: 409201541
+  - name: Numbers
+    id: 409203825
+  - name: CloudApp
+    id: 417602904
+  - name: Navicat Premium Essentials
+    id: 466416967
+  - name: Microsoft Remote Desktop
+    id: 1295203466
+  - name: LimeChat
+    id: 414030210
+  - name: WhatsApp
+    id: 1147396723
+
+...

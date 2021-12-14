@@ -1,0 +1,14 @@
+# Standards: 0.1
+---
+root_password: "{{ lookup('file', 'secrets/osiris/root_password.txt') }}"
+
+root_shell: /bin/zsh
+
+root_sshkeys:
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINaQYR0/Oj6k1H03kshz2J7rlGCaDSuaGPhhOs9FcZfn thomas@osiris
+
+root_castles:
+  - tboerger/homeshick-base
+  - tboerger/homeshick-macos
+
+...

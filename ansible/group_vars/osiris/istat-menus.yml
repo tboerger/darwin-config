@@ -1,0 +1,6 @@
+---
+
+istat_menus_license_email: "{{ lookup('file', 'secrets/osiris/istat_menus_license_email.txt') }}"
+istat_menus_license_serial: "{{ lookup('file', 'secrets/osiris/istat_menus_license_serial.txt') }}"
+
+...

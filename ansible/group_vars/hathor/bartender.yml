@@ -1,0 +1,6 @@
+# Standards: 0.1
+---
+bartender_license: "{{ lookup('file', 'secrets/hathor/bartender_license.txt') }}"
+bartender_license_holders_name: "{{ lookup('file', 'secrets/hathor/bartender_license_holders_name.txt') }}"
+
+...

@@ -1,0 +1,15 @@
+# Standards: 0.1
+---
+dock_general_apps:
+  - /System/Applications/Launchpad.app
+  - /Applications/iTerm.app
+  - /Applications/Google Chrome.app
+  - /System/Applications/Mail.app
+  - /Applications/Skype.app
+  - /Applications/Discord.app
+  - /Applications/Spotify.app
+
+dock_other_apps:
+  - /Users/anna/Downloads
+
+...
