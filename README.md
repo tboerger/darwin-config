@@ -7,7 +7,7 @@ generate changelogs from the Git history.
 ## Prepare
 
 ```console
-curl -sSLo- https://raw.github.com/tboerger/workstation/master/bin/bootstrap | bash
+wget -O- https://raw.github.com/tboerger/workstation/master/bin/bootstrap | bash
 echo "secure-vault-password" >| $HOME/.workstation/.vaultpasswd
 ```
 
