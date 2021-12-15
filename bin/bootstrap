@@ -44,7 +44,7 @@ else
 fi
 
 for FILE in $(ls ${HOME}/.workstation/bin/); do
-    ln -sf ${HOME}/.workstation/bin/${FILE} /usr/local/bin/workstation-${FILE}
+    sudo ln -sf ${HOME}/.workstation/bin/${FILE} /usr/local/bin/workstation-${FILE}
 done
 
 echo "--> Finished bootstrap"
