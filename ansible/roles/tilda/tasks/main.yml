@@ -1,0 +1,12 @@
+# Standards: 1.2
+---
+- name: Install required packages
+  loop:
+    - tilda
+  package:
+    name: "{{ item }}"
+    state: present
+  tags:
+    - tilda
+
+...
