@@ -1,0 +1,18 @@
+---
+name: build
+
+"on":
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone source
+        uses: actions/checkout@v2.4.0
+
+...

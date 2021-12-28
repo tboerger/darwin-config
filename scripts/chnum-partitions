@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+while true; do
+    read -p "Are you sure you want to wipe all partitions? " yn
+
+    case ${yn} in
+        [Yy]*)
+            break
+            ;;
+        [Nn]*)
+            exit
+            ;;
+        *)
+            echo "Please answer yes or no!"
+            ;;
+    esac
+done
+
+if [ "$EUID" -ne 0 ]; then
+    echo "Please run as root"
+    exit 1
+fi
+
+echo "----> Drop existing partitions"
+sgdisk --zap-all /dev/sda
+sgdisk -og /dev/sda
+
+echo "-----> Create boot partition"
+sgdisk -n 0:0:+1G -t 0:ef00 -c 0:boot /dev/sda
+
+echo "-----> Create root partition"
+sgdisk -n 0:0:0 -t 0:8300 -c 0:root /dev/sda
+
+echo "-----> Create physical volume"
+pvcreate /dev/disk/by-partlabel/root
+
+echo "-----> Create volume group"
+vgcreate system /dev/disk/by-partlabel/root
+
+echo "-----> Create swap volume"
+lvcreate --size 32G --name swap system
+
+echo "-----> Create root volume"
+lvcreate --size 50G --name root system
+
+echo "-----> Create home volume"
+lvcreate --size 250G --name home system
+
+echo "-----> Enable swap partition"
+mkswap -L swap /dev/system/swap
+swapon /dev/system/swap
+
+echo "-----> Create root filesystem"
+mkfs.ext4 -L nixos /dev/system/root
+
+echo "-----> Mount root filesystem"
+mount -t ext4 /dev/system/root /mnt
+
+echo "-----> Create home filesystem"
+mkfs.ext4 -L home /dev/system/home
+
+echo "-----> Mount home filesystem"
+mkdir /mnt/home
+mount -t ext4 /dev/system/home /mnt/home
+
+echo "-----> Create boot filesystem"
+mkfs.vfat -n boot /dev/disk/by-partlabel/boot
+
+echo "-----> Mount boot filesystem"
+mkdir /mnt/boot
+mount /dev/disk/by-label/boot /mnt/boot

@@ -1,9 +1,0 @@
-# Standards: 1.2
----
-groups_general:
-  - name: allowssh
-    system: True
-  - name: docker
-    system: True
-
-...

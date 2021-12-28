@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -e
+
+[ "$1" = "-h" ] && exec sed -ne '/^#/!q;s/.\{1,2\}//;1d;p' < "$0"
+
+seen=":"
+git_dir="$(git rev-parse --git-dir)"
+
+git reflog -n100 --pretty='%cr|%gs' --grep-reflog='checkout: moving' HEAD | while read line; do
+	date="${line%%|*}"
+	branch="${line##* }"
+
+	if ! [[ ${seen} == *:"${branch}":* ]]; then
+		seen="${seen}${branch}:"
+
+		if [ -f "${git_dir}/refs/heads/${branch}" ]; then
+			printf "%s\t%s\n" "${date}" "${branch}"
+		fi
+	fi
+done

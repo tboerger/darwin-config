@@ -1,2 +1,0 @@
-[chnum]
-chnum.local ansible_user=thomas ansible_become=True ansible_python_interpreter=/usr/bin/python3

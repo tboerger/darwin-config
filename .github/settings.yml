@@ -1,8 +1,8 @@
 ---
 repository:
   name: workstation
-  description: Provisioning scripts for my workstations
-  topics: ansible, playbook, workstation
+  description: Provisioning for my NixOS workstations
+  topics: workstation, nix, nixos, nixpkgs, home-manager
 
   private: false
   has_issues: true
@@ -41,9 +41,15 @@ labels:
   - name: question
     color: d876e3
     description: Further information is requested
+  - name: renovate
+    color: 1d76db
+    description: Automated action from Renovate
   - name: wontfix
     color: ffffff
     description: This will not be worked on
+  - name: hacktoberfest
+    color: d4c5f9
+    description: Contribution at Hacktoberfest appreciated
 
 branches:
   - name: master
@@ -51,9 +57,11 @@ branches:
       required_status_checks:
         strict: true
         contexts:
-          - continuous-integration/drone/pr
+          - build
       enforce_admins: false
       restrictions:
+        apps:
+          - renovate
         users: []
         teams: []
 

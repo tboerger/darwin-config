@@ -1,21 +1,14 @@
-# Workstation
+# workstation
 
-Provisioning for some of my workstations based on [Ansible][ansible]. This
-repository is following [conventional commits][commits] to automatically
-generate changelogs from the Git history.
+[![Build](https://github.com/tboerger/workstation/actions/workflows/build.yml/badge.svg)](https://github.com/tboerger/workstation/actions/workflows/build.yml)
 
-## Prepare
+Provisioning for my [NixOS](https://nixos.org/) workstations.
 
-```console
-wget -O- https://raw.github.com/tboerger/workstation/master/bin/bootstrap | bash
-echo "secure-vault-password" >| $HOME/.workstation/.vaultpasswd
-```
-
-## Chnum
+## chnum
 
 ```console
-workstation-galaxy
-workstation-playbook -c local -l chnum -D -K
+sudo scripts/chnum-partitions
+sudo nixos-install --root /mnt --flake github:tboerger/workstation#chnum
 ```
 
 ## Security
@@ -37,8 +30,5 @@ Apache-2.0
 ## Copyright
 
 ```console
-Copyright (c) 2019 Thomas Boerger <thomas@webhippie.de>
+Copyright (c) 2021 Thomas Boerger <thomas@webhippie.de>
 ```
-
-[ansible]: https://www.ansible.com
-[commits]: https://www.conventionalcommits.org/en/v1.0.0/
