@@ -50,8 +50,8 @@
       hosts = {
         chnum = {
           modules = [
-            ./machines/chnum.nix
-            ./profiles/thomas.nix
+            ./machines/chnum
+            ./profiles/thomas
           ];
         };
       };
