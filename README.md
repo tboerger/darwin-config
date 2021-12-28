@@ -7,7 +7,7 @@ Provisioning for my [NixOS](https://nixos.org/) workstations.
 ## chnum
 
 ```console
-sudo scripts/chnum-partitions
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/tboerger/workstation/master/scripts/chnum-partitions)"
 sudo nixos-install --root /mnt --flake github:tboerger/workstation#chnum
 ```
 
