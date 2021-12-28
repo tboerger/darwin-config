@@ -16,8 +16,12 @@
     ../features/xserver.nix
   ];
 
+  swapDevices = [{
+    device = "/dev/disk/by-label/swap";
+  }];
+
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/1ee03663-a524-4163-9c15-e721b3560d62";
+    device = "/dev/disk/by-label/root";
     fsType = "ext4";
     options = [
       "noatime"
@@ -26,7 +30,7 @@
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/e32df710-9bbf-4067-a62b-716ef0c1cccc";
+    device = "/dev/disk/by-label/home";
     fsType = "ext4";
     options = [
       "noatime"
@@ -35,13 +39,9 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/F751-95AC";
+    device = "/dev/disk/by-label/BOOT";
     fsType = "vfat";
   };
-
-  swapDevices = [{
-    device = "/dev/disk/by-uuid/ddc580e7-7a54-4715-a1e8-ff406f948798";
-  }];
 
   boot = {
     kernelModules = [
