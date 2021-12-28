@@ -65,8 +65,11 @@ mkdir /mnt/home
 mount -t ext4 /dev/system/home /mnt/home
 
 echo "-----> Create boot filesystem"
-mkfs.vfat -n BOOT /dev/disk/by-partlabel/boot
+mkfs.vfat -n boot /dev/disk/by-partlabel/boot
+
+echo "-----> Wait for boot"
+sleep 3
 
 echo "-----> Mount boot filesystem"
 mkdir /mnt/boot
-mount /dev/disk/by-label/BOOT /mnt/boot
+mount /dev/disk/by-label/boot /mnt/boot
