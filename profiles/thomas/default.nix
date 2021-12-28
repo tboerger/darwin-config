@@ -107,18 +107,18 @@
         text = (builtins.readFile ./scripts/search-and-replace);
       };
 
-      ".local/wallpapers/dark.jpg" = {
-        executable = false;
-        text = (builtins.readFile ./wallpapers/dark.jpg);
-      };
-      ".local/wallpapers/light.jpg" = {
-        executable = false;
-        text = (builtins.readFile ./wallpapers/light.jpg);
-      };
-      ".local/wallpapers/tower.jpg" = {
-        executable = false;
-        text = (builtins.readFile ./wallpapers/tower.jpg);
-      };
+      # ".local/wallpapers/dark.jpg" = {
+      #   executable = false;
+      #   text = (builtins.readFile ./wallpapers/dark.jpg);
+      # };
+      # ".local/wallpapers/light.jpg" = {
+      #   executable = false;
+      #   text = (builtins.readFile ./wallpapers/light.jpg);
+      # };
+      # ".local/wallpapers/tower.jpg" = {
+      #   executable = false;
+      #   text = (builtins.readFile ./wallpapers/tower.jpg);
+      # };
     };
   };
 }
