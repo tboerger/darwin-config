@@ -38,6 +38,7 @@
       dircolors = import ./programs/dircolors.nix;
       direnv = import ./programs/direnv.nix;
       feh = import ./programs/feh.nix;
+      fzf = import ./programs/fzf.nix;
       git = import ./programs/git.nix;
       go = import ./programs/go.nix;
       gpg = import ./programs/gpg.nix;

@@ -4,9 +4,11 @@
   environment = {
     systemPackages = with pkgs; [
       gnumake
+      jq
       platinum-searcher
       vim
       wget
+      yq
     ];
   };
 
@@ -28,14 +30,6 @@
     };
 
     mtr = {
-      enable = true;
-    };
-
-    fzf = {
-      enable = true;
-    };
-
-    jq = {
       enable = true;
     };
 
