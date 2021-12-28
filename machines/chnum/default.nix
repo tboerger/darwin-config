@@ -4,16 +4,16 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
 
-    ../features/common.nix
-    ../features/desktop.nix
-    ../features/docker.nix
-    ../features/fonts.nix
-    ../features/libvirt.nix
-    ../features/minecraft.nix
-    ../features/networking.nix
-    ../features/steam.nix
-    ../features/wow.nix
-    ../features/xserver.nix
+    ../../features/common.nix
+    ../../features/desktop.nix
+    ../../features/docker.nix
+    ../../features/fonts.nix
+    ../../features/libvirt.nix
+    ../../features/minecraft.nix
+    ../../features/networking.nix
+    ../../features/steam.nix
+    ../../features/wow.nix
+    ../../features/xserver.nix
   ];
 
   swapDevices = [{
