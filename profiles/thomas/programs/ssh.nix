@@ -1,5 +1,3 @@
-{ lib, ... }:
-
 {
   enable = true;
 
@@ -76,7 +74,7 @@
       user = "thomas";
       forwardAgent = true;
     };
-    "bastion.webhippie.de" = lib.hm.dag.entryBefore ["*.webhippie.de !bastion.webhippie.de"] {
+    "bastion.webhippie.de" = {
       user = "thomas";
       forwardAgent = true;
       proxyJump = "thomas@bastion.webhippie.de";

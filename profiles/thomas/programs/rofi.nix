@@ -3,7 +3,7 @@
 {
   enable = true;
   font = "DejaVu Sans Mono 14";
-  terminal = "${pkgs.alacritty}/bin/alacritty";
+  terminal = "alacritty";
   theme = "solarized";
 
   plugins = [

@@ -33,36 +33,36 @@
     ];
 
     programs = {
-      alacritty = import ./programs/alacritty.nix;
-      autorandr = import ./programs/autorandr.nix;
-      dircolors = import ./programs/dircolors.nix;
-      direnv = import ./programs/direnv.nix;
-      feh = import ./programs/feh.nix;
-      fzf = import ./programs/fzf.nix;
-      git = import ./programs/git.nix;
-      go = import ./programs/go.nix;
-      gpg = import ./programs/gpg.nix;
-      lsd = import ./programs/lsd.nix;
-      neovim = import ./programs/neovim.nix;
-      octant = import ./programs/octant.nix;
-      readline = import ./programs/readline.nix;
-      rofi = import ./programs/rofi.nix;
-      ssh = import ./programs/ssh.nix;
-      starship = import ./programs/starship.nix;
-      vscode = import ./programs/vscode.nix;
-      zsh = import ./programs/zsh.nix;
+      alacritty = import ./programs/alacritty.nix { inherit pkgs; };
+      autorandr = import ./programs/autorandr.nix { inherit pkgs; };
+      dircolors = import ./programs/dircolors.nix { inherit pkgs; };
+      direnv = import ./programs/direnv.nix { inherit pkgs; };
+      feh = import ./programs/feh.nix { inherit pkgs; };
+      fzf = import ./programs/fzf.nix { inherit pkgs; };
+      git = import ./programs/git.nix { inherit pkgs; };
+      go = import ./programs/go.nix { inherit pkgs; };
+      gpg = import ./programs/gpg.nix { inherit pkgs; };
+      lsd = import ./programs/lsd.nix { inherit pkgs; };
+      neovim = import ./programs/neovim.nix { inherit pkgs; };
+      octant = import ./programs/octant.nix { inherit pkgs; };
+      readline = import ./programs/readline.nix { inherit pkgs; };
+      rofi = import ./programs/rofi.nix { inherit pkgs; };
+      ssh = import ./programs/ssh.nix { inherit pkgs; };
+      starship = import ./programs/starship.nix { inherit pkgs; };
+      vscode = import ./programs/vscode.nix { inherit pkgs; };
+      zsh = import ./programs/zsh.nix { inherit pkgs; };
     };
 
     services = {
-      betterlockscreen = import ./services/betterlockscreen.nix;
-      blueman-applet = import ./services/blueman-applet.nix;
-      caffeine = import ./services/caffeine.nix;
-      dunst = import ./services/dunst.nix;
-      flameshot = import ./services/flameshot.nix;
-      gpg-agent = import ./services/gpg-agent.nix;
-      network-manager-applet = import ./services/nm-applet.nix;
-      owncloud-client = import ./services/owncloud-client.nix;
-      polybar = import ./services/polybar.nix;
+      betterlockscreen = import ./services/betterlockscreen.nix { inherit pkgs; };
+      blueman-applet = import ./services/blueman-applet.nix { inherit pkgs; };
+      caffeine = import ./services/caffeine.nix { inherit pkgs; };
+      dunst = import ./services/dunst.nix { inherit pkgs; };
+      flameshot = import ./services/flameshot.nix { inherit pkgs; };
+      gpg-agent = import ./services/gpg-agent.nix { inherit pkgs; };
+      network-manager-applet = import ./services/nm-applet.nix { inherit pkgs; };
+      owncloud-client = import ./services/owncloud-client.nix { inherit pkgs; };
+      polybar = import ./services/polybar.nix { inherit pkgs; };
     };
 
     file = {
