@@ -1,6 +1,14 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs = {
+    config = {
+      permittedInsecurePackages = [
+        "electron-9.4.4"
+      ];
+    };
+  };
+
   environment = {
     systemPackages = with pkgs; [
       alacritty
