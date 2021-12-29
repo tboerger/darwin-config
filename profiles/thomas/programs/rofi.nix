@@ -11,7 +11,6 @@
   ];
 
   extraConfig = {
-    modi = "window,drun,ssh,combi";
-    combi-modi = "window,drun,ssh";
+    modi = "window,drun,ssh";
   };
 }
