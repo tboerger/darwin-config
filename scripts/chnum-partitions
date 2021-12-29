@@ -30,13 +30,13 @@ echo "-----> Create boot partition"
 sgdisk -n 0:0:+1G -t 0:ef00 -c 0:boot /dev/sda
 
 echo "-----> Create root partition"
-sgdisk -n 0:0:0 -t 0:8300 -c 0:root /dev/sda
+sgdisk -n 0:0:0 -t 0:8300 -c 0:data /dev/sda
 
 echo "-----> Create physical volume"
-pvcreate /dev/disk/by-partlabel/root
+pvcreate /dev/disk/by-partlabel/data
 
 echo "-----> Create volume group"
-vgcreate system /dev/disk/by-partlabel/root
+vgcreate system /dev/disk/by-partlabel/data
 
 echo "-----> Create swap volume"
 lvcreate --size 32G --name swap system
@@ -52,7 +52,7 @@ mkswap -L swap /dev/system/swap
 swapon /dev/system/swap
 
 echo "-----> Create root filesystem"
-mkfs.ext4 -L nixos /dev/system/root
+mkfs.ext4 -L root /dev/system/root
 
 echo "-----> Mount root filesystem"
 mount -t ext4 /dev/system/root /mnt
