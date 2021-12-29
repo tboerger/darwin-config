@@ -16,10 +16,6 @@
     ".." = "cd ..";
     "..." = "cd ../..";
 
-    lsa = "ls -lahi";
-    l = "ls -la";
-    ll = "ls -alFh";
-
     git = "hub";
     gs = "git status";
     gc = "git commit";
