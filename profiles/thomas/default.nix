@@ -28,9 +28,9 @@
   };
 
   home-manager.users.thomas = { config, ... }: {
-    sessionPath = [
-      "$HOME/.local/bin"
-    ];
+    # sessionPath = [
+    #   "$HOME/.local/bin"
+    # ];
 
     programs = {
       alacritty = import ./programs/alacritty.nix { inherit pkgs; };
