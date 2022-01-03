@@ -9,6 +9,10 @@
       vim
       wget
       yq
+      gomplate
+      rsync
+      tmux
+      tree
     ];
   };
 

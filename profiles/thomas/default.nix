@@ -32,6 +32,10 @@
     #   "$HOME/.local/bin"
     # ];
 
+    xsession = {
+      enable = true;
+    };
+
     programs = {
       alacritty = import ./programs/alacritty.nix { inherit pkgs; };
       autorandr = import ./programs/autorandr.nix { inherit pkgs; };
@@ -63,6 +67,7 @@
       network-manager-applet = import ./services/nm-applet.nix { inherit pkgs; };
       owncloud-client = import ./services/owncloud-client.nix { inherit pkgs; };
       polybar = import ./services/polybar.nix { inherit pkgs; };
+      udiskie = import ./services/udiskie.nix { inherit pkgs; };
     };
 
     # file = {

@@ -15,6 +15,7 @@
       authy
       discord
       element-desktop
+      etcher
       google-chrome
       hub
       keybase-gui
@@ -30,6 +31,23 @@
       steam
       tilda
       vscode
+      hcloud
+      httpie
+      ipcalc
+      jsonnet
+      kubectl
+      krew
+      minio-client
+      nmap
+      packer
+      pwgen
+      shellcheck
+      s3cmd
+      sops
+      stern
+      upx
+      gimp
+      yed
     ];
   };
 

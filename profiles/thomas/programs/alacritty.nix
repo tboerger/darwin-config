@@ -18,7 +18,7 @@
     font = {
       normal = {
         family = "DejaVu Sans Mono";
-        size = 14.0;
+        size = 12.0;
       };
     };
 
