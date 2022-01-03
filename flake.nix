@@ -1,17 +1,14 @@
 {
-  description = "NixOS and HomeManager configurations";
+  description = "Nix and HomeManager configurations";
 
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+      url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
     };
 
-    nur = {
-      url = "github:nix-community/NUR";
-    };
-
-    utils = {
-      url = "github:gytis-ivaskevicius/flake-utils-plus";
+    darwin = {
+      url = "github:lnl7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     agenix = {
@@ -19,41 +16,56 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
+    hm = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nur, utils, agenix, home-manager }:
-    utils.lib.mkFlake {
-      inherit self inputs;
-      overlay = import ./overlays;
-
-      channelsConfig = {
-        allowUnfree = true;
-      };
-
-      sharedOverlays = [
-        nur.overlay
-        self.overlay
-      ];
-
-      hostDefaults = {
-        modules = [
-          agenix.nixosModules.age
-          home-manager.nixosModules.home-manager
-          ./modules
-        ];
-      };
-
-      hosts = {
-        chnum = {
-          modules = [
-            ./machines/chnum
-            ./profiles/thomas
-          ];
+  outputs = { self, nixpkgs, agenix, darwin, hm }:
+  let
+    configuration = { pkgs, ... }: {
+      nixpkgs = {
+        config = {
+          allowUnfree = true;
         };
       };
+
+      nix = {
+        package = pkgs.nixFlakes;
+      };
+
+      services = {
+        nix-daemon = {
+          enable = true;
+        };
+      };
+
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+      };
     };
+  in
+  {
+    overlays = [
+      (import ./overlays)
+    ];
+
+    darwinConfigurations.osiris = darwin.lib.darwinSystem {
+      system = "x86_64-darwin";
+
+      modules = [
+        agenix.nixosModules.age
+        hm.nixosModules.home-manager
+
+        configuration
+
+        ./machines/darwin/osiris
+        ./profiles/darwin/thomas
+      ];
+
+      inputs = { inherit nixpkgs darwin agenix hm; };
+    };
+  };
 }
