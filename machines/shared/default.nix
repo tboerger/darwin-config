@@ -38,10 +38,6 @@
     timeZone = config.my.timeZone;
   };
 
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-  };
-
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
