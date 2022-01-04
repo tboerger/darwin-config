@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -11,19 +11,19 @@
   my = {
     modules = {
       docker = {
-        enable = mkDefault true;
+        enable = lib.mkDefault true;
       };
 
       libvirt = {
-        enable = mkDefault true;
+        enable = lib.mkDefault true;
       };
 
       i3wm = {
-        enable = mkDefault true;
+        enable = lib.mkDefault true;
       };
 
       desktop = {
-        enable = mkDefault true;
+        enable = lib.mkDefault true;
       };
     };
   };

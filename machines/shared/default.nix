@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -11,19 +11,19 @@
   my = {
     modules = {
       users = {
-        enable = mkDefault true;
+        enable = lib.mkDefault true;
       };
 
       steam = {
-        enable = mkDefault false;
+        enable = lib.mkDefault false;
       };
 
       blizzard = {
-        enable = mkDefault false;
+        enable = lib.mkDefault false;
       };
 
       minecraft = {
-        enable = mkDefault false;
+        enable = lib.mkDefault false;
       };
     };
   };
