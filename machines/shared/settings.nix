@@ -2,7 +2,9 @@
 
 {
   options = {
-    my = { };
+    my = {
+      modules = { };
+    };
   };
 
   config = { };

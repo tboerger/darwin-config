@@ -8,10 +8,6 @@
     ./networking.nix
   ];
 
-  my = {
-    modules = { };
-  };
-
   system = {
     stateVersion = "21.11";
   };
