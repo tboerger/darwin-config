@@ -19,7 +19,7 @@ in
   };
 
   config = with lib;
-    mkIf cfg.enable {
+    mkIf cfg.enable ({
       boot = {
         plymouth = {
           enable = true;
@@ -150,5 +150,5 @@ in
           extraConfig = "IdleAction=lock";
         };
       };
-    };
+    });
 }

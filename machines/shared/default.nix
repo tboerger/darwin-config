@@ -11,19 +11,19 @@
   my = {
     modules = {
       users = {
-        enable = true;
+        enable = mkDefault true;
       };
 
       steam = {
-        enable = false;
+        enable = mkDefault false;
       };
 
       blizzard = {
-        enable = false;
+        enable = mkDefault false;
       };
 
       minecraft = {
-        enable = false;
+        enable = mkDefault false;
       };
     };
   };

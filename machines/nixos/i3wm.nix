@@ -19,7 +19,7 @@ in
   };
 
   config = with lib;
-    mkIf cfg.enable {
+    mkIf cfg.enable ({
       services = {
         xserver = {
           enable = true;
@@ -75,5 +75,5 @@ in
           enable = true;
         };
       };
-    };
+    });
 }

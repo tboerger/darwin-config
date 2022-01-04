@@ -19,7 +19,7 @@ in
   };
 
   config = with lib;
-    mkIf cfg.enable {
+    mkIf cfg.enable ({
       environment = {
         systemPackages = with pkgs; [
           adoptopenjdk-hotspot-bin-8
@@ -27,5 +27,5 @@ in
           multimc
         ];
       };
-    };
+    });
 }

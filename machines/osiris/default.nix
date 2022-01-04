@@ -4,7 +4,19 @@
   ];
 
   my = {
-    modules = { };
+    modules = {
+      steam = {
+        enable = false;
+      };
+
+      blizzard = {
+        enable = false;
+      };
+
+      minecraft = {
+        enable = false;
+      };
+    };
   };
 
   system = {

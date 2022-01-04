@@ -19,11 +19,11 @@ in
   };
 
   config = with lib;
-    mkIf cfg.enable {
+    mkIf cfg.enable ({
       virtualisation = {
         libvirtd = {
           enable = true;
         };
       };
-    };
+    });
 }

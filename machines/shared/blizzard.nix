@@ -19,12 +19,12 @@ in
   };
 
   config = with lib;
-    mkIf cfg.enable {
+    mkIf cfg.enable ({
       environment = {
         systemPackages = with pkgs; [
           winetricks
           wineWowPackages.full
         ];
       };
-    };
+    });
 }

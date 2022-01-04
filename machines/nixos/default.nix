@@ -11,19 +11,19 @@
   my = {
     modules = {
       docker = {
-        enable = true;
+        enable = mkDefault true;
       };
 
       libvirt = {
-        enable = true;
+        enable = mkDefault true;
       };
 
       i3wm = {
-        enable = true;
+        enable = mkDefault true;
       };
 
       desktop = {
-        enable = true;
+        enable = mkDefault true;
       };
     };
   };
