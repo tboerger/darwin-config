@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./users.nix
     ./docker.nix
     ./libvirt.nix
     ./i3wm.nix
@@ -13,6 +14,10 @@
 
   my = {
     modules = {
+      users = {
+        enable = lib.mkDefault true;
+      };
+
       docker = {
         enable = lib.mkDefault true;
       };

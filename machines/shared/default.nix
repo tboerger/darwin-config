@@ -2,14 +2,12 @@
 
 {
   imports = [
-    ./users.nix
+
   ];
 
   my = {
     modules = {
-      users = {
-        enable = lib.mkDefault true;
-      };
+
     };
   };
 
