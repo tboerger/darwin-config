@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, options, stdenv, ... }:
 
 let
   cfg = config.my.modules.minecraft;
@@ -19,13 +19,17 @@ in
   };
 
   config = with lib;
-    mkIf cfg.enable ({
-      environment = {
-        systemPackages = with pkgs; [
-          adoptopenjdk-hotspot-bin-8
-          mcrcon
-          multimc
-        ];
-      };
-    });
+    mkIf cfg.enable (mkMerge [
+      (if (stdenv.isDarwin) then {
+
+      } else {
+        environment = {
+          systemPackages = with pkgs; [
+            adoptopenjdk-hotspot-bin-8
+            mcrcon
+            multimc
+          ];
+        };
+      })
+    ]);
 }

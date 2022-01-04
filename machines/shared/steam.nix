@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, options, stdenv, ... }:
 
 let
   cfg = config.my.modules.steam;
@@ -19,11 +19,15 @@ in
   };
 
   config = with lib;
-    mkIf cfg.enable ({
-      programs = {
-        steam = {
-          enable = true;
+    mkIf cfg.enable (mkMerge [
+      (if (stdenv.isDarwin) then {
+
+      } else {
+        programs = {
+          steam = {
+            enable = true;
+          };
         };
-      };
-    });
+      })
+    ]);
 }

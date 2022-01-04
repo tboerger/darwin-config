@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, options, stdenv, ... }:
 
 let
   cfg = config.my.modules.users;

@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, options, stdenv, ... }:
 
 let
   cfg = config.my.modules.blizzard;
@@ -19,12 +19,16 @@ in
   };
 
   config = with lib;
-    mkIf cfg.enable ({
-      environment = {
-        systemPackages = with pkgs; [
-          winetricks
-          wineWowPackages.full
-        ];
-      };
-    });
+    mkIf cfg.enable (mkMerge [
+      (if (stdenv.isDarwin) then {
+
+      } else {
+        environment = {
+          systemPackages = with pkgs; [
+            winetricks
+            wineWowPackages.full
+          ];
+        };
+      })
+    ]);
 }
