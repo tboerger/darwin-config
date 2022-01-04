@@ -28,11 +28,6 @@
     };
   };
 
-  hardware = {
-    enableAllFirmware = true;
-    enableRedistributableFirmware = true;
-  };
-
   security = {
     sudo = {
       wheelNeedsPassword = false;

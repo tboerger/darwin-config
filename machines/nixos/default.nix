@@ -45,6 +45,11 @@
     };
   };
 
+  hardware = {
+    enableAllFirmware = true;
+    enableRedistributableFirmware = true;
+  };
+
   fonts = {
     enableDefaultFonts = true;
 
