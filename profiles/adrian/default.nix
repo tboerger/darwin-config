@@ -1,4 +1,4 @@
-{ pkgs, inputs, system, ... }:
+{ pkgs, inputs, system, lib, ... }:
 
 let
   username = "adrian";
@@ -17,7 +17,7 @@ in
             "/Users/${username}"
           else
             "/home/${username}";
-      } // (mkIf pkgs.stdenv.isLinux {
+      } // (lib.mkIf pkgs.stdenv.isLinux {
         isNormalUser = true;
         hashedPassword = "$6$yuwsoikF5utqohar$fdcvq0iXdmiioiRyBGeVZICzQm4nKlv6.pj9AWh13VRCsE07dN9StDnXV0aslIBb0SWRFC4dY5Um2MYiAMfmH0";
 
