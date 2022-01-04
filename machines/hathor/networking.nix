@@ -3,5 +3,6 @@
 {
   networking = {
     hostName = "hathor";
+    computerName = "Hathor";
   };
 }

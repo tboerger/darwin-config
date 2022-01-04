@@ -3,5 +3,6 @@
 {
   networking = {
     hostName = "osiris";
+    computerName = "Osiris";
   };
 }
