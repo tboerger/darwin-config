@@ -13,12 +13,6 @@
     };
   };
 
-  security = {
-    sudo = {
-      wheelNeedsPassword = false;
-    };
-  };
-
   time = {
     timeZone = config.my.timeZone;
   };

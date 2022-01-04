@@ -86,6 +86,12 @@
     };
   };
 
+  security = {
+    sudo = {
+      wheelNeedsPassword = false;
+    };
+  };
+
   services = {
     timesyncd = {
       enable = true;
