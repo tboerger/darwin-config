@@ -8,8 +8,8 @@ update:
 .PHONY: switch
 switch:
 ifeq ($(UNAME),Linux)
-	sudo nixos-rebuild switch
+	sudo nixos-rebuild switch --flake .
 endif
 ifeq ($(UNAME),Darwin)
-	sudo darwin-rebuild switch
+	sudo darwin-rebuild switch --flake .
 endif
