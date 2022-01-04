@@ -51,13 +51,6 @@
     ];
   };
 
-  services = {
-    openssh = {
-      enable = true;
-      permitRootLogin = "yes";
-    };
-  };
-
   programs = {
     zsh = {
       enable = true;

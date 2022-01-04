@@ -100,6 +100,11 @@
     haveged = {
       enable = true;
     };
+
+    openssh = {
+      enable = true;
+      permitRootLogin = "yes";
+    };
   };
 
   programs = {
