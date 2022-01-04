@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  options = with types; {
+  options = {
     my = { };
   };
 
