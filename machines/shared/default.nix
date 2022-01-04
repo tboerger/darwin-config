@@ -10,7 +10,7 @@
   };
 
   time = {
-    timeZone = config.my.timeZone;
+    timeZone = "Europe/Berlin";
   };
 
   home-manager = {
