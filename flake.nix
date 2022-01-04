@@ -1,9 +1,13 @@
 {
-  description = "Nix and HomeManager configurations";
+  description = "NixOS and Darwin configurations";
 
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
+      url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    };
+
+    nur = {
+      url = "github:nix-community/NUR";
     };
 
     darwin = {
@@ -22,50 +26,176 @@
     };
   };
 
-  outputs = { self, nixpkgs, agenix, darwin, hm }:
-  let
-    configuration = { pkgs, ... }: {
-      nixpkgs = {
-        config = {
-          allowUnfree = true;
+  outputs = { self, pkgs, ... }@inputs:
+    let
+      sharedConfig = { config, pkgs, ... }: {
+        nix = {
+          package = pkgs.nixFlakes;
+
+          extraOptions = ''
+            experimental-features = nix-command flakes
+          '';
+
+          binaryCaches = [
+            "https://cache.nixos.org"
+            "https://nix-community.cachix.org"
+            "https://nixpkgs.cachix.org"
+            "https://tboerger.cachix.org"
+          ];
+
+          binaryCachePublicKeys = [
+            "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+            "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+            "nixpkgs.cachix.org-1:q91R6hxbwFvDqTSDKwDAV4T5PxqXGxswD8vhONFMeOE="
+            "tboerger.cachix.org-1:3Q1gyqgA9NsOshOgknDvc6fhA8gw0PFAf2qs5vJpeLU="
+          ];
+
+          gc = {
+            automatic = true;
+            persistent = true;
+            dates = "weekly";
+            options = "--delete-older-than 2w";
+          };
+        };
+
+        nixpkgs = {
+          config = {
+            allowUnfree = true;
+          };
+
+          overlays = [
+            self.overlay
+            inputs.nur.overlay
+          ];
+        };
+
+        time = {
+          timeZone = config.my.timeZone;
+        };
+
+        i18n = {
+          defaultLocale = "en_US.UTF-8";
+        };
+
+        services = {
+          nix-daemon = {
+            enable = true;
+          };
+        };
+
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+        };
+
+        fonts = {
+          enableDefaultFonts = true;
+
+          fontDir = {
+            enable = true;
+          };
+
+          fonts = with pkgs; [
+            corefonts
+            fira-code
+            font-awesome
+            nerdfonts
+            noto-fonts
+            noto-fonts-emoji
+            noto-fonts-extra
+            roboto
+            siji
+          ];
+        };
+
+        environment = {
+          systemPackages = with pkgs; [
+            gnumake
+            jq
+            platinum-searcher
+            vim
+            wget
+            yq
+            gomplate
+            rsync
+            tmux
+            tree
+          ];
+        };
+      };
+    in
+    {
+      overlay = import ./overlays;
+
+      darwinConfigurations = {
+        osiris = inputs.darwin.lib.darwinSystem {
+          system = "x86_64-darwin";
+          inherit inputs;
+
+          modules = [
+            inputs.hm.darwinModules.home-manager
+            inputs.agenix.nixosModules.age
+            ./machines/shared
+            ./machines/darwin
+            sharedConfig
+            ./machines/osiris
+            ./profiles/thomas
+            ./profiles/anna
+            ./profiles/adrian
+            ./profiles/tabea
+          ];
+        };
+        hathor = inputs.darwin.lib.darwinSystem {
+          system = "x86_64-darwin";
+          inherit inputs;
+
+          modules = [
+            inputs.hm.darwinModules.home-manager
+            inputs.agenix.nixosModules.age
+            ./machines/shared
+            ./machines/darwin
+            sharedConfig
+            ./machines/hathor
+            ./profiles/thomas
+            ./profiles/anna
+            ./profiles/adrian
+            ./profiles/tabea
+          ];
+        };
+        anubis = inputs.darwin.lib.darwinSystem {
+          system = "x86_64-darwin";
+          inherit inputs;
+
+          modules = [
+            inputs.hm.darwinModules.home-manager
+            inputs.agenix.nixosModules.age
+            ./machines/shared
+            ./machines/darwin
+            sharedConfig
+            ./machines/anubis
+            ./profiles/thomas
+            ./profiles/anna
+            ./profiles/adrian
+            ./profiles/tabea
+          ];
         };
       };
 
-      nix = {
-        package = pkgs.nixFlakes;
-      };
+      nixosConfigurations = {
+        chnum = inputs.nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
 
-      services = {
-        nix-daemon = {
-          enable = true;
+          modules = [
+            inputs.hm.nixosModules.home-manager
+            inputs.agenix.nixosModules.age
+            ./modules/shared
+            ./modules/nixos
+            sharedConfig
+            ./machines/chnum
+            ./profiles/thomas
+          ];
         };
       };
-
-      home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-      };
     };
-  in
-  {
-    overlays = [
-      (import ./overlays)
-    ];
-
-    darwinConfigurations.osiris = darwin.lib.darwinSystem {
-      system = "x86_64-darwin";
-
-      modules = [
-        agenix.nixosModules.age
-        hm.nixosModules.home-manager
-
-        configuration
-
-        ./machines/darwin/osiris
-        ./profiles/darwin/thomas
-      ];
-
-      inputs = { inherit nixpkgs darwin agenix hm; };
-    };
-  };
 }
