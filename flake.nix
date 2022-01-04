@@ -90,7 +90,7 @@
 
           modules = [
             inputs.hm.darwinModules.home-manager
-            inputs.agenix.nixosModules.age
+            inputs.agenix.darwinModules.age
             ./machines/shared
             ./machines/darwin
             sharedConfig
@@ -107,7 +107,7 @@
 
           modules = [
             inputs.hm.darwinModules.home-manager
-            inputs.agenix.nixosModules.age
+            inputs.agenix.darwinModules.age
             ./machines/shared
             ./machines/darwin
             sharedConfig
@@ -124,7 +124,7 @@
 
           modules = [
             inputs.hm.darwinModules.home-manager
-            inputs.agenix.nixosModules.age
+            inputs.agenix.darwinModules.age
             ./machines/shared
             ./machines/darwin
             sharedConfig
