@@ -21,7 +21,6 @@ in
   config = with lib;
     mkIf cfg.enable {
       users = {
-        defaultUserShell = pkgs.zsh;
         mutableUsers = false;
 
         users = {
