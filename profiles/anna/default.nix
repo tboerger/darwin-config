@@ -23,7 +23,7 @@ in
     };
   };
 
-  home-manager.users."${username}" = { config, ... }: {
+  home-manager.users."${username}" = { config, pkgs, ... }: {
     inherit pkgs;
 
   };
