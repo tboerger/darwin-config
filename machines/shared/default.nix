@@ -34,16 +34,17 @@
 
   environment = {
     systemPackages = with pkgs; [
+      git
       gnumake
+      gomplate
       jq
       platinum-searcher
-      vim
-      wget
-      yq
-      gomplate
       rsync
       tmux
       tree
+      vim
+      wget
+      yq
     ];
   };
 
