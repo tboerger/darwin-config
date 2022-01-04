@@ -62,6 +62,15 @@
     defaultLocale = "en_US.UTF-8";
   };
 
+  nix = {
+    gc = {
+      automatic = true;
+      persistent = true;
+      dates = "weekly";
+      options = "--delete-older-than 2w";
+    };
+  };
+
   services = {
     timesyncd = {
       enable = true;
