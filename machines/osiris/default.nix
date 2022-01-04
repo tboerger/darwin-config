@@ -1,3 +1,5 @@
+{ config, lib, pkgs, ... }:
+
 {
   imports = [
     ./networking.nix
@@ -6,15 +8,15 @@
   my = {
     modules = {
       steam = {
-        enable = false;
+        enable = lib.mkForce false;
       };
 
       blizzard = {
-        enable = false;
+        enable = lib.mkForce false;
       };
 
       minecraft = {
-        enable = false;
+        enable = lib.mkForce false;
       };
     };
   };
