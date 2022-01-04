@@ -10,20 +10,25 @@ in
     users = {
       "${username}" = {
         description = "Tabea Boerger";
-        isNormalUser = true;
         shell = pkgs.zsh;
-        hashedPassword = "$6$yuwsoikF5utqohar$fdcvq0iXdmiioiRyBGeVZICzQm4nKlv6.pj9AWh13VRCsE07dN9StDnXV0aslIBb0SWRFC4dY5Um2MYiAMfmH0";
 
         home =
           if pkgs.stdenv.isDarwin then
             "/Users/${username}"
           else
             "/home/${username}";
-      };
+      } // (mkIf pkgs.stdenv.isLinux {
+        isNormalUser = true;
+        hashedPassword = "$6$yuwsoikF5utqohar$fdcvq0iXdmiioiRyBGeVZICzQm4nKlv6.pj9AWh13VRCsE07dN9StDnXV0aslIBb0SWRFC4dY5Um2MYiAMfmH0";
+
+        extraGroups = [
+          "networkmanager"
+          "audio"
+          "video"
+        ];
+      });
     };
   };
 
-  home-manager.users."${username}" = { config, ... }: {
-
-  };
+  home-manager.users."${username}" = { config, ... }: { };
 }
