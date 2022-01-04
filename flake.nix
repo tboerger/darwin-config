@@ -26,7 +26,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, ... }@inputs:
     let
       sharedConfig = { config, pkgs, ... }: {
         nix = {
@@ -72,6 +72,23 @@
     in
     {
       overlay = import ./overlays;
+
+      nixosConfigurations = {
+        chnum = inputs.nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+
+          modules = [
+            inputs.hm.nixosModules.home-manager
+            inputs.agenix.nixosModules.age
+            ./modules/shared
+            ./modules/nixos
+            sharedConfig
+            ./machines/chnum
+            ./profiles/thomas
+          ];
+        };
+      };
 
       darwinConfigurations = {
         osiris = inputs.darwin.lib.darwinSystem {
@@ -127,21 +144,8 @@
         };
       };
 
-      nixosConfigurations = {
-        chnum = inputs.nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-
-          modules = [
-            inputs.hm.nixosModules.home-manager
-            inputs.agenix.nixosModules.age
-            ./modules/shared
-            ./modules/nixos
-            sharedConfig
-            ./machines/chnum
-            ./profiles/thomas
-          ];
-        };
-      };
+      osiris = self.darwinConfigurations.osiris.system;
+      hathor = self.darwinConfigurations.hathor.system;
+      anubis = self.darwinConfigurations.anubis.system;
     };
 }
