@@ -92,6 +92,11 @@
     };
   };
 
+  users = {
+    defaultUserShell = pkgs.zsh;
+    mutableUsers = false;
+  };
+
   services = {
     timesyncd = {
       enable = true;

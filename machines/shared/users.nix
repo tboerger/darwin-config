@@ -21,8 +21,6 @@ in
   config = with lib;
     mkIf cfg.enable {
       users = {
-        mutableUsers = false;
-
         users = {
           root = {
             shell = pkgs.zsh;
