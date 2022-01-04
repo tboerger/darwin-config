@@ -47,6 +47,10 @@
 
   fonts = {
     enableDefaultFonts = true;
+
+    fontDir = {
+      enable = true;
+    };
   };
 
   services = {

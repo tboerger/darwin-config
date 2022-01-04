@@ -53,10 +53,6 @@
   };
 
   fonts = {
-    fontDir = {
-      enable = true;
-    };
-
     fonts = with pkgs; [
       corefonts
       fira-code
