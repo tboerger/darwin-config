@@ -2,13 +2,11 @@
 
 {
   imports = [
-
+    ./settings.nix
   ];
 
   my = {
-    modules = {
-
-    };
+    modules = { };
   };
 
   time = {
