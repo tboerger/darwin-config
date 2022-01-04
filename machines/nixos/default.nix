@@ -45,6 +45,10 @@
     };
   };
 
+  fonts = {
+    enableDefaultFonts = true;
+  };
+
   services = {
     timesyncd = {
       enable = true;
