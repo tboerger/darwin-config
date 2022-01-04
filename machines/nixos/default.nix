@@ -6,6 +6,9 @@
     ./libvirt.nix
     ./i3wm.nix
     ./desktop.nix
+    ./steam.nix
+    ./blizzard.nix
+    ./minecraft.nix
   ];
 
   my = {
@@ -24,6 +27,18 @@
 
       desktop = {
         enable = lib.mkDefault true;
+      };
+
+      steam = {
+        enable = lib.mkDefault false;
+      };
+
+      blizzard = {
+        enable = lib.mkDefault false;
+      };
+
+      minecraft = {
+        enable = lib.mkDefault false;
       };
     };
   };

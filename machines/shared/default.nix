@@ -3,27 +3,12 @@
 {
   imports = [
     ./users.nix
-    ./steam.nix
-    ./blizzard.nix
-    ./minecraft.nix
   ];
 
   my = {
     modules = {
       users = {
         enable = lib.mkDefault true;
-      };
-
-      steam = {
-        enable = lib.mkDefault false;
-      };
-
-      blizzard = {
-        enable = lib.mkDefault false;
-      };
-
-      minecraft = {
-        enable = lib.mkDefault false;
       };
     };
   };

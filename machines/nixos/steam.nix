@@ -19,15 +19,13 @@ in
   };
 
   config = with lib;
-    mkIf cfg.enable (mkMerge [
-      (if (stdenv.isDarwin) then {
-
-      } else {
-        programs = {
-          steam = {
-            enable = true;
-          };
+    mkIf cfg.enable
+      (
+        programs =
+      {
+        steam = {
+          enable = true;
         };
-      })
-    ]);
-}
+      };
+  );
+  }
