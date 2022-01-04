@@ -26,7 +26,7 @@
     };
   };
 
-  outputs = { self, pkgs, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       sharedConfig = { config, pkgs, ... }: {
         nix = {
@@ -66,60 +66,6 @@
           overlays = [
             self.overlay
             inputs.nur.overlay
-          ];
-        };
-
-        time = {
-          timeZone = config.my.timeZone;
-        };
-
-        i18n = {
-          defaultLocale = "en_US.UTF-8";
-        };
-
-        services = {
-          nix-daemon = {
-            enable = true;
-          };
-        };
-
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-        };
-
-        fonts = {
-          enableDefaultFonts = true;
-
-          fontDir = {
-            enable = true;
-          };
-
-          fonts = with pkgs; [
-            corefonts
-            fira-code
-            font-awesome
-            nerdfonts
-            noto-fonts
-            noto-fonts-emoji
-            noto-fonts-extra
-            roboto
-            siji
-          ];
-        };
-
-        environment = {
-          systemPackages = with pkgs; [
-            gnumake
-            jq
-            platinum-searcher
-            vim
-            wget
-            yq
-            gomplate
-            rsync
-            tmux
-            tree
           ];
         };
       };

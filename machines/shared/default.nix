@@ -39,6 +39,54 @@
     };
   };
 
+  time = {
+    timeZone = config.my.timeZone;
+  };
+
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
+
+  fonts = {
+    enableDefaultFonts = true;
+
+    fontDir = {
+      enable = true;
+    };
+
+    fonts = with pkgs; [
+      corefonts
+      fira-code
+      font-awesome
+      nerdfonts
+      noto-fonts
+      noto-fonts-emoji
+      noto-fonts-extra
+      roboto
+      siji
+    ];
+  };
+
+  environment = {
+    systemPackages = with pkgs; [
+      gnumake
+      jq
+      platinum-searcher
+      vim
+      wget
+      yq
+      gomplate
+      rsync
+      tmux
+      tree
+    ];
+  };
+
   services = {
     openssh = {
       enable = true;

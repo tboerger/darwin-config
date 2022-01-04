@@ -57,10 +57,58 @@ in
 
       powerManagement = {
         enable = true;
+        cpuFreqGovernor = lib.mkDefault "powersave";
 
         powertop = {
           enable = false;
         };
+      };
+
+      # nixpkgs = {
+      #   config = {
+      #     permittedInsecurePackages = [
+      #       "electron-9.4.4"
+      #     ];
+      #   };
+      # };
+
+      environment = {
+        systemPackages = with pkgs; [
+          alacritty
+          ansible
+          authy
+          discord
+          element-desktop
+          etcher
+          google-chrome
+          hcloud
+          httpie
+          hub
+          ipcalc
+          jsonnet
+          krew
+          kubectl
+          lastpass-cli
+          lens
+          mattermost
+          minio-client
+          ngrok
+          nmap
+          owncloud-client
+          packer
+          pwgen
+          rambox
+          rocketchat-desktop
+          s3cmd
+          shellcheck
+          skypeforlinux
+          slack
+          sops
+          stern
+          upx
+          vscode
+          yed
+        ];
       };
 
       services = {
