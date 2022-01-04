@@ -80,18 +80,6 @@
   };
 
   programs = {
-    iftop = {
-      enable = true;
-    };
-
-    iotop = {
-      enable = true;
-    };
-
-    mtr = {
-      enable = true;
-    };
-
     zsh = {
       enable = true;
     };
