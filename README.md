@@ -21,6 +21,9 @@ Generally we disable SIP, just boot into the recovery system and open a terminal
 to execute `csrutil disable`, after rebooting into the regular system you can
 check with `csrutil status` if it's still disabled.
 
+Generally it's a good idea to install all apps from the store which have been
+bought, especially Xcode, otherwise it fails to build macOS applications.
+
 ## Osiris
 
 ### Bootstrap
