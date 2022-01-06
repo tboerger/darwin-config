@@ -2,8 +2,13 @@
 
 {
   imports = [
-    ./networking.nix
+    ../modules
   ];
+
+  networking = {
+    hostName = "osiris";
+    computerName = "osiris";
+  };
 
   system = {
     stateVersion = 4;

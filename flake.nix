@@ -20,15 +20,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hm = {
+    homemanager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, ... }@inputs:
+  outputs = { self, nur, ... }@inputs:
     let
-      sharedConfig = { config, pkgs, ... }: {
+      sharedDarwinConfiguration = { config, pkgs, ... }: {
         nix = {
           package = pkgs.nixFlakes;
 
@@ -58,7 +58,7 @@
 
           overlays = [
             self.overlay
-            inputs.nur.overlay
+            nur.overlay
           ];
         };
       };
@@ -66,39 +66,20 @@
     {
       overlay = import ./overlays;
 
-      nixosConfigurations = {
-        chnum = inputs.nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-
-          modules = [
-            inputs.hm.nixosModules.home-manager
-            inputs.agenix.nixosModules.age
-            ./modules/shared
-            ./modules/nixos
-            sharedConfig
-            ./machines/chnum
-            ./profiles/thomas
-          ];
-        };
-      };
-
       darwinConfigurations = {
         osiris = inputs.darwin.lib.darwinSystem {
           system = "x86_64-darwin";
           inherit inputs;
 
           modules = [
-            inputs.hm.darwinModules.home-manager
-            # inputs.agenix.darwinModules.age
-            ./machines/shared
-            ./machines/darwin
-            sharedConfig
+            inputs.homemanager.darwinModules.home-manager
+            inputs.agenix.nixosModules.age
+            sharedDarwinConfiguration
             ./machines/osiris
             ./profiles/thomas
-            ./profiles/anna
-            ./profiles/adrian
-            ./profiles/tabea
+            # ./profiles/anna
+            # ./profiles/adrian
+            # ./profiles/tabea
           ];
         };
         hathor = inputs.darwin.lib.darwinSystem {
@@ -106,16 +87,14 @@
           inherit inputs;
 
           modules = [
-            inputs.hm.darwinModules.home-manager
-            # inputs.agenix.darwinModules.age
-            ./machines/shared
-            ./machines/darwin
-            sharedConfig
+            inputs.homemanager.darwinModules.home-manager
+            inputs.agenix.nixosModules.age
+            sharedDarwinConfiguration
             ./machines/hathor
             ./profiles/thomas
-            ./profiles/anna
-            ./profiles/adrian
-            ./profiles/tabea
+            # ./profiles/anna
+            # ./profiles/adrian
+            # ./profiles/tabea
           ];
         };
         anubis = inputs.darwin.lib.darwinSystem {
@@ -123,16 +102,14 @@
           inherit inputs;
 
           modules = [
-            inputs.hm.darwinModules.home-manager
-            # inputs.agenix.darwinModules.age
-            ./machines/shared
-            ./machines/darwin
-            sharedConfig
+            inputs.homemanager.darwinModules.home-manager
+            inputs.agenix.nixosModules.age
+            sharedDarwinConfiguration
             ./machines/anubis
             ./profiles/thomas
-            ./profiles/anna
-            ./profiles/adrian
-            ./profiles/tabea
+            # ./profiles/anna
+            # ./profiles/adrian
+            # ./profiles/tabea
           ];
         };
       };

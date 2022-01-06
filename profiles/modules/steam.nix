@@ -1,4 +1,4 @@
-{ pkgs, lib, config, options, stdenv, ... }:
+{ pkgs, lib, config, options, ... }:
 
 let
   cfg = config.my.modules.steam;
@@ -19,13 +19,11 @@ in
   };
 
   config = with lib;
-    mkIf cfg.enable
-      (
-        programs =
-      {
-        steam = {
-          enable = true;
-        };
-      };
-  );
-  }
+    mkIf cfg.enable {
+      # programs = {
+      #   steam = {
+      #     enable = true;
+      #   };
+      # };
+    };
+}

@@ -1,7 +1,7 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.my.modules.shared;
+  cfg = config.my.modules.blizzard;
 
 in
 
@@ -9,9 +9,9 @@ in
   options = with lib; {
     my = {
       modules = {
-        shared = {
+        blizzard = {
           enable = mkEnableOption ''
-            Whether to enable shared module
+            Whether to enable blizzard module
           '';
         };
       };
@@ -19,5 +19,7 @@ in
   };
 
   config = with lib;
-    mkIf cfg.enable { };
+    mkIf cfg.enable {
+
+    };
 }

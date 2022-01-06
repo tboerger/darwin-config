@@ -2,8 +2,13 @@
 
 {
   imports = [
-    ./networking.nix
+    ../modules
   ];
+
+  networking = {
+    hostName = "anubis";
+    computerName = "anubis";
+  };
 
   system = {
     stateVersion = 4;

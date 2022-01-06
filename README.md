@@ -2,15 +2,114 @@
 
 [![Build](https://github.com/tboerger/workstation/actions/workflows/build.yml/badge.svg)](https://github.com/tboerger/workstation/actions/workflows/build.yml)
 
-Provisioning for my [NixOS](https://nixos.org/) workstations.
+Provisioning for my Macbook's based on [Nix](https://nixos.org/manual/nix/stable/).
 
-## chnum
+## Osiris
+
+Generally we disable SIP, just boot into the recovery system and open a terminal
+to execute `csrutil disable`, after rebooting into the regular system you can
+check with `csrutil status` if it's still disabled.
+
+### Bootstrap
+
+Copy the SSH keys from our secret stick, otherwise it's really difficult to
+decrypt the secrets stored within this repository.
 
 ```console
-sudo nix-shell --packages nixUnstable
+sh <(curl -L https://nixos.org/nix/install)
+echo "run\tprivate/var/run" | sudo tee -a /etc/synthetic.conf
+reboot
 
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/tboerger/workstation/master/scripts/chnum-partitions)"
-nixos-install --root /mnt --flake github:tboerger/workstation#chnum
+nix \
+    --extra-experimental-features "nix-command flakes" \
+    build \
+    github:tboerger/workstation\#osiris \
+    --no-write-lock-file
+
+./result/sw/bin/darwin-rebuild switch \
+    --flake github:tboerger/workstation\#osiris
+```
+
+### Updates
+
+If the repository had been cloned you could just execute `make switch`,
+otherwise there is still this long option to update the deployment:
+
+```console
+darwin-rebuild switch \
+    --flake github:tboerger/workstation\#osiris
+```
+
+## Hathor
+
+Generally we disable SIP, just boot into the recovery system and open a terminal
+to execute `csrutil disable`, after rebooting into the regular system you can
+check with `csrutil status` if it's still disabled.
+
+### Bootstrap
+
+Copy the SSH keys from our secret stick, otherwise it's really difficult to
+decrypt the secrets stored within this repository.
+
+```console
+sh <(curl -L https://nixos.org/nix/install)
+echo "run\tprivate/var/run" | sudo tee -a /etc/synthetic.conf
+reboot
+
+nix \
+    --extra-experimental-features "nix-command flakes" \
+    build \
+    github:tboerger/workstation\#hathor \
+    --no-write-lock-file
+
+./result/sw/bin/darwin-rebuild switch \
+    --flake github:tboerger/workstation\#hathor
+```
+
+### Updates
+
+If the repository had been cloned you could just execute `make switch`,
+otherwise there is still this long option to update the deployment:
+
+```console
+darwin-rebuild switch \
+    --flake github:tboerger/workstation\#hathor
+```
+
+## Anubis
+
+Generally we disable SIP, just boot into the recovery system and open a terminal
+to execute `csrutil disable`, after rebooting into the regular system you can
+check with `csrutil status` if it's still disabled.
+
+### Bootstrap
+
+Copy the SSH keys from our secret stick, otherwise it's really difficult to
+decrypt the secrets stored within this repository.
+
+```console
+sh <(curl -L https://nixos.org/nix/install)
+echo "run\tprivate/var/run" | sudo tee -a /etc/synthetic.conf
+reboot
+
+nix \
+    --extra-experimental-features "nix-command flakes" \
+    build \
+    github:tboerger/workstation\#anubis \
+    --no-write-lock-file
+
+./result/sw/bin/darwin-rebuild switch \
+    --flake github:tboerger/workstation\#anubis
+```
+
+### Updates
+
+If the repository had been cloned you could just execute `make switch`,
+otherwise there is still this long option to update the deployment:
+
+```console
+darwin-rebuild switch \
+    --flake github:tboerger/workstation\#anubis
 ```
 
 ## Security

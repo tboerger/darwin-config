@@ -1,5 +1,4 @@
 SHELL := bash
-UNAME := $(shell uname -s)
 
 .PHONY: update
 update:
@@ -7,9 +6,4 @@ update:
 
 .PHONY: switch
 switch:
-ifeq ($(UNAME),Linux)
-	sudo nixos-rebuild switch --flake .
-endif
-ifeq ($(UNAME),Darwin)
-	sudo darwin-rebuild switch --flake .
-endif
+	darwin-rebuild switch --flake .
