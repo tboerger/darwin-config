@@ -7,15 +7,19 @@ let
 in
 
 {
-  # imports = [
-  #   ../modules
-  # ];
+  imports = [
+    ../modules
+  ];
 
-  # my = {
-  #   modules = {
+  my = {
+    username = "${username}";
 
-  #   };
-  # };
+    modules = {
+      gpg = {
+        enable = false;
+      };
+    };
+  };
 
   users = {
     users = {
@@ -31,9 +35,5 @@ in
     home = {
       homeDirectory = "/Users/${username}";
     };
-
-    # sessionPath = [
-    #   "$HOME/.local/bin"
-    # ];
   };
 }
