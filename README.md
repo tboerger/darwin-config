@@ -2,18 +2,28 @@
 
 [![Build](https://github.com/tboerger/workstation/actions/workflows/build.yml/badge.svg)](https://github.com/tboerger/workstation/actions/workflows/build.yml)
 
-Provisioning for my Macbook's based on [Nix](https://nixos.org/manual/nix/stable/).
+Provisioning for my Macbook's based on [Nix][nix].
 
-## Osiris
+## Secrets
+
+Generally all secrets are encrypted with [agenix][agenix], so make sure to copy
+the SSH keys from the `secrets` stick with these commands:
+
+```console
+mkdir -p $HOME/.ssh
+cp /Volumes/secrets/ssh/id_* $HOME/.ssh/
+chmod u=rw,g=,o= $HOME/.ssh/id_*
+```
+
+## Prepare
 
 Generally we disable SIP, just boot into the recovery system and open a terminal
 to execute `csrutil disable`, after rebooting into the regular system you can
 check with `csrutil status` if it's still disabled.
 
-### Bootstrap
+## Osiris
 
-Copy the SSH keys from our secret stick, otherwise it's really difficult to
-decrypt the secrets stored within this repository.
+### Bootstrap
 
 ```console
 sh <(curl -L https://nixos.org/nix/install)
@@ -42,14 +52,7 @@ darwin-rebuild switch \
 
 ## Hathor
 
-Generally we disable SIP, just boot into the recovery system and open a terminal
-to execute `csrutil disable`, after rebooting into the regular system you can
-check with `csrutil status` if it's still disabled.
-
 ### Bootstrap
-
-Copy the SSH keys from our secret stick, otherwise it's really difficult to
-decrypt the secrets stored within this repository.
 
 ```console
 sh <(curl -L https://nixos.org/nix/install)
@@ -78,14 +81,7 @@ darwin-rebuild switch \
 
 ## Anubis
 
-Generally we disable SIP, just boot into the recovery system and open a terminal
-to execute `csrutil disable`, after rebooting into the regular system you can
-check with `csrutil status` if it's still disabled.
-
 ### Bootstrap
-
-Copy the SSH keys from our secret stick, otherwise it's really difficult to
-decrypt the secrets stored within this repository.
 
 ```console
 sh <(curl -L https://nixos.org/nix/install)
@@ -133,3 +129,6 @@ Apache-2.0
 ```console
 Copyright (c) 2021 Thomas Boerger <thomas@webhippie.de>
 ```
+
+[nix]: https://nixos.org/manual/nix/stable/
+[agenix]: https://github.com/ryantm/agenix
