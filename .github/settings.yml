@@ -1,8 +1,8 @@
 ---
 repository:
   name: workstation
-  description: Provisioning for my NixOS workstations
-  topics: workstation, nix, nixos, nixpkgs, home-manager
+  description: Provisioning for my Macbook's with Nix
+  topics: workstation, nix, nixpkgs, nix-darwin, home-manager
 
   private: false
   has_issues: true
