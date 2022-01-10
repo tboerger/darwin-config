@@ -9,6 +9,7 @@
     ./fonts.nix
     ./tools.nix
     ./kube.nix
+    ./sudoers.nix
   ];
 
   my = {
@@ -30,6 +31,10 @@
       };
 
       kube = {
+        enable = true;
+      };
+
+      sudoers = {
         enable = true;
       };
     };

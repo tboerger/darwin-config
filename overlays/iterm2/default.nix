@@ -1,26 +1,28 @@
-{ stdenv, fetchurl, undmg }:
+{ lib, stdenv, fetchurl, unzip }:
+with lib;
 
 stdenv.mkDerivation rec {
-  pname = "iterm2";
+  name = "iterm2";
   version = "3.4.15";
 
   src = fetchurl {
-    name = "iTerm2-${version}.dmg";
+    name = "iterm2-${version}.zip";
     url = "https://iterm2.com/downloads/stable/iTerm2-${replaceStrings ["."] ["_"] version}.zip";
     sha256 = "32594ee038efdda96b5d7a325c11219bac667f69ca952a5ff080b26079871b78";
   };
 
-  buildInputs = [ undmg ];
+  buildInputs = [ unzip ];
   sourceRoot = ".";
   phases = [ "unpackPhase" "installPhase" ];
   installPhase = ''
       mkdir -p "$out/Applications"
-      cp -r iTerm2.app "$out/Applications/iTerm2.app"
+      cp -r iTerm.app "$out/Applications/iTerm.app"
     '';
 
-  meta = with stdenv.lib; {
+  meta = {
     description = "Replacement for Terminal and the successor to iTerm";
     homepage = "https://iterm2.com";
+    license = licenses.gpl2;
     maintainers = [ "tboerger" ];
     platforms = platforms.darwin;
   };

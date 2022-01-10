@@ -15,6 +15,10 @@ in
     username = "${username}";
 
     modules = {
+      git = {
+        enable = false;
+      };
+
       gpg = {
         enable = false;
       };
@@ -34,6 +38,10 @@ in
   home-manager.users."${username}" = { config, ... }: {
     home = {
       homeDirectory = "/Users/${username}";
+
+      sessionPath = [
+        "$HOME/.local/bin"
+      ];
     };
   };
 }

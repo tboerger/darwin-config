@@ -14,9 +14,7 @@ in
   my = {
     username = "${username}";
 
-    modules = {
-
-    };
+    modules = { };
   };
 
   users = {
@@ -32,6 +30,35 @@ in
   home-manager.users."${username}" = { config, ... }: {
     home = {
       homeDirectory = "/Users/${username}";
+
+      sessionPath = [
+        "$HOME/.local/bin"
+      ];
+
+      file = {
+        ".local/bin/git-gh-pages" = {
+          executable = true;
+          source = ./scripts/git-gh-pages.sh;
+        };
+        ".local/bin/git-promote" = {
+          executable = true;
+          source = ./scripts/git-promote.sh;
+        };
+        ".local/bin/search-and-replace" = {
+          executable = true;
+          source = ./scripts/search-and-replace.sh;
+        };
+
+        ".wallpapers/dark.jpg" = {
+          source = ./wallpapers/dark.jpg;
+        };
+        ".wallpapers/light.jpg" = {
+          source = ./wallpapers/light.jpg;
+        };
+        ".wallpapers/tower.jpg" = {
+          source = ./wallpapers/tower.jpg;
+        };
+      };
     };
 
     programs = {
@@ -39,7 +66,6 @@ in
       dircolors = import ./programs/dircolors.nix { inherit pkgs; };
       direnv = import ./programs/direnv.nix { inherit pkgs; };
       fzf = import ./programs/fzf.nix { inherit pkgs; };
-      git = import ./programs/git.nix { inherit pkgs; };
       go = import ./programs/go.nix { inherit pkgs; };
       lsd = import ./programs/lsd.nix { inherit pkgs; };
       neovim = import ./programs/neovim.nix { inherit pkgs; };
@@ -50,61 +76,5 @@ in
       vscode = import ./programs/vscode.nix { inherit pkgs; };
       zsh = import ./programs/zsh.nix { inherit pkgs; };
     };
-
-    # file = {
-    #   ".local/bin/git-amend" = {
-    #     executable = true;
-    #     text = (builtins.readFile ../../scripts/git-amend);
-    #   };
-    #   ".local/bin/git-conflicts" = {
-    #     executable = true;
-    #     text = (builtins.readFile ../../scripts/git-conflicts);
-    #   };
-    #   ".local/bin/git-gh-pages" = {
-    #     executable = true;
-    #     text = (builtins.readFile ../../scripts/git-gh-pages);
-    #   };
-    #   ".local/bin/git-promote" = {
-    #     executable = true;
-    #     text = (builtins.readFile ../../scripts/git-promote);
-    #   };
-    #   ".local/bin/git-recently-checkout-branches" = {
-    #     executable = true;
-    #     text = (builtins.readFile ../../scripts/git-recently-checkout-branches);
-    #   };
-    #   ".local/bin/git-resolve" = {
-    #     executable = true;
-    #     text = (builtins.readFile ../../scripts/git-resolve);
-    #   };
-    #   ".local/bin/git-unpushed-branches" = {
-    #     executable = true;
-    #     text = (builtins.readFile ../../scripts/git-unpushed-branches);
-    #   };
-    #   ".local/bin/git-unreleased" = {
-    #     executable = true;
-    #     text = (builtins.readFile ../../scripts/git-unreleased);
-    #   };
-    #   ".local/bin/git-where" = {
-    #     executable = true;
-    #     text = (builtins.readFile ../../scripts/git-where);
-    #   };
-    #   ".local/bin/search-and-replace" = {
-    #     executable = true;
-    #     text = (builtins.readFile ../../scripts/search-and-replace);
-    #   };
-
-    #   ".local/wallpapers/dark.jpg" = {
-    #     executable = false;
-    #     text = (builtins.readFile ../../wallpapers/dark.jpg);
-    #   };
-    #   ".local/wallpapers/light.jpg" = {
-    #     executable = false;
-    #     text = (builtins.readFile ../../wallpapers/light.jpg);
-    #   };
-    #   ".local/wallpapers/tower.jpg" = {
-    #     executable = false;
-    #     text = (builtins.readFile ../../wallpapers/tower.jpg);
-    #   };
-    # };
   };
 }

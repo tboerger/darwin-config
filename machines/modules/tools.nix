@@ -3,6 +3,12 @@
 let
   cfg = config.my.modules.tools;
 
+  python = pkgs.python39.withPackages(p: with p; [
+    ansible-core
+    hcloud
+    requests
+    passlib
+  ]);
 in
 
 {
@@ -22,7 +28,7 @@ in
     mkIf cfg.enable {
       environment = {
         systemPackages = with pkgs; [
-          ansible
+          azure-cli
           git
           git-chglog
           gnumake
@@ -35,13 +41,16 @@ in
           minio-client
           ngrok
           nmap
+          p7zip
           platinum-searcher
           pwgen
+          python
           reflex
           rsync
           s3cmd
           shellcheck
           sops
+          terraform
           tmux
           tree
           upx

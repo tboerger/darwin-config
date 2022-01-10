@@ -1,7 +1,7 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.my.modules.iterm;
+  cfg = config.my.modules.sudoers;
 
 in
 
@@ -9,9 +9,9 @@ in
   options = with lib; {
     my = {
       modules = {
-        iterm = {
+        sudoers = {
           enable = mkEnableOption ''
-            Whether to enable iterm module
+            Whether to enable sudoers module
           '';
         };
       };
@@ -21,9 +21,13 @@ in
   config = with lib;
     mkIf cfg.enable {
       environment = {
-        systemPackages = with pkgs; [
-          iterm2
-        ];
+        etc = {
+          "sudoers.d/admin" = {
+            text = ''
+              %admin ALL=(ALL) NOPASSWD:ALL
+            '';
+          };
+        };
       };
     };
 }

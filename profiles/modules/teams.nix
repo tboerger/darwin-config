@@ -1,7 +1,7 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.my.modules.iterm;
+  cfg = config.my.modules.teams;
 
 in
 
@@ -9,9 +9,9 @@ in
   options = with lib; {
     my = {
       modules = {
-        iterm = {
+        teams = {
           enable = mkEnableOption ''
-            Whether to enable iterm module
+            Whether to enable teams module
           '';
         };
       };
@@ -22,7 +22,7 @@ in
     mkIf cfg.enable {
       environment = {
         systemPackages = with pkgs; [
-          iterm2
+          microsoft-teams
         ];
       };
     };

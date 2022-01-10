@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-git ls-files -u | awk '{print $4}' | sort -u

@@ -20,10 +20,10 @@ in
 
   config = with lib;
     mkIf cfg.enable {
-      # environment = {
-      #   systemPackages = with pkgs; [
-      #     keepingyouawake
-      #   ];
-      # };
+      environment = {
+        systemPackages = with pkgs; [
+          keepingyouawake
+        ];
+      };
     };
 }

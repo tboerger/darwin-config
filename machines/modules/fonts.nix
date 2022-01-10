@@ -28,6 +28,7 @@ in
           fira-code
           font-awesome
           roboto
+          nerdfonts
         ];
       };
     };

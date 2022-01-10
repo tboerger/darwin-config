@@ -10,15 +10,7 @@ remote_branch="${1#*/}"
 [ "$remote_branch" != "${remote}" ] || remote_branch="$branch"
 
 if [ -z "${remote}" ]; then
-	remote="$(git remote -v | grep -E '(git@|https://)github' | head -1 | awk '{print $1}')"
-fi
-
-if [ -z "${remote}" ]; then
-	remote="$(git remote -v | grep -E '(git@|https://)gitea' | head -1 | awk '{print $1}')"
-fi
-
-if [ -z "${remote}" ]; then
-	remote="$(git remote -v | grep -E '(git@|https://)(gitlab|scm)' | head -1 | awk '{print $1}')"
+	remote="$(git remote -v | grep -E '(git@|https://)(git|scm)' | head -1 | awk '{print $1}')"
 fi
 
 if [ -z "${remote}" ]; then

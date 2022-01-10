@@ -18,7 +18,7 @@ pushd ${workdir} >/dev/null
 	touch index.html
 	git add index.html
 
-	git commit -m 'Initial commit'
+	git commit -m 'chore: initial commit'
 
 	git remote add origin https://github.com/${repo}.git
 	git push -u origin gh-pages
