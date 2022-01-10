@@ -1,6 +1,7 @@
 self: super:
 
 {
+  alfred = super.callPackage ./alfred {};
   clickup = super.callPackage ./clickup {};
   deezer = super.callPackage ./deezer {};
   discord = super.callPackage ./discord {};
@@ -13,4 +14,6 @@ self: super:
   rectangle = super.callPackage ./rectangle {};
   signal = super.callPackage ./signal {};
   hammerspoon = super.callPackage ./hammerspoon {};
+  # anyconfig = super.callPackage ./anyconfig {};
+  # ansible-later = super.callPackage ./ansible-later {};
 }

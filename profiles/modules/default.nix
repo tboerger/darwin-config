@@ -7,6 +7,7 @@
     ./git.nix
     ./iterm.nix
     ./kya.nix
+    ./alfred.nix
     ./blizzard.nix
     ./minecraft.nix
     ./steam.nix
@@ -39,6 +40,10 @@
       };
 
       kya = {
+        enable = true;
+      };
+
+      alfred = {
         enable = true;
       };
 

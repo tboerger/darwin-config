@@ -52,6 +52,7 @@
     rgrep = "grep -Rn";
     hgrep = "fc -El 0 | grep";
     history = "fc -l 1";
+    sha256sum = "shasum -a 256";
   };
 
   sessionVariables = {

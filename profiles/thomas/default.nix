@@ -49,6 +49,11 @@ in
           source = ./scripts/search-and-replace.sh;
         };
 
+        ".local/bin/sort-requirements" = {
+          executable = true;
+          source = ./scripts/sort-requirements.rb;
+        };
+
         ".wallpapers/dark.jpg" = {
           source = ./wallpapers/dark.jpg;
         };
