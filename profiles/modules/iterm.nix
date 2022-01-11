@@ -20,9 +20,9 @@ in
 
   config = with lib;
     mkIf cfg.enable {
-      environment = {
-        systemPackages = with pkgs; [
-          iterm2
+      homebrew = {
+        casks = [
+          "iterm2"
         ];
       };
     };

@@ -3,22 +3,19 @@
 {
   imports = [
     ./settings.nix
+    ./homebrew.nix
 
-    ./shells.nix
-    ./nix.nix
     ./fonts.nix
-    ./tools.nix
     ./kube.nix
+    ./nix.nix
+    ./shells.nix
     ./sudoers.nix
+    ./tools.nix
   ];
 
   my = {
     modules = {
-      shells = {
-        enable = true;
-      };
-
-      nix = {
+      homebrew = {
         enable = true;
       };
 
@@ -26,15 +23,23 @@
         enable = true;
       };
 
-      tools = {
-        enable = true;
-      };
-
       kube = {
         enable = true;
       };
 
+      nix = {
+        enable = true;
+      };
+
+      shells = {
+        enable = true;
+      };
+
       sudoers = {
+        enable = true;
+      };
+
+      tools = {
         enable = true;
       };
     };

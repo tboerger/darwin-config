@@ -20,6 +20,10 @@ in
 
   config = with lib;
     mkIf cfg.enable {
-
+      homebrew = {
+        casks = [
+          "battle-net"
+        ];
+      };
     };
 }

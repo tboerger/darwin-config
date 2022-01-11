@@ -20,15 +20,16 @@ in
 
   config = with lib;
     mkIf cfg.enable {
-      fonts = {
-        enableFontDir = true;
+      homebrew = {
+        taps = [
+          "homebrew/cask-fonts"
+        ];
 
-        fonts = with pkgs; [
-          corefonts
-          fira-code
-          font-awesome
-          roboto
-          nerdfonts
+        casks = [
+          "font-fira-code"
+          "font-fontawesome"
+          "font-roboto"
+          "font-fira-code-nerd-font"
         ];
       };
     };

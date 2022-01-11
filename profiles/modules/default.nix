@@ -4,42 +4,31 @@
   imports = [
     ./settings.nix
     ./macos.nix
-    ./git.nix
-    ./iterm.nix
-    ./kya.nix
+
     ./alfred.nix
     ./blizzard.nix
-    ./minecraft.nix
-    ./steam.nix
-    ./gpg.nix
     ./chrome.nix
-    ./franz.nix
-    ./teams.nix
-    ./slack.nix
-    ./mattermost.nix
-    ./discord.nix
-    ./signal.nix
     ./clickup.nix
     ./deezer.nix
-    ./rectangle.nix
+    ./discord.nix
+    ./franz.nix
+    ./git.nix
+    ./gpg.nix
     ./hammerspoon.nix
+    ./iterm.nix
+    ./kya.nix
+    ./mattermost.nix
+    ./minecraft.nix
+    ./rectangle.nix
+    ./signal.nix
+    ./slack.nix
+    ./steam.nix
+    ./teams.nix
   ];
 
   my = {
     modules = {
       macos = {
-        enable = true;
-      };
-
-      git = {
-        enable = true;
-      };
-
-      iterm = {
-        enable = true;
-      };
-
-      kya = {
         enable = true;
       };
 
@@ -51,43 +40,7 @@
         enable = true;
       };
 
-      minecraft = {
-        enable = true;
-      };
-
-      steam = {
-        enable = true;
-      };
-
-      gpg = {
-        enable = true;
-      };
-
       chrome = {
-        enable = true;
-      };
-
-      franz = {
-        enable = true;
-      };
-
-      teams = {
-        enable = true;
-      };
-
-      slack = {
-        enable = false;
-      };
-
-      mattermost = {
-        enable = true;
-      };
-
-      discord = {
-        enable = true;
-      };
-
-      signal = {
         enable = true;
       };
 
@@ -99,11 +52,59 @@
         enable = true;
       };
 
-      rectangle = {
+      discord = {
+        enable = true;
+      };
+
+      franz = {
+        enable = true;
+      };
+
+      git = {
+        enable = true;
+      };
+
+      gpg = {
         enable = true;
       };
 
       hammerspoon = {
+        enable = true;
+      };
+
+      iterm = {
+        enable = true;
+      };
+
+      kya = {
+        enable = true;
+      };
+
+      mattermost = {
+        enable = true;
+      };
+
+      minecraft = {
+        enable = true;
+      };
+
+      rectangle = {
+        enable = true;
+      };
+
+      signal = {
+        enable = true;
+      };
+
+      slack = {
+        enable = true;
+      };
+
+      steam = {
+        enable = true;
+      };
+
+      teams = {
         enable = true;
       };
     };

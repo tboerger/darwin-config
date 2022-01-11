@@ -20,12 +20,17 @@ in
 
   config = with lib;
     mkIf cfg.enable {
-      # environment = {
-      #   systemPackages = with pkgs; [
-      #     adoptopenjdk-hotspot-bin-8
-      #     mcrcon
-      #     multimc
-      #   ];
-      # };
+      homebrew = {
+        taps = [
+          "webhippie/webhippie"
+          "homebrew/cask-versions"
+        ];
+
+        casks = [
+          "temurin8"
+          "mcrcon"
+          "multimc"
+        ];
+      };
     };
 }
