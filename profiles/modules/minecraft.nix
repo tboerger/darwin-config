@@ -28,8 +28,12 @@ in
 
         casks = [
           "temurin8"
-          "mcrcon"
           "multimc"
+          "curseforge"
+        ];
+
+        brews = [
+          "mcrcon"
         ];
       };
     };

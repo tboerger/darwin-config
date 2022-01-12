@@ -28,7 +28,6 @@ in
         casks = [
           "font-fira-code"
           "font-fontawesome"
-          "font-roboto"
           "font-fira-code-nerd-font"
         ];
       };

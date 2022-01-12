@@ -1,7 +1,7 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.my.modules.kube;
+  cfg = config.my.modules.docker;
 
 in
 
@@ -9,9 +9,9 @@ in
   options = with lib; {
     my = {
       modules = {
-        kube = {
+        docker = {
           enable = mkEnableOption ''
-            Whether to enable kube module
+            Whether to enable docker module
           '';
         };
       };
@@ -22,17 +22,7 @@ in
     mkIf cfg.enable {
       environment = {
         systemPackages = with pkgs; [
-          argocd
-          # helm
-          helm-docs
-          jsonnet
-          jsonnet-bundler
-          k9s
-          krew
-          kubectl
-          kustomize
-          kustomize-sops
-          stern
+          lima
         ];
       };
     };

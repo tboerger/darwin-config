@@ -3,7 +3,7 @@
 let
   cfg = config.my.modules.tools;
 
-  python = pkgs.python39.withPackages(p: with p; [
+  python = pkgs.python39.withPackages (p: with p; [
     ansible-core
     hcloud
     requests
@@ -34,7 +34,9 @@ in
           git-chglog
           gnumake
           gomplate
+          gopass
           hcloud
+          htop
           httpie
           hub
           ipcalc

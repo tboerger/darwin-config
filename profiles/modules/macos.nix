@@ -68,6 +68,34 @@ in
 
   config = with lib;
     mkIf cfg.enable {
+      homebrew = {
+        taps = [
+          "homebrew/cask"
+        ];
+
+        casks = [
+          "mysides"
+          "swiftdefaultappsprefpane"
+        ];
+
+        brews = [
+          "dockutil"
+          "mas"
+        ];
+
+        masApps = {
+          "1Password 7" = 1333542190;
+          "Xcode" = 497799835;
+          "The Unarchiver" = 425424353;
+        };
+      };
+
+      environment = {
+        systemPackages = with pkgs; [
+          m-cli
+        ];
+      };
+
       system = {
         defaults = {
           LaunchServices = {

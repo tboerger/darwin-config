@@ -1,7 +1,7 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.my.modules.clickup;
+  cfg = config.my.modules.jabra;
 
 in
 
@@ -9,9 +9,9 @@ in
   options = with lib; {
     my = {
       modules = {
-        clickup = {
+        jabra = {
           enable = mkEnableOption ''
-            Whether to enable clickup module
+            Whether to enable jabra module
           '';
         };
       };
@@ -21,8 +21,12 @@ in
   config = with lib;
     mkIf cfg.enable {
       homebrew = {
+        taps = [
+          "homebrew/cask-drivers"
+        ];
+
         casks = [
-          "clickup"
+          "jabra-direct"
         ];
       };
     };

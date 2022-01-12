@@ -20,6 +20,12 @@ in
 
   config = with lib;
     mkIf cfg.enable {
+      environment = {
+        systemPackages = with pkgs; [
+          pinentry_mac
+        ];
+      };
+
       home-manager.users."${config.my.username}" = { config, ... }: {
         programs = {
           gpg = {

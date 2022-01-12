@@ -1,7 +1,7 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.my.modules.clickup;
+  cfg = config.my.modules.lens;
 
 in
 
@@ -9,9 +9,9 @@ in
   options = with lib; {
     my = {
       modules = {
-        clickup = {
+        lens = {
           enable = mkEnableOption ''
-            Whether to enable clickup module
+            Whether to enable lens module
           '';
         };
       };
@@ -22,7 +22,7 @@ in
     mkIf cfg.enable {
       homebrew = {
         casks = [
-          "clickup"
+          "lens"
         ];
       };
     };

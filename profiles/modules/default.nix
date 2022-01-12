@@ -5,20 +5,36 @@
     ./settings.nix
     ./macos.nix
 
+    ./acrobat.nix
     ./alfred.nix
+    ./appcleaner.nix
+    ./authy.nix
+    ./bartender.nix
     ./blizzard.nix
     ./chrome.nix
     ./clickup.nix
     ./deezer.nix
     ./discord.nix
+    ./docker.nix
+    ./element.nix
+    ./etcher.nix
     ./franz.nix
     ./git.nix
     ./gpg.nix
     ./hammerspoon.nix
+    ./istatmenus.nix
     ./iterm.nix
+    ./jabra.nix
     ./kya.nix
+    ./lastpass.nix
+    ./lens.nix
+    ./macdown.nix
     ./mattermost.nix
     ./minecraft.nix
+    ./multipass.nix
+    ./ngrok.nix
+    ./owncloud.nix
+    ./rancher.nix
     ./rectangle.nix
     ./signal.nix
     ./slack.nix
@@ -32,7 +48,23 @@
         enable = true;
       };
 
+      acrobat = {
+        enable = true;
+      };
+
       alfred = {
+        enable = true;
+      };
+
+      appcleaner = {
+        enable = true;
+      };
+
+      authy = {
+        enable = true;
+      };
+
+      bartender = {
         enable = true;
       };
 
@@ -56,6 +88,18 @@
         enable = true;
       };
 
+      docker = {
+        enable = true;
+      };
+
+      element = {
+        enable = true;
+      };
+
+      etcher = {
+        enable = true;
+      };
+
       franz = {
         enable = true;
       };
@@ -72,11 +116,31 @@
         enable = true;
       };
 
+      istatmenus = {
+        enable = true;
+      };
+
       iterm = {
         enable = true;
       };
 
+      jabra = {
+        enable = true;
+      };
+
       kya = {
+        enable = true;
+      };
+
+      lastpass = {
+        enable = true;
+      };
+
+      lens = {
+        enable = true;
+      };
+
+      macdown = {
         enable = true;
       };
 
@@ -85,6 +149,22 @@
       };
 
       minecraft = {
+        enable = true;
+      };
+
+      multipass = {
+        enable = true;
+      };
+
+      ngrok = {
+        enable = true;
+      };
+
+      owncloud = {
+        enable = true;
+      };
+
+      rancher = {
         enable = true;
       };
 

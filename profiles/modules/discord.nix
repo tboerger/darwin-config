@@ -19,7 +19,8 @@ in
   };
 
   config = with lib;
-    mkIf cfg.enable {      homebrew = {
+    mkIf cfg.enable {
+      homebrew = {
         casks = [
           "discord"
         ];
