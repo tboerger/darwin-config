@@ -34,7 +34,6 @@
     ./multipass.nix
     ./ngrok.nix
     ./owncloud.nix
-    ./rancher.nix
     ./rectangle.nix
     ./signal.nix
     ./slack.nix
@@ -161,10 +160,6 @@
       };
 
       owncloud = {
-        enable = true;
-      };
-
-      rancher = {
         enable = true;
       };
 
