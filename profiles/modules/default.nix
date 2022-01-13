@@ -15,6 +15,7 @@
     ./clickup.nix
     ./deezer.nix
     ./discord.nix
+    ./dock.nix
     ./docker.nix
     ./element.nix
     ./etcher.nix
@@ -85,6 +86,10 @@
 
       discord = {
         enable = true;
+      };
+
+      dock = {
+        enable = lib.mkDefault false;
       };
 
       docker = {

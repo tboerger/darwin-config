@@ -79,7 +79,6 @@ in
         ];
 
         brews = [
-          "dockutil"
           "mas"
         ];
 
@@ -93,6 +92,7 @@ in
       environment = {
         systemPackages = with pkgs; [
           m-cli
+          dockutil
         ];
       };
 

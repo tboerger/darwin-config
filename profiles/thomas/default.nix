@@ -14,7 +14,70 @@ in
   my = {
     username = "${username}";
 
-    modules = { };
+    modules = {
+      dock = {
+        enable = true;
+
+        entries = [
+          {
+            path = "/System/Applications/Launchpad.app";
+          }
+          {
+            path = "/Applications/iTerm.app";
+          }
+          {
+            path = "/Applications/Google Chrome.app";
+          }
+          {
+            path = "/System/Applications/Mail.app";
+          }
+          {
+            path = "${pkgs.vscode}/Applications/Visual Studio Code.app";
+          }
+          {
+            path = "/Applications/ClickUp.app";
+          }
+          {
+            path = "/Applications/Authy Desktop.app";
+          }
+          {
+            path = "/Applications/1Password 7.app";
+          }
+          {
+            path = "/Applications/LastPass.app";
+          }
+          {
+            path = "/Applications/Franz.app";
+          }
+          {
+            path = "/Applications/Slack.app";
+          }
+          {
+            path = "/Applications/Mattermost.app";
+          }
+          {
+            path = "/Applications/Microsoft Teams.app";
+          }
+          {
+            path = "/Applications/Discord.app";
+          }
+          {
+            path = "/Applications/Element.app";
+          }
+          {
+            path = "/Applications/Signal.app";
+          }
+          {
+            path = "/Applications/Deezer.app";
+          }
+          {
+            path = "/Users/${username}/Downloads/";
+            section = "others";
+            options = "--sort dateadded --view grid --display folder";
+          }
+        ];
+      };
+    };
   };
 
   users = {
