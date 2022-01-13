@@ -81,5 +81,19 @@
       forwardAgent = true;
       proxyJump = "thomas@bastion.webhippie.de";
     };
+
+    "*.cloudpunks.io !jumphost*.cloudpunks.io" = {
+      user = "oper";
+      forwardAgent = true;
+      proxyJump = "tboerger@jumphost1.cloudpunks.io";
+    };
+    "jumphost1.cloudpunks.io" = {
+      user = "tboerger";
+      forwardAgent = true;
+    };
+    "jumphost2.cloudpunks.io" = {
+      user = "tboerger";
+      forwardAgent = true;
+    };
   };
 }
