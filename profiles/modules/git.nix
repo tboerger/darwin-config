@@ -71,8 +71,7 @@ in
             };
 
             ignores = [
-              "*~"
-              "*.swp"
+              ".DS_Store"
               ".envrc"
               ".vscode"
             ];
