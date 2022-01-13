@@ -61,6 +61,7 @@ in
           vim
           wget
           yq
+          coreutils
         ];
       };
     };
