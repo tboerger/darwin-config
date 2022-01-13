@@ -10,7 +10,7 @@ in
       modules = {
         dock = {
           enable = mkEnableOption ''
-            Whether to enable macos module
+            Whether to enable dock module
           '';
 
           entries = mkOption {
