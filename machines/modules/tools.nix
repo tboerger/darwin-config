@@ -29,6 +29,7 @@ in
     mkIf cfg.enable {
       environment = {
         systemPackages = with pkgs; [
+          aws
           azure-cli
           git
           git-chglog
