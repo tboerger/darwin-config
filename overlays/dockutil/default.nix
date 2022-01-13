@@ -2,15 +2,17 @@
 with lib;
 
 stdenv.mkDerivation rec {
-  name = "dockutil";
+  pname = "dockutil";
   version = "2.0.5";
 
   src = fetchFromGitHub {
     owner = "kcrawford";
-    repo = name;
+    repo = pname;
     rev = version;
     sha256 = "sha256-8tDkueCTCtvxc7owp3K9Tsrn4hL79CM04zBNv7AcHgA=";
   };
+
+  dontBuild = true;
 
   installPhase = ''
     mkdir -pv $out/bin
