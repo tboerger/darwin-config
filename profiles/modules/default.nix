@@ -19,6 +19,7 @@
     ./docker.nix
     ./element.nix
     ./etcher.nix
+    ./finder.nix
     ./franz.nix
     ./git.nix
     ./gpg.nix
@@ -45,47 +46,47 @@
   my = {
     modules = {
       macos = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       acrobat = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       alfred = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       appcleaner = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       authy = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       bartender = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       blizzard = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       chrome = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       clickup = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       deezer = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       discord = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       dock = {
@@ -93,99 +94,103 @@
       };
 
       docker = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       element = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       etcher = {
-        enable = true;
+        enable = lib.mkDefault true;
+      };
+
+      finder = {
+        enable = lib.mkDefault false;
       };
 
       franz = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       git = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       gpg = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       hammerspoon = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       istatmenus = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       iterm = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       jabra = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       kya = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       lastpass = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       lens = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       macdown = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       mattermost = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       minecraft = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       multipass = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       ngrok = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       owncloud = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       rectangle = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       signal = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       slack = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       steam = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
 
       teams = {
-        enable = true;
+        enable = lib.mkDefault true;
       };
     };
   };
