@@ -74,7 +74,6 @@ in
         ];
 
         casks = [
-          "mysides"
           "swiftdefaultappsprefpane"
         ];
 
@@ -93,6 +92,7 @@ in
         systemPackages = with pkgs; [
           m-cli
           dockutil
+          mysides
         ];
       };
 
