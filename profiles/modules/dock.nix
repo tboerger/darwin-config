@@ -60,6 +60,12 @@ in
           cfg.entries;
       in
       {
+        environment = {
+          systemPackages = with pkgs; [
+            dockutil
+          ];
+        };
+
         system.activationScripts.postUserActivation.text = ''
           echo >&2 "Setting up dock items..."
           haveURIs="$(dockutil --list | ${pkgs.coreutils}/bin/cut -f2)"

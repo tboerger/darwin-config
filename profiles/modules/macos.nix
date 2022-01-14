@@ -91,8 +91,6 @@ in
       environment = {
         systemPackages = with pkgs; [
           m-cli
-          dockutil
-          mysides
         ];
       };
 

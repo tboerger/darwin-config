@@ -55,6 +55,12 @@ in
           cfg.entries;
       in
       {
+        environment = {
+          systemPackages = with pkgs; [
+            mysides
+          ];
+        };
+
         system.activationScripts.postUserActivation.text = ''
           echo >&2 "Setting up finder items..."
           haveURIs="$(mysides list | ${pkgs.coreutils}/bin/cut -d' ' -f3)"
