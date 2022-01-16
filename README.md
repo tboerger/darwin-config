@@ -59,6 +59,7 @@ darwin-rebuild switch \
 ### Bootstrap
 
 ```console
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 sh <(curl -L https://nixos.org/nix/install)
 echo "run\tprivate/var/run" | sudo tee -a /etc/synthetic.conf
 reboot
@@ -88,6 +89,7 @@ darwin-rebuild switch \
 ### Bootstrap
 
 ```console
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 sh <(curl -L https://nixos.org/nix/install)
 echo "run\tprivate/var/run" | sudo tee -a /etc/synthetic.conf
 reboot
