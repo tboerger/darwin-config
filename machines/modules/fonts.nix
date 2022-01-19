@@ -21,11 +21,16 @@ in
   config = with lib;
     mkIf cfg.enable {
       homebrew = {
+        brews = [
+          "svn"
+        ];
+
         taps = [
           "homebrew/cask-fonts"
         ];
 
         casks = [
+          "font-source-code-pro"
           "font-fira-code"
           "font-fontawesome"
           "font-fira-code-nerd-font"
