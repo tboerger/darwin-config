@@ -88,6 +88,7 @@ in
               };
               pager = {
                 branch = false;
+                tag = false;
               };
               push = {
                 default = "simple";
