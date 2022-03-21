@@ -47,7 +47,7 @@ in
             path = "/Applications/LastPass.app";
           }
           {
-            path = "/Applications/Franz.app";
+            path = "/Applications/Rambox.app";
           }
           {
             path = "/Applications/Slack.app";
@@ -141,6 +141,11 @@ in
         ".local/bin/search-and-replace" = {
           executable = true;
           source = ./scripts/search-and-replace.sh;
+        };
+
+        ".local/bin/each-dir" = {
+          executable = true;
+          source = ./scripts/each-dir.sh;
         };
 
         ".local/bin/sort-requirements" = {
