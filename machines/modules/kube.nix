@@ -23,16 +23,22 @@ in
       environment = {
         systemPackages = with pkgs; [
           argocd
-          # helm
+          chart-testing
+          clusterctl
           helm-docs
           jsonnet
           jsonnet-bundler
           k9s
+          kind
           krew
           kubectl
+          kubectx
+          kubernetes-helm
           kustomize
           kustomize-sops
+          sonobuoy
           stern
+          yamale
         ];
       };
     };
