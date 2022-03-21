@@ -26,6 +26,7 @@
     ./hammerspoon.nix
     ./istatmenus.nix
     ./iterm.nix
+    ./itsycal.nix
     ./jabra.nix
     ./kya.nix
     ./lastpass.nix
@@ -36,12 +37,21 @@
     ./multipass.nix
     ./ngrok.nix
     ./owncloud.nix
+    ./rambox.nix
     ./rectangle.nix
+    ./rocketchat.nix
     ./signal.nix
     ./slack.nix
+    ./soundsource.nix
     ./steam.nix
     ./teams.nix
   ];
+
+  homebrew = {
+    brews = [
+      "texlive"
+    ];
+  };
 
   my = {
     modules = {
@@ -110,7 +120,7 @@
       };
 
       franz = {
-        enable = lib.mkDefault true;
+        enable = lib.mkDefault false;
       };
 
       git = {
@@ -130,6 +140,10 @@
       };
 
       iterm = {
+        enable = lib.mkDefault true;
+      };
+
+      itsycal = {
         enable = lib.mkDefault true;
       };
 
@@ -173,7 +187,15 @@
         enable = lib.mkDefault true;
       };
 
+      rambox = {
+        enable = lib.mkDefault true;
+      };
+
       rectangle = {
+        enable = lib.mkDefault true;
+      };
+
+      rocketchat = {
         enable = lib.mkDefault true;
       };
 
@@ -182,6 +204,10 @@
       };
 
       slack = {
+        enable = lib.mkDefault true;
+      };
+
+      soundsource = {
         enable = lib.mkDefault true;
       };
 
