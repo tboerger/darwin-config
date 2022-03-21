@@ -3,7 +3,7 @@ set -e
 
 [ "$1" = "-h" ] && exec sed -ne '/^#/!q;s/.\{1,2\}//;1d;p' < "$0"
 
-workdir="$(mktemp -d -t gh-pages)"
+workdir="$(mktemp -d -t gh-pages.XXXXXXXXXX)"
 repo="${1}"
 
 if [[ -z "${repo}" ]]; then

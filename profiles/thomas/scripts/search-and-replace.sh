@@ -9,10 +9,16 @@ if [ "$1" == "-w" ]; then
 	shift 1
 fi
 
+hidden=""
+if [ "$1" == "-H" ]; then
+	hidden="--hidden"
+	shift 1
+fi
+
 num_files=0
 has_error=0
 
-pt -l $word "$1" | while read file; do
+ag -l $word $hidden "$1" | while read file; do
 	sed -i.bak "s|${word:+[[:<:]]}${1}${word:+[[:>:]]}|${2}|g" "$file"
 
 	if diff -q "$file" "${file}.bak" >/dev/null; then
