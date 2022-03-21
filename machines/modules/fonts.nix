@@ -30,10 +30,10 @@ in
         ];
 
         casks = [
-          "font-source-code-pro"
-          "font-fira-code"
-          "font-fontawesome"
           "font-fira-code-nerd-font"
+          "font-fontawesome"
+          "font-sauce-code-pro-nerd-font"
+          "font-source-code-pro"
         ];
       };
     };
