@@ -56,10 +56,10 @@
   };
 
   sessionVariables = {
-    GITHUB_TOKEN = "";
+    # GITHUB_TOKEN = "";
 
-    CLOUDFLARE_EMAIL = "thomas@webhippie.de";
-    CLOUDFLARE_API_KEY = "";
+    # CLOUDFLARE_EMAIL = "thomas@webhippie.de";
+    # CLOUDFLARE_API_KEY = "";
 
     EDITOR = "vim";
     PAGER = "less";
