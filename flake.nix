@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs = {
+      url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
+    };
+
+    unstable = {
       url = "github:nixos/nixpkgs/nixpkgs-unstable";
     };
 
@@ -28,6 +32,10 @@
 
   outputs = { self, nur, ... }@inputs:
     let
+      overlay-unstable = final: prev: {
+        unstable = inputs.unstable.legacyPackages.${prev.system};
+      };
+
       sharedDarwinConfiguration = { config, pkgs, ... }: {
         nix = {
           package = pkgs.nixFlakes;
@@ -59,6 +67,7 @@
           overlays = [
             self.overlay
             nur.overlay
+            overlay-unstable
           ];
         };
       };
