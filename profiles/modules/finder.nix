@@ -57,7 +57,7 @@ in
       {
         environment = {
           systemPackages = with pkgs; [
-            mysides
+            unstable.mysides
           ];
         };
 
