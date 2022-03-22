@@ -17,38 +17,6 @@ in
       };
     };
 
-    system.defaults.dock.wvous-tl-corner = mkOption {
-      type = types.nullOr types.int;
-      default = null;
-      description = ''
-        Hot corner action for top left corner
-      '';
-    };
-
-    system.defaults.dock.wvous-bl-corner = mkOption {
-      type = types.nullOr types.int;
-      default = null;
-      description = ''
-        Hot corner action for bottom left corner
-      '';
-    };
-
-    system.defaults.dock.wvous-tr-corner = mkOption {
-      type = types.nullOr types.int;
-      default = null;
-      description = ''
-        Hot corner action for top right corner
-      '';
-    };
-
-    system.defaults.dock.wvous-br-corner = mkOption {
-      type = types.nullOr types.int;
-      default = null;
-      description = ''
-        Hot corner action for bottom right corner
-      '';
-    };
-
     system.defaults.dock.largesize = mkOption {
       type = types.nullOr types.int;
       default = null;
