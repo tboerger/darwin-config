@@ -67,7 +67,8 @@ let
       substituteInPlace pyproject.toml \
         --replace 'PyYAML = "6.0"' 'PyYAML = "*"' \
         --replace 'unidiff = "0.7.3"' 'unidiff = "*"' \
-        --replace 'jsonschema = "4.4.0"' 'jsonschema = "*"'
+        --replace 'jsonschema = "4.4.0"' 'jsonschema = "*"' \
+        --replace 'toolz = "0.11.2"' 'toolz = "*"'
     '';
 
     nativeBuildInputs = [
@@ -116,7 +117,8 @@ let
       substituteInPlace pyproject.toml \
         --replace 'environs = "9.5.0"' 'environs = "*"' \
         --replace 'jsonschema = "4.4.0"' 'jsonschema = "*"' \
-        --replace '"ruamel.yaml" = "0.17.21"' '"ruamel.yaml" = "*"'
+        --replace '"ruamel.yaml" = "0.17.21"' '"ruamel.yaml" = "*"' \
+        --replace 'Jinja2 = "3.0.3"' 'Jinja2 = "*"'
     '';
 
     nativeBuildInputs = [
