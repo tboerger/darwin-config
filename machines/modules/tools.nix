@@ -1,4 +1,4 @@
-{ pkgs, lib, config, options, ... }:
+{ pkgs, lib, config, options, inputs, ... }:
 
 let
   cfg = config.my.modules.tools;
@@ -205,6 +205,8 @@ let
     hcloud
     passlib
     requests
+    boto3
+    botocore
   ]);
 in
 
@@ -246,6 +248,7 @@ in
           ngrok
           nmap
           nodejs-16_x
+          yarn
           p7zip
           pwgen
           python
@@ -255,12 +258,17 @@ in
           shellcheck
           silver-searcher
           sops
-          terraform
+          unstable.terraform
+          unstable.terragrunt
           tmux
           tree
           upx
           vim
           wget
+          php
+          php80Packages.composer
+
+          inputs.agenix.defaultPackage.x86_64-darwin
         ];
       };
     };

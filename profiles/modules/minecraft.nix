@@ -27,6 +27,7 @@ in
         ];
 
         casks = [
+          "temurin"
           "temurin8"
           "multimc"
           "curseforge"
