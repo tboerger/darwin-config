@@ -127,6 +127,8 @@ in
 
       sessionPath = [
         "$HOME/.local/bin"
+        "$HOME/.krew/bin"
+        "$HOME/Golang/bin"
       ];
 
       file = {

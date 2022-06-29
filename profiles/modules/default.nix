@@ -5,7 +5,6 @@
     ./settings.nix
     ./macos.nix
 
-    ./acrobat.nix
     ./alfred.nix
     ./appcleaner.nix
     ./authy.nix
@@ -13,6 +12,7 @@
     ./blizzard.nix
     ./chrome.nix
     ./clickup.nix
+    ./cloud.nix
     ./deezer.nix
     ./discord.nix
     ./dock.nix
@@ -36,6 +36,8 @@
     ./minecraft.nix
     ./multipass.nix
     ./ngrok.nix
+    ./office.nix
+    ./onlyswitch.nix
     ./owncloud.nix
     ./rambox.nix
     ./rectangle.nix
@@ -56,10 +58,6 @@
   my = {
     modules = {
       macos = {
-        enable = lib.mkDefault true;
-      };
-
-      acrobat = {
         enable = lib.mkDefault true;
       };
 
@@ -88,6 +86,10 @@
       };
 
       clickup = {
+        enable = lib.mkDefault true;
+      };
+
+      cloud = {
         enable = lib.mkDefault true;
       };
 
@@ -180,6 +182,14 @@
       };
 
       ngrok = {
+        enable = lib.mkDefault true;
+      };
+
+      office = {
+        enable = lib.mkDefault true;
+      };
+
+      onlyswitch = {
         enable = lib.mkDefault true;
       };
 

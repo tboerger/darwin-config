@@ -1,7 +1,7 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.my.modules.acrobat;
+  cfg = config.my.modules.onlyswitch;
 
 in
 
@@ -9,9 +9,9 @@ in
   options = with lib; {
     my = {
       modules = {
-        acrobat = {
+        onlyswitch = {
           enable = mkEnableOption ''
-            Whether to enable acrobat module
+            Whether to enable onlyswitch module
           '';
         };
       };
@@ -22,7 +22,7 @@ in
     mkIf cfg.enable {
       homebrew = {
         casks = [
-          "adobe-acrobat-reader"
+          "only-switch"
         ];
       };
     };

@@ -62,7 +62,7 @@ in
       {
         environment = {
           systemPackages = with pkgs; [
-            unstable.dockutil
+            dockutil
           ];
         };
 
