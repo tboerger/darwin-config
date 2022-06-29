@@ -165,6 +165,8 @@ in
           source = ./wallpapers/tower.jpg;
         };
       };
+
+      stateVersion = "18.09";
     };
 
     programs = {

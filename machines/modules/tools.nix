@@ -44,7 +44,6 @@ in
           htop
           httpie
           hub
-          hugo
           ipcalc
           jq
           minio-client

@@ -42,6 +42,8 @@ in
       sessionPath = [
         "$HOME/.local/bin"
       ];
+
+      stateVersion = "18.09";
     };
   };
 }
