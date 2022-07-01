@@ -41,6 +41,7 @@ in
           gnumake
           gomplate
           gopass
+          graphviz
           htop
           httpie
           hub
