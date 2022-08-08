@@ -12,6 +12,7 @@
     ./blizzard.nix
     ./chrome.nix
     ./clickup.nix
+    ./clockify.nix
     ./cloud.nix
     ./deezer.nix
     ./discord.nix
@@ -37,6 +38,7 @@
     ./multipass.nix
     ./ngrok.nix
     ./office.nix
+    ./oneclipboard.nix
     ./onlyswitch.nix
     ./owncloud.nix
     ./rambox.nix
@@ -86,6 +88,10 @@
       };
 
       clickup = {
+        enable = lib.mkDefault true;
+      };
+
+      clockify = {
         enable = lib.mkDefault true;
       };
 
@@ -186,6 +192,10 @@
       };
 
       office = {
+        enable = lib.mkDefault true;
+      };
+
+      oneclipboard = {
         enable = lib.mkDefault true;
       };
 
