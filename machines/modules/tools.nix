@@ -3,10 +3,11 @@
 let
   cfg = config.my.modules.tools;
 
-  python = pkgs.unstable.python39.withPackages (p: with p; [
+  python = pkgs.python39.withPackages (p: with p; [
+    pkgs.python39Packages.ansible-doctor
+    pkgs.python39Packages.ansible-later
+
     ansible-core
-    ansible-doctor
-    ansible-later
     ansible-lint
     hcloud
     passlib

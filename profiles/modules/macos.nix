@@ -51,8 +51,10 @@ in
 
         masApps = {
           "1Password 7" = 1333542190;
-          # "Xcode" = 497799835;
+          "Display Maid" = 450063525;
+          "Navicat Premium Essentials" = 466416967;
           "The Unarchiver" = 425424353;
+          "Xcode" = 497799835;
         };
       };
 
@@ -107,7 +109,7 @@ in
 
           dock = {
             autohide = true;
-            autohide-delay = "0.2";
+            autohide-delay = 0.2;
             mineffect = "scale";
             show-recents = false;
             tilesize = 32;

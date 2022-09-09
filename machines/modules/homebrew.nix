@@ -22,8 +22,13 @@ in
     mkIf cfg.enable {
       homebrew = {
         enable = true;
-        autoUpdate = true;
-        cleanup = "zap";
+
+        onActivation = {
+          autoUpdate = true;
+          upgrade = true;
+          cleanup = "zap";
+        };
+
       };
     };
 }
