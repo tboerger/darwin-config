@@ -9,9 +9,15 @@ in
 {
   imports = [
     ../modules
+
+    ../programs
+    ./programs
+
+    ../services
+    ./services
   ];
 
-  my = {
+  profile = {
     username = "${username}";
 
     modules = {
@@ -124,12 +130,7 @@ in
   home-manager.users."${username}" = { config, ... }: {
     home = {
       homeDirectory = "/Users/${username}";
-
-      sessionPath = [
-        "$HOME/.local/bin"
-        "$HOME/.krew/bin"
-        "$HOME/Golang/bin"
-      ];
+      sessionPath = [ "$HOME/.local/bin" ];
 
       file = {
         ".local/bin/git-gh-pages" = {
@@ -167,22 +168,6 @@ in
       };
 
       stateVersion = "18.09";
-    };
-
-    programs = {
-      alacritty = import ./programs/alacritty.nix { inherit pkgs; };
-      dircolors = import ./programs/dircolors.nix { inherit pkgs; };
-      direnv = import ./programs/direnv.nix { inherit pkgs; };
-      fzf = import ./programs/fzf.nix { inherit pkgs; };
-      go = import ./programs/go.nix { inherit pkgs; };
-      lsd = import ./programs/lsd.nix { inherit pkgs; };
-      neovim = import ./programs/neovim.nix { inherit pkgs; };
-      octant = import ./programs/octant.nix { inherit pkgs; };
-      readline = import ./programs/readline.nix { inherit pkgs; };
-      ssh = import ./programs/ssh.nix { inherit pkgs; };
-      starship = import ./programs/starship.nix { inherit pkgs; };
-      vscode = import ./programs/vscode.nix { inherit pkgs; };
-      zsh = import ./programs/zsh.nix { inherit pkgs; };
     };
   };
 }

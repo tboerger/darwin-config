@@ -1,33 +1,16 @@
 { pkgs, lib, config, options, ... }:
-
-let
-  cfg = config.my.modules.sudoers;
-
-in
+with lib;
 
 {
-  options = with lib; {
-    my = {
-      modules = {
-        sudoers = {
-          enable = mkEnableOption ''
-            Whether to enable sudoers module
+  config = {
+    environment = {
+      etc = {
+        "sudoers.d/admin" = {
+          text = ''
+            %admin ALL=(ALL) NOPASSWD:ALL
           '';
         };
       };
     };
   };
-
-  config = with lib;
-    mkIf cfg.enable {
-      environment = {
-        etc = {
-          "sudoers.d/admin" = {
-            text = ''
-              %admin ALL=(ALL) NOPASSWD:ALL
-            '';
-          };
-        };
-      };
-    };
 }

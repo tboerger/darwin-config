@@ -1,34 +1,16 @@
 { pkgs, lib, config, options, ... }:
-
-let
-  cfg = config.my.modules.homebrew;
-
-in
+with lib;
 
 {
-  options = with lib; {
-    my = {
-      modules = {
-        homebrew = {
-          enable = mkEnableOption ''
-            Whether to enable homebrew module
-          '';
-        };
+  config = {
+    homebrew = {
+      enable = true;
+
+      onActivation = {
+        autoUpdate = true;
+        upgrade = true;
+        cleanup = "zap";
       };
     };
   };
-
-  config = with lib;
-    mkIf cfg.enable {
-      homebrew = {
-        enable = true;
-
-        onActivation = {
-          autoUpdate = true;
-          upgrade = true;
-          cleanup = "zap";
-        };
-
-      };
-    };
 }

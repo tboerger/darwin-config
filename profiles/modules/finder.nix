@@ -1,12 +1,12 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.my.modules.finder;
+  cfg = config.profile.modules.finder;
 in
 
 {
   options = with lib; {
-    my = {
+    profile = {
       modules = {
         finder = {
           enable = mkEnableOption ''
@@ -35,43 +35,42 @@ in
     };
   };
 
-  config = with lib;
-    mkIf cfg.enable (
-      let
-        normalize = path: if hasSuffix "/" path then path else path + "/";
+  config = with lib; mkIf cfg.enable (
+    let
+      normalize = path: if hasSuffix "/" path then path else path + "/";
 
-        entryURI = path: "file://" + (builtins.replaceStrings
-          [ " " "!" "\"" "#" "$" "%" "&" "'" "(" ")" ]
-          [ "%20" "%21" "%22" "%23" "%24" "%25" "%26" "%27" "%28" "%29" ]
-          (normalize path)
-        );
+      entryURI = path: "file://" + (builtins.replaceStrings
+        [ " " "!" "\"" "#" "$" "%" "&" "'" "(" ")" ]
+        [ "%20" "%21" "%22" "%23" "%24" "%25" "%26" "%27" "%28" "%29" ]
+        (normalize path)
+      );
 
-        wantURIs = concatMapStrings
-          (entry: "${entryURI entry.path}\n")
-          cfg.entries;
+      wantURIs = concatMapStrings
+        (entry: "${entryURI entry.path}\n")
+        cfg.entries;
 
-        createEntries = concatMapStrings
-          (entry: "mysides add '${entry.alias}' '${entryURI entry.path}'\n")
-          cfg.entries;
-      in
-      {
-        environment = {
-          systemPackages = with pkgs; [
-            unstable.mysides
-          ];
-        };
+      createEntries = concatMapStrings
+        (entry: "${pkgs.mysides}/bin/mysides add '${entry.alias}' '${entryURI entry.path}'\n")
+        cfg.entries;
+    in
+    {
+      environment = {
+        systemPackages = with pkgs; [
+          mysides
+        ];
+      };
 
-        system.activationScripts.postUserActivation.text = ''
-          echo >&2 "Setting up finder items..."
-          haveURIs="$(mysides list | ${pkgs.coreutils}/bin/cut -d' ' -f3)"
-          if ! diff -wu <(echo -n "$haveURIs") <(echo -n '${wantURIs}') >&2; then
-            echo >&2 "Resetting finder"
-            mysides remove all
-            ${createEntries}
-          else
-            echo >&2 "Finder is how we want it"
-          fi
-        '';
-      }
-    );
+      system.activationScripts.postUserActivation.text = ''
+        echo >&2 "Setting up finder items..."
+        haveURIs="$(${pkgs.mysides}/bin/mysides list | ${pkgs.coreutils}/bin/cut -d' ' -f3)"
+        if ! diff -wu <(echo -n "$haveURIs") <(echo -n '${wantURIs}') >&2; then
+          echo >&2 "Resetting finder"
+          ${pkgs.mysides}/bin/mysides remove all
+          ${createEntries}
+        else
+          echo >&2 "Finder is how we want it"
+        fi
+      '';
+    }
+  );
 }

@@ -1,88 +1,69 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, options, ... }:
+with lib;
 
+let
+  cfg = config.profile.programs.ssh;
+
+in
 {
-  enable = true;
+  options = {
+    profile = {
+      programs = {
+        ssh = {
+          enable = mkEnableOption "SSH" // {
+            default = true;
+          };
+        };
+      };
+    };
+  };
 
-  matchBlocks = {
-    "asbru" = {
-      hostname = "asbru.webhippie.de";
-      port = 22;
-      user = "root";
-      forwardAgent = true;
-    };
+  config = mkIf cfg.enable {
+    home-manager.users."${config.profile.username}" = { config, ... }: {
+      programs = {
+        ssh = {
+          enable = true;
 
-    "*.cloudpunks.io !jumphost*.cloudpunks.io" = {
-      user = "oper";
-      forwardAgent = true;
-      proxyJump = "tboerger@jumphost1.cloudpunks.io";
-    };
-    "jumphost1.cloudpunks.io" = {
-      user = "tboerger";
-      forwardAgent = true;
-    };
-    "jumphost2.cloudpunks.io" = {
-      user = "tboerger";
-      forwardAgent = true;
-    };
+          matchBlocks = {
+            "midgard" = {
+              hostname = "192.168.1.5";
+              port = 22;
+              user = "thomas";
+            };
+            "asgard" = {
+              hostname = "192.168.1.10";
+              port = 22;
+              user = "thomas";
+            };
+            "utgard" = {
+              hostname = "192.168.1.11";
+              port = 22;
+              user = "thomas";
+            };
 
-    "*.easy01.proactcloud.de !bastion-01.easy01.proactcloud.de" = {
-      user = "detbo";
-      forwardAgent = true;
-      proxyJump = "detbo@bastion-01.easy01.proactcloud.de";
-    };
-    "bastion-01.easy01.proactcloud.de" = {
-      user = "detbo";
-      forwardAgent = true;
-    };
+            "asbru" = {
+              hostname = "asbru.webhippie.de";
+              port = 22;
+              user = "root";
+              forwardAgent = true;
+            };
 
-    "*.easy02.proactcloud.de !bastion-01.easy02.proactcloud.de" = {
-      user = "detbo";
-      forwardAgent = true;
-      proxyJump = "detbo@bastion-01.easy02.proactcloud.de";
-    };
-    "bastion-01.easy02.proactcloud.de" = {
-      user = "detbo";
-      forwardAgent = true;
-    };
-
-    "*.ins01.proactcloud.de !bastion-01.ins01.proactcloud.de" = {
-      user = "detbo";
-      forwardAgent = true;
-      proxyJump = "detbo@bastion-01.ins01.proactcloud.de";
-    };
-    "bastion-01.ins01.proactcloud.de" = {
-      user = "detbo";
-      forwardAgent = true;
-    };
-
-    "*.chef01.proactcloud.de !bastion-01.chef01.proactcloud.de" = {
-      user = "detbo";
-      forwardAgent = true;
-      proxyJump = "detbo@bastion-01.chef01.proactcloud.de";
-    };
-    "bastion-01.chef01.proactcloud.de" = {
-      user = "detbo";
-      forwardAgent = true;
-    };
-
-    "*.sch01.proactcloud.de !bastion-01.sch01.proactcloud.de" = {
-      user = "detbo";
-      forwardAgent = true;
-      proxyJump = "detbo@bastion-01.sch01.proactcloud.de";
-    };
-    "bastion-01.sch01.proactcloud.de" = {
-      user = "detbo";
-      forwardAgent = true;
-    };
-
-    "*.internal.proactcloud.de !bastion-01.internal.proactcloud.de" = {
-      user = "detbo";
-      forwardAgent = true;
-      proxyJump = "detbo@bastion-01.internal.proactcloud.de";
-    };
-    "bastion-01.internal.proactcloud.de" = {
-      user = "detbo";
-      forwardAgent = true;
+            "*.cloudpunks.io !jumphost*.cloudpunks.io" = {
+              user = "oper";
+              forwardAgent = true;
+              proxyJump = "tboerger@jumphost1.cloudpunks.io";
+            };
+            "jumphost1.cloudpunks.io" = {
+              user = "tboerger";
+              forwardAgent = true;
+            };
+            "jumphost2.cloudpunks.io" = {
+              user = "tboerger";
+              forwardAgent = true;
+            };
+          };
+        };
+      };
     };
   };
 }

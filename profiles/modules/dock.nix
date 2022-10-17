@@ -1,12 +1,12 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.my.modules.dock;
+  cfg = config.profile.modules.dock;
 in
 
 {
   options = with lib; {
-    my = {
+    profile = {
       modules = {
         dock = {
           enable = mkEnableOption ''
@@ -40,44 +40,43 @@ in
     };
   };
 
-  config = with lib;
-    mkIf cfg.enable (
-      let
-        normalize = path: if hasSuffix ".app" path then path + "/" else path;
+  config = with lib; mkIf cfg.enable (
+    let
+      normalize = path: if hasSuffix ".app" path then path + "/" else path;
 
-        entryURI = path: "file://" + (builtins.replaceStrings
-          [ " " "!" "\"" "#" "$" "%" "&" "'" "(" ")" ]
-          [ "%20" "%21" "%22" "%23" "%24" "%25" "%26" "%27" "%28" "%29" ]
-          (normalize path)
-        );
+      entryURI = path: "file://" + (builtins.replaceStrings
+        [ " " "!" "\"" "#" "$" "%" "&" "'" "(" ")" ]
+        [ "%20" "%21" "%22" "%23" "%24" "%25" "%26" "%27" "%28" "%29" ]
+        (normalize path)
+      );
 
-        wantURIs = concatMapStrings
-          (entry: "${entryURI entry.path}\n")
-          cfg.entries;
+      wantURIs = concatMapStrings
+        (entry: "${entryURI entry.path}\n")
+        cfg.entries;
 
-        createEntries = concatMapStrings
-          (entry: "dockutil --no-restart --add '${entry.path}' --section ${entry.section} ${entry.options}\n")
-          cfg.entries;
-      in
-      {
-        environment = {
-          systemPackages = with pkgs; [
-            unstable.dockutil
-          ];
-        };
+      createEntries = concatMapStrings
+        (entry: "${pkgs.dockutil}/bin/dockutil --no-restart --add '${entry.path}' --section ${entry.section} ${entry.options}\n")
+        cfg.entries;
+    in
+    {
+      environment = {
+        systemPackages = with pkgs; [
+          dockutil
+        ];
+      };
 
-        system.activationScripts.postUserActivation.text = ''
-          echo >&2 "Setting up dock items..."
-          haveURIs="$(dockutil --list | ${pkgs.coreutils}/bin/cut -f2)"
-          if ! diff -wu <(echo -n "$haveURIs") <(echo -n '${wantURIs}') >&2; then
-            echo >&2 "Resetting dock"
-            dockutil --no-restart --remove all
-            ${createEntries}
-            killall Dock
-          else
-            echo >&2 "Dock is how we want it"
-          fi
-        '';
-      }
-    );
+      system.activationScripts.postUserActivation.text = ''
+        echo >&2 "Setting up dock items..."
+        haveURIs="$(${pkgs.dockutil}/bin/dockutil --list | ${pkgs.coreutils}/bin/cut -f2)"
+        if ! diff -wu <(echo -n "$haveURIs") <(echo -n '${wantURIs}') >&2; then
+          echo >&2 "Resetting dock"
+          ${pkgs.dockutil}/bin/dockutil --no-restart --remove all
+          ${createEntries}
+          killall Dock
+        else
+          echo >&2 "Dock is how we want it"
+        fi
+      '';
+    }
+  );
 }

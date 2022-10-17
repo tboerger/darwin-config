@@ -1,12 +1,8 @@
 {
-  description = "NixOS and Darwin configurations";
+  description = "Darwin configurations by tboerger";
 
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixpkgs-22.05-darwin";
-    };
-
-    unstable = {
       url = "github:nixos/nixpkgs/nixpkgs-unstable";
     };
 
@@ -14,9 +10,8 @@
       url = "github:nix-community/NUR";
     };
 
-    darwin = {
-      url = "github:lnl7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
+    utils = {
+      url = "github:numtide/flake-utils";
     };
 
     agenix = {
@@ -25,17 +20,18 @@
     };
 
     homemanager = {
-      url = "github:nix-community/home-manager/release-22.05";
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    darwin = {
+      url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nur, ... }@inputs:
+  outputs = { self, nixpkgs, nur, utils, agenix, homemanager, darwin, ... }@inputs:
     let
-      overlay-unstable = final: prev: {
-        unstable = inputs.unstable.legacyPackages.${prev.system};
-      };
-
       sharedDarwinConfiguration = { config, pkgs, ... }: {
         nix = {
           package = pkgs.nixFlakes;
@@ -67,57 +63,80 @@
           };
 
           overlays = [
-            self.overlay
+            (import ./overlays)
             nur.overlay
-            overlay-unstable
           ];
         };
       };
     in
     {
-      overlay = import ./overlays;
-
       darwinConfigurations = {
-        osiris = inputs.darwin.lib.darwinSystem {
+        osiris = darwin.lib.darwinSystem {
           system = "x86_64-darwin";
           inherit inputs;
 
           modules = [
-            inputs.homemanager.darwinModules.home-manager
-            inputs.agenix.nixosModules.age
+            homemanager.darwinModules.home-manager
+            agenix.nixosModules.age
             sharedDarwinConfiguration
             ./machines/osiris
             ./profiles/thomas
           ];
+
+          specialArgs = {
+            inherit inputs;
+          };
         };
-        hathor = inputs.darwin.lib.darwinSystem {
+        hathor = darwin.lib.darwinSystem {
           system = "x86_64-darwin";
           inherit inputs;
 
           modules = [
-            inputs.homemanager.darwinModules.home-manager
-            inputs.agenix.nixosModules.age
+            homemanager.darwinModules.home-manager
+            agenix.nixosModules.age
             sharedDarwinConfiguration
             ./machines/hathor
             ./profiles/thomas
           ];
+
+          specialArgs = {
+            inherit inputs;
+          };
         };
-        anubis = inputs.darwin.lib.darwinSystem {
+        anubis = darwin.lib.darwinSystem {
           system = "x86_64-darwin";
           inherit inputs;
 
           modules = [
-            inputs.homemanager.darwinModules.home-manager
-            inputs.agenix.nixosModules.age
+            homemanager.darwinModules.home-manager
+            agenix.nixosModules.age
             sharedDarwinConfiguration
             ./machines/anubis
             ./profiles/thomas
           ];
+
+          specialArgs = {
+            inherit inputs;
+          };
         };
       };
 
       osiris = self.darwinConfigurations.osiris.system;
       hathor = self.darwinConfigurations.hathor.system;
       anubis = self.darwinConfigurations.anubis.system;
-    };
+    } // utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+      {
+        devShell = pkgs.mkShell {
+          buildInputs = with pkgs; [
+            agenix.defaultPackage.${system}
+            nixpkgs-fmt
+            gnumake
+            nixUnstable
+          ];
+        };
+      }
+    );
 }

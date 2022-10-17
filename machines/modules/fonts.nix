@@ -1,40 +1,23 @@
 { pkgs, lib, config, options, ... }:
-
-let
-  cfg = config.my.modules.fonts;
-
-in
+with lib;
 
 {
-  options = with lib; {
-    my = {
-      modules = {
-        fonts = {
-          enable = mkEnableOption ''
-            Whether to enable fonts module
-          '';
-        };
-      };
+  config = {
+    homebrew = {
+      brews = [
+        "svn"
+      ];
+
+      taps = [
+        "homebrew/cask-fonts"
+      ];
+
+      casks = [
+        "font-fira-code-nerd-font"
+        "font-fontawesome"
+        "font-sauce-code-pro-nerd-font"
+        "font-source-code-pro"
+      ];
     };
   };
-
-  config = with lib;
-    mkIf cfg.enable {
-      homebrew = {
-        brews = [
-          "svn"
-        ];
-
-        taps = [
-          "homebrew/cask-fonts"
-        ];
-
-        casks = [
-          "font-fira-code-nerd-font"
-          "font-fontawesome"
-          "font-sauce-code-pro-nerd-font"
-          "font-source-code-pro"
-        ];
-      };
-    };
 }
