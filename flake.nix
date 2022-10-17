@@ -88,9 +88,6 @@
             sharedDarwinConfiguration
             ./machines/osiris
             ./profiles/thomas
-            # ./profiles/anna
-            # ./profiles/adrian
-            # ./profiles/tabea
           ];
         };
         hathor = inputs.darwin.lib.darwinSystem {
@@ -103,9 +100,6 @@
             sharedDarwinConfiguration
             ./machines/hathor
             ./profiles/thomas
-            # ./profiles/anna
-            # ./profiles/adrian
-            # ./profiles/tabea
           ];
         };
         anubis = inputs.darwin.lib.darwinSystem {
@@ -118,9 +112,6 @@
             sharedDarwinConfiguration
             ./machines/anubis
             ./profiles/thomas
-            # ./profiles/anna
-            # ./profiles/adrian
-            # ./profiles/tabea
           ];
         };
       };
