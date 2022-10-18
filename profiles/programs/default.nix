@@ -23,7 +23,6 @@
     ./fzf.nix
     ./gpg.nix
     ./hammerspoon.nix
-    ./istatmenus.nix
     ./iterm.nix
     ./itsycal.nix
     ./jabra.nix
@@ -36,7 +35,6 @@
     ./macdown.nix
     ./mattermost.nix
     ./minecraft.nix
-    ./multipass.nix
     ./ngrok.nix
     ./office.nix
     ./onlyswitch.nix
