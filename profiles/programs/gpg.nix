@@ -10,9 +10,9 @@ in
     profile = {
       programs = {
         gpg = {
-          enable = mkEnableOption ''
-            Whether to enable gpg module
-          '';
+          enable = mkEnableOption "GnuPG" // {
+            default = true;
+          };
         };
       };
     };
