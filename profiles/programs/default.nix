@@ -26,6 +26,7 @@
     ./iterm.nix
     ./itsycal.nix
     ./jabra.nix
+    ./joplin.nix
     ./kube.nix
     ./kya.nix
     ./lastpass.nix
@@ -49,6 +50,8 @@
     ./stats.nix
     ./steam.nix
     ./teams.nix
+    ./utm.nix
+    ./yubikey.nix
   ];
 
   options = with lib; {

@@ -20,6 +20,8 @@ in
   config = {
     environment = {
       systemPackages = with pkgs; [
+        protoc-gen-openapiv2
+
         act
         coreutils
         git

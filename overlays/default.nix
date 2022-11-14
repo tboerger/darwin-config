@@ -9,4 +9,6 @@ self: super:
       sha256 = "sha256-2u+bdXU9nU1C8X3hpi7FfI2en4mlgWRPIVzcZrgGzPo=";
     };
   };
+
+  protoc-gen-openapiv2 = super.callPackage ./protoc-gen-openapiv2 { };
 }

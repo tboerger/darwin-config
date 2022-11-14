@@ -33,6 +33,7 @@ in
             "files.trimTrailingWhitespace" = true;
             "go.useLanguageServer" = true;
             "workbench.colorTheme" = "Solarized Dark";
+            "workbench.startupEditor" = "none";
             "[vue]" = {
               "editor.defaultFormatter" = "octref.vetur";
             };
