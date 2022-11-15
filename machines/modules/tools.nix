@@ -2,17 +2,41 @@
 with lib;
 
 let
-  python = pkgs.python39.withPackages (p: with p; [
+  ansible-doctor = pkgs.ansible-doctor.overrideAttrs (final: prev: {
+    postPatch = prev.postPatch + ''
+      substituteInPlace pyproject.toml \
+        --replace 'colorama = "0.4.5"' 'colorama = "*"'
+    '';
+  });
+
+  ansible-later = pkgs.ansible-later.overrideAttrs (final: prev: {
+    postPatch = prev.postPatch + ''
+      substituteInPlace pyproject.toml \
+        --replace 'colorama = "0.4.5"' 'colorama = "*"'
+    '';
+  });
+
+  checkov = pkgs.checkov.overrideAttrs (final: prev: {
+    disabledTests = prev.disabledTests ++ [
+      "test_file_with_class_attribute"
+      "test_file_with_class_const"
+      "test_dataclass_skip"
+    ];
+  });
+
+  python310 = pkgs.python310.withPackages (p: with p; [
     ansible-core
     ansible-doctor
     ansible-later
     ansible-lint
+
+    hcloud
+    yamllint
+
     boto3
     botocore
-    hcloud
     passlib
     requests
-    yamllint
   ]);
 
 in
@@ -20,7 +44,7 @@ in
   config = {
     environment = {
       systemPackages = with pkgs; [
-        protoc-gen-openapiv2
+        python310
 
         act
         coreutils
@@ -40,20 +64,20 @@ in
         nmap
         p7zip
         pwgen
-        python
         reflex
         rsync
         s3cmd
         shellcheck
         silver-searcher
         sops
+        tldr
         tmux
         tree
         upx
         vim
         wget
 
-        # checkov
+        checkov
         terraform
         terragrunt
         tflint
@@ -61,9 +85,6 @@ in
 
         nodejs-16_x
         yarn
-
-        php80
-        php80Packages.composer
       ];
     };
 
