@@ -34,6 +34,7 @@ sh <(curl -L https://nixos.org/nix/install)
 reboot
 
 nix \
+    --extra-experimental-features "nix-command flakes" \
     build \
     github:tboerger/darwin-config\#dagda \
     --no-write-lock-file
