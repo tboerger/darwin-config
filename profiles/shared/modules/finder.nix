@@ -1,13 +1,13 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.profile.modules.finder;
+  cfg = config.profile.programs.finder;
 in
 
 {
   options = with lib; {
     profile = {
-      modules = {
+      programs = {
         finder = {
           enable = mkEnableOption ''
             Whether to enable finder module

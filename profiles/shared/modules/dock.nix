@@ -1,13 +1,13 @@
 { pkgs, lib, config, options, ... }:
 
 let
-  cfg = config.profile.modules.dock;
+  cfg = config.profile.programs.dock;
 in
 
 {
   options = with lib; {
     profile = {
-      modules = {
+      programs = {
         dock = {
           enable = mkEnableOption ''
             Whether to enable dock module
