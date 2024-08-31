@@ -1,8 +1,8 @@
-# workstation
+# darwin-config
 
-[![Build](https://github.com/tboerger/workstation/actions/workflows/build.yml/badge.svg)](https://github.com/tboerger/workstation/actions/workflows/build.yml)
+[![Build](https://github.com/tboerger/darwin-config/actions/workflows/build.yml/badge.svg)](https://github.com/tboerger/darwin-config/actions/workflows/build.yml)
 
-Provisioning for my Macbook's based on [Nix][nix].
+Provisioning for my MacBook's with [Nix][nix].
 
 ## Secrets
 
@@ -21,97 +21,32 @@ Generally we disable SIP, just boot into the recovery system and open a terminal
 to execute `csrutil disable`, after rebooting into the regular system you can
 check with `csrutil status` if it's still disabled.
 
-Generally it's a good idea to install all apps from the store which have been
-bought, especially Xcode, otherwise it fails to build macOS applications.
+It's a good idea to install all apps from the store which have been bought,
+especially Xcode, otherwise it fails to build macOS applications.
 
-## Osiris
-
-### Bootstrap
-
-```console
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-sh <(curl -L https://nixos.org/nix/install)
-echo "run\tprivate/var/run" | sudo tee -a /etc/synthetic.conf
-reboot
-
-nix \
-    --extra-experimental-features "nix-command flakes" \
-    build \
-    github:tboerger/workstation\#osiris \
-    --no-write-lock-file
-
-./result/sw/bin/darwin-rebuild switch \
-    --flake github:tboerger/workstation\#osiris
-```
-
-### Updates
-
-If the repository had been cloned you could just execute `make switch`,
-otherwise there is still this long option to update the deployment:
-
-```console
-darwin-rebuild switch \
-    --flake github:tboerger/workstation\#osiris
-```
-
-## Hathor
+## Dagda
 
 ### Bootstrap
 
 ```console
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 sh <(curl -L https://nixos.org/nix/install)
-echo "run\tprivate/var/run" | sudo tee -a /etc/synthetic.conf
 reboot
 
 nix \
-    --extra-experimental-features "nix-command flakes" \
     build \
-    github:tboerger/workstation\#hathor \
+    github:tboerger/darwin-config\#dagda \
     --no-write-lock-file
 
 ./result/sw/bin/darwin-rebuild switch \
-    --flake github:tboerger/workstation\#hathor
+    --flake github:tboerger/darwin-config\#dagda
 ```
 
 ### Updates
 
-If the repository had been cloned you could just execute `make switch`,
-otherwise there is still this long option to update the deployment:
-
 ```console
 darwin-rebuild switch \
-    --flake github:tboerger/workstation\#hathor
-```
-
-## Anubis
-
-### Bootstrap
-
-```console
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-sh <(curl -L https://nixos.org/nix/install)
-echo "run\tprivate/var/run" | sudo tee -a /etc/synthetic.conf
-reboot
-
-nix \
-    --extra-experimental-features "nix-command flakes" \
-    build \
-    github:tboerger/workstation\#anubis \
-    --no-write-lock-file
-
-./result/sw/bin/darwin-rebuild switch \
-    --flake github:tboerger/workstation\#anubis
-```
-
-### Updates
-
-If the repository had been cloned you could just execute `make switch`,
-otherwise there is still this long option to update the deployment:
-
-```console
-darwin-rebuild switch \
-    --flake github:tboerger/workstation\#anubis
+    --flake github:tboerger/darwin-config\#dagda
 ```
 
 ## Security

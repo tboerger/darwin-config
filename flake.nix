@@ -6,21 +6,26 @@
       url = "github:nixos/nixpkgs/nixpkgs-unstable";
     };
 
-    nur = {
-      url = "github:nix-community/NUR";
-    };
-
     utils = {
       url = "github:numtide/flake-utils";
     };
 
-    agenix = {
-      url = "github:ryantm/agenix";
+    nur = {
+      url = "github:nix-community/NUR";
+    };
+
+    devshell = {
+      url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     homemanager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    agenix = {
+      url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -30,11 +35,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, nur, utils, agenix, homemanager, darwin, ... }@inputs:
+  outputs = { self, nixpkgs, utils, nur, devshell, homemanager, agenix, darwin, ... }@inputs:
     let
-      sharedDarwinConfiguration = { config, pkgs, ... }: {
+      inherit (self) outputs;
+
+      sharedConfiguration = { config, pkgs, ... }: {
         nix = {
-          package = pkgs.nixFlakes;
+          package = pkgs.nixVersions.stable;
 
           extraOptions = ''
             experimental-features = nix-command flakes
@@ -55,6 +62,13 @@
               "tboerger.cachix.org-1:3Q1gyqgA9NsOshOgknDvc6fhA8gw0PFAf2qs5vJpeLU="
             ];
           };
+
+          gc = {
+            automatic = true;
+            persistent = true;
+            dates = "weekly";
+            options = "--delete-older-than 2w";
+          };
         };
 
         nixpkgs = {
@@ -64,79 +78,90 @@
 
           overlays = [
             (import ./overlays)
-            nur.overlay
           ];
+        };
+      };
+
+      mkComputer = configurationNix: systemName: extraModules: darwin.lib.darwinSystem {
+        system = systemName;
+
+        modules = [
+          sharedConfiguration
+          homemanager.darwinModules.home-manager
+          agenix.nixosModules.default
+          configurationNix
+        ] ++ extraModules;
+
+        specialArgs = {
+          inherit inputs;
         };
       };
     in
     {
       darwinConfigurations = {
-        osiris = darwin.lib.darwinSystem {
-          system = "x86_64-darwin";
-          inherit inputs;
+        dagda = mkComputer
+          ./machines/dagda
+          "aarch64-darwin"
+          [
+            ./profiles/thomas/user.nix
 
-          modules = [
-            homemanager.darwinModules.home-manager
-            agenix.nixosModules.age
-            sharedDarwinConfiguration
-            ./machines/osiris
-            ./profiles/thomas
+            {
+              home-manager = {
+                users = {
+                  thomas = {
+                    imports = [
+                      agenix.homeManagerModules.default
+                      ./profiles/thomas
+                    ];
+                  };
+                };
+              };
+            }
           ];
-
-          specialArgs = {
-            inherit inputs;
-          };
-        };
-        hathor = darwin.lib.darwinSystem {
-          system = "x86_64-darwin";
-          inherit inputs;
-
-          modules = [
-            homemanager.darwinModules.home-manager
-            agenix.nixosModules.age
-            sharedDarwinConfiguration
-            ./machines/hathor
-            ./profiles/thomas
-          ];
-
-          specialArgs = {
-            inherit inputs;
-          };
-        };
-        anubis = darwin.lib.darwinSystem {
-          system = "x86_64-darwin";
-          inherit inputs;
-
-          modules = [
-            homemanager.darwinModules.home-manager
-            agenix.nixosModules.age
-            sharedDarwinConfiguration
-            ./machines/anubis
-            ./profiles/thomas
-          ];
-
-          specialArgs = {
-            inherit inputs;
-          };
-        };
       };
 
-      osiris = self.darwinConfigurations.osiris.system;
-      hathor = self.darwinConfigurations.hathor.system;
-      anubis = self.darwinConfigurations.anubis.system;
-    } // utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
-        devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            agenix.defaultPackage.${system}
-            nixpkgs-fmt
-            gnumake
-            nixUnstable
-          ];
-        };
-      }
-    );
+      dagda = self.darwinConfigurations.dagda.system;
+    } // utils.lib.eachDefaultSystem
+      (system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ devshell.overlays.default ];
+          };
+
+        in
+        {
+          devShells.default = pkgs.devshell.mkShell {
+            commands = [
+              {
+                name = "age-encrypt";
+                category = "secrets commands";
+                help = "Encrypt secret with age";
+                command = "${pkgs.rage}/bin/rage -e -a -i ~/.ssh/id_ed25519";
+              }
+              {
+                name = "age-decrypt";
+                category = "secrets commands";
+                help = "Decrypt secret with age";
+                command = "${pkgs.rage}/bin/rage -d -i ~/.ssh/id_ed25519";
+              }
+
+              {
+                package = "nixpkgs-fmt";
+                category = "formatter commands";
+              }
+            ];
+
+            packages = with pkgs; [
+              inputs.agenix.packages.${system}.default
+
+              git
+              gnumake
+              home-manager
+              nixpkgs-fmt
+              rage
+            ];
+          };
+        }
+      );
 }

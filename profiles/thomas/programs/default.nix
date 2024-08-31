@@ -3,9 +3,11 @@
 {
   imports = [
     ./git.nix
-    ./golang.nix
+    ./github.nix
+    ./gopass.nix
     ./macos.nix
-    ./neovim.nix
+    ./minio.nix
+    ./netrc.nix
     ./ssh.nix
     ./vscode.nix
     ./zsh.nix

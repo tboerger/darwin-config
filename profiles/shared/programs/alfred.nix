@@ -1,0 +1,27 @@
+{ pkgs, lib, config, options, ... }:
+with lib;
+
+let
+  cfg = config.profile.programs.alfred;
+
+in
+
+{
+  options = {
+    profile = {
+      programs = {
+        alfred = {
+          enable = mkEnableOption "Alfred";
+        };
+      };
+    };
+  };
+
+  config = mkIf cfg.enable {
+    homebrew = {
+      casks = [
+        "alfred"
+      ];
+    };
+  };
+}

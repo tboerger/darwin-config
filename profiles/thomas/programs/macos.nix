@@ -16,22 +16,6 @@ in
         };
       };
     };
-
-    system.defaults.dock.largesize = mkOption {
-      type = types.nullOr types.int;
-      default = null;
-      description = ''
-        Large size of the icons in the dock.  The default is 64.
-      '';
-    };
-
-    system.defaults.dock.magnification = mkOption {
-      type = types.nullOr types.bool;
-      default = null;
-      description = ''
-        Enable magnification for the icons in the dock.  The default is false.
-      '';
-    };
   };
 
   config = mkIf cfg.enable {
@@ -49,9 +33,7 @@ in
       ];
 
       masApps = {
-        "1Password 7" = 1333542190;
         "Display Maid" = 450063525;
-        "Navicat Premium Essentials" = 466416967;
         "The Unarchiver" = 425424353;
         "Xcode" = 497799835;
       };
@@ -139,7 +121,7 @@ in
         };
 
         screencapture = {
-          location = "/Users/${config.profile.username}/Pictures/Screenshots";
+          location = "${config.home.homeDirectory}/Pictures/Screenshots";
         };
 
         trackpad = {

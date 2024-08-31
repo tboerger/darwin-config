@@ -19,44 +19,63 @@ in
   };
 
   config = mkIf cfg.enable {
-    home-manager.users."${config.profile.username}" = { config, ... }: {
-      programs = {
-        vscode = {
-          enable = true;
-          package = pkgs.vscode;
+    programs = {
+      vscode = {
+        enable = true;
+        enableUpdateCheck = false;
 
-          userSettings = {
-            "editor.renderControlCharacters" = true;
-            "editor.renderWhitespace" = "all";
-            "editor.rulers" = [ 80 ];
-            "files.insertFinalNewline" = true;
-            "files.trimTrailingWhitespace" = true;
-            "go.useLanguageServer" = true;
-            "workbench.colorTheme" = "Solarized Dark";
-            "workbench.startupEditor" = "none";
-            "[vue]" = {
-              "editor.defaultFormatter" = "octref.vetur";
-            };
-          };
+        extensions = with pkgs.vscode-extensions; [
+          dzhavat.bracket-pair-toggler
+          editorconfig.editorconfig
+          foxundermoon.shell-format
+          golang.go
+          hashicorp.terraform
+          jnoortheen.nix-ide
+          mikestead.dotenv
+          ms-azuretools.vscode-docker
+          ms-kubernetes-tools.vscode-kubernetes-tools
+          ms-python.python
+          ms-vscode-remote.remote-ssh
+          naumovs.color-highlight
+          Vue.volar
+          redhat.vscode-yaml
+          shakram02.bash-beautify
+          signageos.signageos-vscode-sops
+          timonwong.shellcheck
+          yzhang.markdown-all-in-one
+          zxh404.vscode-proto3
+        ];
 
-          extensions = with pkgs.vscode-extensions; [
-            dzhavat.bracket-pair-toggler
-            editorconfig.editorconfig
-            golang.go
-            hashicorp.terraform
-            jnoortheen.nix-ide
-            mikestead.dotenv
-            ms-azuretools.vscode-docker
-            ms-kubernetes-tools.vscode-kubernetes-tools
-            ms-python.python
-            ms-python.vscode-pylance
-            ms-vscode-remote.remote-ssh
-            naumovs.color-highlight
-            octref.vetur
-            redhat.vscode-yaml
-            yzhang.markdown-all-in-one
-            zxh404.vscode-proto3
+        userSettings = {
+          "workbench.colorTheme" = "Solarized Dark";
+          "workbench.startupEditor" = "none";
+
+          "redhat.telemetry.enabled" = true;
+          "git.enableSmartCommit" = true;
+
+          "editor.renderControlCharacters" = true;
+          "editor.renderWhitespace" = "all";
+          "editor.minimap.enabled" = false;
+
+          "editor.rulers" = [
+            80
           ];
+
+          "files.insertFinalNewline" = true;
+          "files.trimTrailingWhitespace" = true;
+
+          "go.useLanguageServer" = true;
+          "go.toolsManagement.autoUpdate" = true;
+
+          "[python]" = {
+            "editor.formatOnType" = true;
+          };
+          "[vue]" = {
+            "editor.defaultFormatter" = "Vue.volar";
+          };
+          "[yaml]" = {
+            "editor.defaultFormatter" = "redhat.vscode-yaml";
+          };
         };
       };
     };
