@@ -6,14 +6,16 @@ with lib;
     environment = {
       systemPackages = with pkgs; [
         lazydocker
+        m-cli
         pwgen
       ];
     };
 
     homebrew = {
       taps = [
-        "webhippie/webhippie"
         "homebrew/cask-versions"
+        "homebrew/cask"
+        "webhippie/webhippie"
       ];
 
       casks = [
@@ -58,6 +60,7 @@ with lib;
         "slack"
         "stats"
         "steam"
+        "swiftdefaultappsprefpane"
         "telegram"
         "temurin"
         "temurin8"
@@ -69,9 +72,16 @@ with lib;
       ];
 
       brews = [
+        "mas"
         "mcrcon"
         "yubikey-agent"
       ];
+
+      # masApps = {
+      #   "Display Maid" = 450063525;
+      #   "The Unarchiver" = 425424353;
+      #   "Xcode" = 497799835;
+      # };
     };
   };
 }
