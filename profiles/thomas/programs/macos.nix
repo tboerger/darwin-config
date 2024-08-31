@@ -19,25 +19,25 @@ in
   };
 
   config = mkIf cfg.enable {
-    homebrew = {
-      taps = [
-        "homebrew/cask"
-      ];
+    # homebrew = {
+    #   taps = [
+    #     "homebrew/cask"
+    #   ];
 
-      casks = [
-        "swiftdefaultappsprefpane"
-      ];
+    #   casks = [
+    #     "swiftdefaultappsprefpane"
+    #   ];
 
-      brews = [
-        "mas"
-      ];
+    #   brews = [
+    #     "mas"
+    #   ];
 
-      masApps = {
-        "Display Maid" = 450063525;
-        "The Unarchiver" = 425424353;
-        "Xcode" = 497799835;
-      };
-    };
+    #   masApps = {
+    #     "Display Maid" = 450063525;
+    #     "The Unarchiver" = 425424353;
+    #     "Xcode" = 497799835;
+    #   };
+    # };
 
     home = {
       packages = with pkgs; [
