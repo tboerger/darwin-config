@@ -20,108 +20,30 @@ in
 
   profile = {
     programs = {
-      # act = {
-      #   enable = true;
-      # };
-      # alfred = {
-      #   enable = true;
-      # };
-      # alttab = {
-      #   enable = true;
-      # };
-      # appcleaner = {
-      #   enable = true;
-      # };
-      # browser = {
-      #   enable = true;
-      # };
-      # chat = {
-      #   enable = true;
-      # };
-      # clouds = {
-      #   enable = true;
-      # };
-      # develop = {
-      #   enable = true;
-      # };
-      # docker = {
-      #   enable = true;
-      # };
-      # etcher = {
-      #   enable = true;
-      # };
-      # gaming = {
-      #   enable = true;
-      # };
-      # gnupg = {
-      #   enable = true;
-      # };
-      # golang = {
-      #   enable = true;
-      # };
-      # graphics = {
-      #   enable = true;
-      # };
-      # hammerspoon = {
-      #   enable = true;
-      # };
-      # ice = {
-      #   enable = true;
-      # };
-      # itsycal = {
-      #   enable = true;
-      # };
-      # joplin = {
-      #   enable = true;
-      # };
-      # kube = {
-      #   enable = true;
-      # };
-      # kya = {
-      #   enable = true;
-      # };
-      # macdown = {
-      #   enable = true;
-      # };
-      # music = {
-      #   enable = true;
-      # };
-      # nextcloud = {
-      #   enable = true;
-      # };
-      # ngrok = {
-      #   enable = true;
-      # };
-      # office = {
-      #   enable = true;
-      # };
-      # onlyswitch = {
-      #   enable = true;
-      # };
-      # password = {
-      #   enable = true;
-      # };
-      # rectangle = {
-      #   enable = true;
-      # };
-      # stats = {
-      #   enable = true;
-      # };
-      # streaming = {
-      #   enable = true;
-      # };
-      # terminal = {
-      #   enable = true;
-      # };
-      # utm = {
-      #   enable = true;
-      # };
-      # work = {
-      #   enable = true;
-      # };
-      # yubikey = {
-      #   enable = true;
-      # };
+      act = {
+        enable = true;
+      };
+      clouds = {
+        enable = true;
+      };
+      develop = {
+        enable = true;
+      };
+      gnupg = {
+        enable = true;
+      };
+      golang = {
+        enable = true;
+      };
+      hammerspoon = {
+        enable = true;
+      };
+      kube = {
+        enable = true;
+      };
+      ngrok = {
+        enable = true;
+      };
 
       dock = {
         enable = true;

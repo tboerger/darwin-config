@@ -12,7 +12,7 @@
         type = types.str;
       };
 
-      modules = { };
+      programs = { };
     };
   };
 }

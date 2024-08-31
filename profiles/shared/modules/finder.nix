@@ -55,22 +55,20 @@ in
     in
     {
       home = {
-        packages = with pkgs; [
-          mysides
-        ];
+        activation = {
+          updateFinderEntries = ''
+            echo >&2 "Setting up finder items..."
+            haveURIs="$(${pkgs.mysides}/bin/mysides list | ${pkgs.coreutils}/bin/cut -d' ' -f3)"
+            if ! diff -wu <(echo -n "$haveURIs") <(echo -n '${wantURIs}') >&2; then
+              echo >&2 "Resetting finder"
+              ${pkgs.mysides}/bin/mysides remove all
+              ${createEntries}
+            else
+              echo >&2 "Finder is how we want it"
+            fi
+          '';
+        };
       };
-
-      system.activationScripts.postUserActivation.text = ''
-        echo >&2 "Setting up finder items..."
-        haveURIs="$(${pkgs.mysides}/bin/mysides list | ${pkgs.coreutils}/bin/cut -d' ' -f3)"
-        if ! diff -wu <(echo -n "$haveURIs") <(echo -n '${wantURIs}') >&2; then
-          echo >&2 "Resetting finder"
-          ${pkgs.mysides}/bin/mysides remove all
-          ${createEntries}
-        else
-          echo >&2 "Finder is how we want it"
-        fi
-      '';
     }
   );
 }

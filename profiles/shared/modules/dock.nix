@@ -76,23 +76,21 @@ in
     in
     {
       home = {
-        packages = with pkgs; [
-          dockutil
-        ];
+        activation = {
+          updateDockEntries = ''
+            echo >&2 "Setting up dock items..."
+            haveURIs="$(${pkgs.dockutil}/bin/dockutil --list | ${pkgs.coreutils}/bin/cut -f2)"
+            if ! diff -wu <(echo -n "$haveURIs") <(echo -n '${wantURIs}') >&2; then
+              echo >&2 "Resetting dock"
+              ${pkgs.dockutil}/bin/dockutil --no-restart --remove all
+              ${createEntries}
+              killall Dock
+            else
+              echo >&2 "Dock is how we want it"
+            fi
+          '';
+        };
       };
-
-      system.activationScripts.postUserActivation.text = ''
-        echo >&2 "Setting up dock items..."
-        haveURIs="$(${pkgs.dockutil}/bin/dockutil --list | ${pkgs.coreutils}/bin/cut -f2)"
-        if ! diff -wu <(echo -n "$haveURIs") <(echo -n '${wantURIs}') >&2; then
-          echo >&2 "Resetting dock"
-          ${pkgs.dockutil}/bin/dockutil --no-restart --remove all
-          ${createEntries}
-          killall Dock
-        else
-          echo >&2 "Dock is how we want it"
-        fi
-      '';
     }
   );
 }

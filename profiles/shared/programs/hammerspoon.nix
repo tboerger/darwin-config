@@ -18,12 +18,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    homebrew = {
-      casks = [
-        "hammerspoon"
-      ];
-    };
-
     home = {
       file = {
         ".hammerspoon/init.lua" = {
