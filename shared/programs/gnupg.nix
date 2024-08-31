@@ -5,8 +5,10 @@ with lib;
   config = {
     programs = {
       gnupg = {
-        enable = true;
-        enableSSHSupport = true;
+        agent = {
+          enable = true;
+          enableSSHSupport = true;
+        };
       };
     };
   };
