@@ -4,7 +4,7 @@ with lib;
 {
   config = {
     fonts = {
-      fonts = with pkgs; [
+      packages = with pkgs; [
         corefonts
         fira-code-nerdfont
         font-awesome
