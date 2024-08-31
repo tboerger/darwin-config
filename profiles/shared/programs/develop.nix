@@ -92,7 +92,7 @@ in
             has_error=0
 
             ag -l $word $hidden "$1" | while read file; do
-              sed -i.bak "s|${word:+[[:<:]]}$1${word:+[[:>:]]}|$2|g" "$file"
+              sed -i.bak "s|''${word:+[[:<:]]}$1''${word:+[[:>:]]}|$2|g" "$file"
 
               if diff -q "$file" "$file.bak" >/dev/null; then
                 echo "Warning: $file: pattern found, but no substitutions made" >&2
