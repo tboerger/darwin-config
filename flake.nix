@@ -68,6 +68,7 @@
           config = {
             allowUnfree = true;
             allowUnsupportedSystem = true;
+            allowBroken = true;
           };
 
           overlays = [
