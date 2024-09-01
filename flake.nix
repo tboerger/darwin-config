@@ -63,18 +63,6 @@
             ];
           };
         };
-
-        nixpkgs = {
-          config = {
-            allowUnfree = true;
-            allowUnsupportedSystem = true;
-            allowBroken = true;
-          };
-
-          overlays = [
-            (import ./overlays)
-          ];
-        };
       };
 
       mkComputer = configurationNix: systemName: extraModules: darwin.lib.darwinSystem {
@@ -100,18 +88,18 @@
           [
             ./profiles/thomas/user.nix
 
-            {
-              home-manager = {
-                users = {
-                  thomas = {
-                    imports = [
-                      agenix.homeManagerModules.default
-                      ./profiles/thomas
-                    ];
-                  };
-                };
-              };
-            }
+            # {
+            #   home-manager = {
+            #     users = {
+            #       thomas = {
+            #         imports = [
+            #           agenix.homeManagerModules.default
+            #           ./profiles/thomas
+            #         ];
+            #       };
+            #     };
+            #   };
+            # }
           ];
       };
 

@@ -2,8 +2,6 @@
 
 {
   imports = [
-    ./fonts.nix
-    ./homebrew.nix
     ./sudoers.nix
     ./time.nix
   ];

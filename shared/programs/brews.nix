@@ -7,15 +7,23 @@ with lib;
       systemPackages = with pkgs; [
         lazydocker
         m-cli
+        mcrcon
         pwgen
       ];
     };
 
     homebrew = {
+      enable = true;
+
+      onActivation = {
+        autoUpdate = true;
+        upgrade = true;
+        cleanup = "zap";
+      };
+
       taps = [
         "homebrew/cask-versions"
         "homebrew/cask"
-        "webhippie/webhippie"
       ];
 
       casks = [
@@ -67,14 +75,10 @@ with lib;
         "utm"
         "wezterm"
         "whatsapp"
-        "yubico-authenticator"
-        "yubico-yubikey-manager"
       ];
 
       brews = [
         "mas"
-        "mcrcon"
-        "yubikey-agent"
       ];
 
       # masApps = {
