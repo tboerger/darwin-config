@@ -54,6 +54,7 @@ with lib;
         "lastpass"
         "macdown"
         "mattermost"
+        "microsoft-auto-update"
         "microsoft-office"
         "microsoft-remote-desktop"
         "microsoft-teams"
