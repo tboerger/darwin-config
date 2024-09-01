@@ -29,6 +29,7 @@ especially Xcode, otherwise it fails to build macOS applications.
 ### Bootstrap
 
 ```console
+softwareupdate --install-rosetta --agree-to-license
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 sh <(curl -L https://nixos.org/nix/install)
 reboot
