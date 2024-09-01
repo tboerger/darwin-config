@@ -55,8 +55,8 @@ in
         python3
 
         ansible
-        ansible-doctor
-        ansible-later
+        # ansible-doctor
+        # ansible-later
         molecule
 
         checkov
