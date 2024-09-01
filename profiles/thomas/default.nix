@@ -42,7 +42,7 @@ in
         enable = true;
       };
       ngrok = {
-        enable = true;
+        enable = false;
       };
 
       dock = {
