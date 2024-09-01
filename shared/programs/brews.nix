@@ -73,7 +73,7 @@ with lib;
         "tailscale"
         "telegram"
         "temurin"
-        "temurin8"
+        "temurin@8"
         "the-unarchiver"
         "utm"
         "wezterm"
