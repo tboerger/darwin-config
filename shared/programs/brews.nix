@@ -22,8 +22,7 @@ with lib;
       };
 
       taps = [
-        "homebrew/cask-versions"
-        "homebrew/cask"
+
       ];
 
       casks = [
@@ -33,6 +32,7 @@ with lib;
         "appcleaner"
         "balenaetcher"
         "battle-net"
+        "ccmenu"
         "citrix-workspace"
         "clickup"
         "clockify"
@@ -55,6 +55,7 @@ with lib;
         "macdown"
         "mattermost"
         "microsoft-office"
+        "microsoft-remote-desktop"
         "microsoft-teams"
         "multimc"
         "nextcloud"
@@ -69,9 +70,11 @@ with lib;
         "stats"
         "steam"
         "swiftdefaultappsprefpane"
+        "tailscale"
         "telegram"
         "temurin"
         "temurin8"
+        "the-unarchiver"
         "utm"
         "wezterm"
         "whatsapp"
@@ -82,8 +85,11 @@ with lib;
       ];
 
       # masApps = {
+      #   "Brother iPrint&Scan" = ;
+      #   "Adblock für Safari" = ;
+      #   "Markoff" = ;
+      #   "Limechat" = ;
       #   "Display Maid" = 450063525;
-      #   "The Unarchiver" = 425424353;
       #   "Xcode" = 497799835;
       # };
     };
