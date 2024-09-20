@@ -40,7 +40,6 @@ in
         jq
         jsonnet-bundler
         mediainfo
-        # mediawriter
         nmap
         p7zip
         reflex
