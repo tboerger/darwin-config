@@ -22,7 +22,12 @@ in
     programs = {
       ssh = {
         enable = true;
+        addKeysToAgent = "yes";
         forwardAgent = true;
+
+        includes = [
+          "~/.orbstack/ssh/config"
+        ];
 
         matchBlocks = {
           "niflheim" = {

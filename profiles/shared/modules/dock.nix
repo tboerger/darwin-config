@@ -38,22 +38,6 @@ in
         };
       };
     };
-
-    system.defaults.dock.largesize = mkOption {
-      type = types.nullOr types.int;
-      default = null;
-      description = ''
-        Large size of the icons in the dock.  The default is 64.
-      '';
-    };
-
-    system.defaults.dock.magnification = mkOption {
-      type = types.nullOr types.bool;
-      default = null;
-      description = ''
-        Enable magnification for the icons in the dock.  The default is false.
-      '';
-    };
   };
 
   config = with lib; mkIf cfg.enable (
@@ -84,7 +68,7 @@ in
               echo >&2 "Resetting dock"
               ${pkgs.dockutil}/bin/dockutil --no-restart --remove all
               ${createEntries}
-              killall Dock
+              /usr/bin/killall Dock
             else
               echo >&2 "Dock is how we want it"
             fi

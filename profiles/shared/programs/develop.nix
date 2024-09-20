@@ -40,7 +40,7 @@ in
         jq
         jsonnet-bundler
         mediainfo
-        mediawriter
+        # mediawriter
         nmap
         p7zip
         reflex
@@ -48,6 +48,7 @@ in
         shellcheck
         sops
         upx
+        watch
         yamale
         yamllint
         yq-go

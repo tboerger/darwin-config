@@ -5,7 +5,6 @@
     ./git.nix
     ./github.nix
     ./gopass.nix
-    ./macos.nix
     ./minio.nix
     ./netrc.nix
     ./ssh.nix

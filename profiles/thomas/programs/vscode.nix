@@ -23,25 +23,34 @@ in
       vscode = {
         enable = true;
         enableUpdateCheck = false;
+        enableExtensionUpdateCheck = false;
+        mutableExtensionsDir = false;
 
         extensions = with pkgs.vscode-extensions; [
+          bbenoist.nix
+          bradlc.vscode-tailwindcss
           dzhavat.bracket-pair-toggler
           editorconfig.editorconfig
           foxundermoon.shell-format
+          github.vscode-github-actions
           golang.go
+          Grafana.vscode-jsonnet
           hashicorp.terraform
           jnoortheen.nix-ide
+          mads-hartmann.bash-ide-vscode
           mikestead.dotenv
           ms-azuretools.vscode-docker
           ms-kubernetes-tools.vscode-kubernetes-tools
           ms-python.python
+          ms-vscode-remote.remote-containers
           ms-vscode-remote.remote-ssh
+          ms-vscode.makefile-tools
           naumovs.color-highlight
-          Vue.volar
           redhat.vscode-yaml
           shakram02.bash-beautify
           signageos.signageos-vscode-sops
           timonwong.shellcheck
+          Vue.volar
           yzhang.markdown-all-in-one
           zxh404.vscode-proto3
         ];

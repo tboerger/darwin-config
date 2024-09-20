@@ -32,14 +32,12 @@ with lib;
         "appcleaner"
         "balenaetcher"
         "battle-net"
-        "ccmenu"
         "citrix-workspace"
         "clickup"
         "clockify"
         "curseforge"
         "deezer"
         "discord"
-        "docker"
         "element"
         "ferdium"
         "firefox"
@@ -47,21 +45,18 @@ with lib;
         "google-chrome"
         "hammerspoon"
         "iterm2"
-        "itsycal"
         "joplin"
-        "jordanbaird-ice"
+        "bartender"
         "keepingyouawake"
-        "lastpass"
         "macdown"
         "mattermost"
         "microsoft-auto-update"
         "microsoft-office"
         "microsoft-remote-desktop"
         "microsoft-teams"
-        "multimc"
         "nextcloud"
         "obs"
-        "only-switch"
+        "orbstack"
         "prismlauncher"
         "rectangle"
         "rocket-chat"
@@ -77,7 +72,6 @@ with lib;
         "temurin@8"
         "the-unarchiver"
         "utm"
-        "wezterm"
         "whatsapp"
       ];
 
@@ -85,14 +79,15 @@ with lib;
         "mas"
       ];
 
-      # masApps = {
-      #   "Brother iPrint&Scan" = ;
-      #   "Adblock für Safari" = ;
-      #   "Markoff" = ;
-      #   "Limechat" = ;
-      #   "Display Maid" = 450063525;
-      #   "Xcode" = 497799835;
-      # };
+      masApps = {
+        "Adblock für Safari" = 1402042596;
+        "Brother iPrint&Scan" = 1193539993;
+        "Display Maid" = 450063525;
+        "LastPass Password Manager" = 926036361;
+        "LimeChat" = 414030210;
+        "Parallels Desktop" = 1085114709;
+        "Xcode" = 497799835;
+      };
     };
   };
 }

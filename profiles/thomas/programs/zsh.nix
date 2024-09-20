@@ -34,6 +34,8 @@ in
 
         profileExtra = ''
           [ -r ~/.nix-profile/etc/profile.d/nix.sh ] && source  ~/.nix-profile/etc/profile.d/nix.sh
+          [ -r ~/.orbstack/shell/init.zsh ] && source ~/.orbstack/shell/init.zsh
+          [ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
         '';
 
         history = {

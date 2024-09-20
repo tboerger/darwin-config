@@ -34,6 +34,18 @@ self: super:
       version = "2.0.11";
       sha256 = "sha256-EyULg2yS/aqf0ipUQKFjW1WJIHECr26/JIQ+UuTPSLk=";
     };
+    bradlc.vscode-tailwindcss = self.vscode-utils.extensionFromVscodeMarketplace {
+      name = "vscode-tailwindcss";
+      publisher = "bradlc";
+      version = "0.13.38";
+      sha256 = "sha256-+YdPQ4XXLpjREatUimhP+CvJRtupolPHmarm51HLYGQ=";
+    };
+    Grafana.vscode-jsonnet = self.vscode-utils.extensionFromVscodeMarketplace {
+      name = "vscode-jsonnet";
+      publisher = "Grafana";
+      version = "0.6.1";
+      sha256 = "sha256-8t/9EJs9Ly6C89jM6HdCbeAdIvjSfePKD2WQwBtuJI0=";
+    };
   };
 
   vimPlugins = self.lib.recursiveUpdate super.vimPlugins {

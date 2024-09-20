@@ -68,7 +68,7 @@ in
             path = "/Applications/ClickUp.app";
           }
           {
-            path = "/Applications/1Password 8.app";
+            path = "/Applications/1Password.app";
           }
           {
             path = "/Applications/Microsoft Teams.app";
@@ -93,9 +93,6 @@ in
           }
           {
             path = "/Applications/Telegram.app";
-          }
-          {
-            path = "/Applications/Deezer.app";
           }
           {
             path = "${homeDirectory}/Downloads/";
