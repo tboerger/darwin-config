@@ -1,0 +1,26 @@
+---
+name: general
+
+"on":
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  check:
+    runs-on: macos-latest
+
+    steps:
+      - name: Clone source
+        uses: actions/checkout@v4
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v27
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run check
+        run: nix flake check --all-systems
+
+...
