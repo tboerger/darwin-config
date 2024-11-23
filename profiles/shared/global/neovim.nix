@@ -15,6 +15,7 @@
         vim-easy-align
         vim-nix
         vim-vividchalk
+        dracula-nvim
       ];
 
       extraConfig = ''
@@ -94,7 +95,7 @@
         "}
 
         " select scheme {
-        colorscheme vividchalk
+        colorscheme dracula
         "}
 
         " folding mapping {
