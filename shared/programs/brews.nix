@@ -32,6 +32,7 @@ with lib;
         "appcleaner"
         "balenaetcher"
         "battle-net"
+        "bleunlock"
         "citrix-workspace"
         "clickup"
         "clockify"
