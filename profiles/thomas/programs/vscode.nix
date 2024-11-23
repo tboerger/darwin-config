@@ -29,6 +29,8 @@ in
         extensions = with pkgs.vscode-extensions; [
           bbenoist.nix
           bradlc.vscode-tailwindcss
+          christian-kohler.npm-intellisense
+          dracula-theme.theme-dracula
           dzhavat.bracket-pair-toggler
           editorconfig.editorconfig
           foxundermoon.shell-format
@@ -49,6 +51,7 @@ in
           redhat.vscode-yaml
           shakram02.bash-beautify
           signageos.signageos-vscode-sops
+          steoates.autoimport
           timonwong.shellcheck
           Vue.volar
           yzhang.markdown-all-in-one
@@ -56,7 +59,7 @@ in
         ];
 
         userSettings = {
-          "workbench.colorTheme" = "Solarized Dark";
+          "workbench.colorTheme" = "Dracula";
           "workbench.startupEditor" = "none";
 
           "redhat.telemetry.enabled" = true;
