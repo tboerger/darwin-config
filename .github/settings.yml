@@ -63,7 +63,8 @@ branches:
       restrictions:
         apps:
           - renovate
-        users: []
+        users:
+          - tboerger
         teams: []
 
 ...
