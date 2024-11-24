@@ -10,10 +10,6 @@
       url = "github:numtide/flake-utils";
     };
 
-    nur = {
-      url = "github:nix-community/NUR";
-    };
-
     devshell = {
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,7 +31,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, utils, nur, devshell, homemanager, agenix, darwin, ... }@inputs:
+  outputs = { self, nixpkgs, utils, devshell, homemanager, agenix, darwin, ... }@inputs:
     let
       inherit (self) outputs;
 
@@ -128,6 +124,12 @@
                 help = "Decrypt secret with age";
                 command = "${pkgs.rage}/bin/rage -d -i ~/.ssh/id_ed25519";
               }
+              {
+                name = "agenix-rekey";
+                category = "secrets commands";
+                help = "Rekey agenix secrets";
+                command = "cd secrets && agenix -r";
+              }
 
               {
                 package = "nixpkgs-fmt";
@@ -139,7 +141,6 @@
               inputs.agenix.packages.${system}.default
 
               git
-              gnumake
               home-manager
               nixpkgs-fmt
               rage
