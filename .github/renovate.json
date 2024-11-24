@@ -1,6 +1,47 @@
 {
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
-        "config:base"
+        "config:recommended",
+        ":semanticCommits",
+        ":semanticCommitType(deps)"
+    ],
+    "packageRules": [
+        {
+            "description": "Semantic commits for major updates",
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "semanticCommitType": "major",
+            "semanticCommitScope": "deps",
+            "automerge": true
+        },
+        {
+            "description": "Semantic commits for minor updates",
+            "matchUpdateTypes": [
+                "minor"
+            ],
+            "semanticCommitType": "minor",
+            "semanticCommitScope": "deps",
+            "automerge": true
+        },
+        {
+            "description": "Semantic commits for patch updates",
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "semanticCommitType": "patch",
+            "semanticCommitScope": "deps",
+            "automerge": true
+        },
+        {
+            "description": "Build tool version upgrades",
+            "matchManagers": [
+                "github-actions"
+            ],
+            "semanticCommitType": "ci",
+            "semanticCommitScope": "tools",
+            "automerge": true
+        }
     ],
     "labels": [
         "renovate"
