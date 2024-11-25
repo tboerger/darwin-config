@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/tboerger/darwin-config/compare/v1.0.0...v1.1.0) (2024-11-25)
+
+
+### Features
+
+* add empty secrets folder for agenix ([fae3ec9](https://github.com/tboerger/darwin-config/commit/fae3ec900f9fce11e60a3acedf16d530a661da99))
+* drop unused nur repos ([af8d702](https://github.com/tboerger/darwin-config/commit/af8d7020d2c9f84ca0d355176a2c49f2462e029b))
+
 ## 1.0.0 (2024-11-24)
 
 
