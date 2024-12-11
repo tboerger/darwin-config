@@ -8,7 +8,6 @@ with lib;
         corefonts
         fira-code-nerdfont
         font-awesome
-        nerdfonts
         noto-fonts
         noto-fonts-emoji
         noto-fonts-extra
