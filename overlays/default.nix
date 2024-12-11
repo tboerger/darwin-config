@@ -52,6 +52,12 @@ self: super:
       version = "1.5.4";
       sha256 = "sha256-7iIwJJsoNbtTopc+BQ+195aSCLqdNAaGtMoxShyhBWY=";
     };
+    grafana.vscode-jsonnet = self.vscode-utils.extensionFromVscodeMarketplace {
+      name = "vscode-jsonnet";
+      publisher = "grafana";
+      version = "0.6.1";
+      sha256 = "sha256-8t/9EJs9Ly6C89jM6HdCbeAdIvjSfePKD2WQwBtuJI0=";
+    };
   };
 
   vimPlugins = self.lib.recursiveUpdate super.vimPlugins {
