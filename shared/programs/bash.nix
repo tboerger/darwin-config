@@ -6,7 +6,10 @@ with lib;
     programs = {
       bash = {
         enable = true;
-        enableCompletion = true;
+
+        completion = {
+          enable = true;
+        };
       };
     };
   };
