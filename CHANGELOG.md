@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.0](https://github.com/tboerger/darwin-config/compare/v1.1.0...v1.2.0) (2024-12-16)
+
+
+### Features
+
+* add rustdesk to homebrew ([14549bc](https://github.com/tboerger/darwin-config/commit/14549bc56561dc42bf6560b8d202ae4fe6f333ce))
+* drop nerdfonts as it is split into multiple packages ([c3de1bd](https://github.com/tboerger/darwin-config/commit/c3de1bdbb671e47a5946f49267abe68bbd9e8236))
+* install jsonnet vscode extension ([d5279f9](https://github.com/tboerger/darwin-config/commit/d5279f9a63dec924bd643123ee4d6ab437bb4971))
+
+
+### Bugfixes
+
+* resolve deprecated enableCompletion message ([814ee03](https://github.com/tboerger/darwin-config/commit/814ee03fc4cbcef9bc90ad5cfb53af9eddfe4e50))
+
 ## [1.1.0](https://github.com/tboerger/darwin-config/compare/v1.0.0...v1.1.0) (2024-11-25)
 
 
