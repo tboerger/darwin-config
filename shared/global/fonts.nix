@@ -6,8 +6,8 @@ with lib;
     fonts = {
       packages = with pkgs; [
         corefonts
-        fira-code-nerdfont
         font-awesome
+        nerd-fonts.fira-code
         noto-fonts
         noto-fonts-emoji
         noto-fonts-extra
