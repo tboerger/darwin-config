@@ -49,7 +49,7 @@ in
           EDITOR = "vim";
           PAGER = "less";
           CLICOLOR = "1";
-          GREP_COLOR = "1;33";
+          GREP_COLORS = "mt=1;33";
           IGNOREEOF = "1";
 
           OBJC_DISABLE_INITIALIZE_FORK_SAFETY = "YES";
