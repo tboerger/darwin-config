@@ -7,6 +7,7 @@ with lib;
       packages = with pkgs; [
         corefonts
         font-awesome
+        nerd-fonts.droid-sans-mono
         nerd-fonts.fira-code
         noto-fonts
         noto-fonts-emoji
