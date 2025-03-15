@@ -6,7 +6,7 @@
 
 buildGoModule rec {
   pname = "gh-dash";
-  version = "3.14.0";
+  version = "4.13.0";
 
   src = fetchFromGitHub {
     owner = "dlvhdr";

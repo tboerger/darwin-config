@@ -45,7 +45,6 @@ in
               foxundermoon.shell-format
               github.vscode-github-actions
               golang.go
-              grafana.vscode-jsonnet
               Grafana.vscode-jsonnet
               hashicorp.terraform
               jnoortheen.nix-ide

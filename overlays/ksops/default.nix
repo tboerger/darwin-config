@@ -6,7 +6,7 @@
 
 buildGoModule rec {
   pname = "ksops";
-  version = "4.3.1";
+  version = "4.3.3";
 
   src = fetchFromGitHub {
     owner = "viaduct-ai";

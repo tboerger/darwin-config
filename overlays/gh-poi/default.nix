@@ -6,7 +6,7 @@
 
 buildGoModule rec {
   pname = "gh-poi";
-  version = "0.9.8";
+  version = "0.13.0";
 
   src = fetchFromGitHub {
     owner = "seachicken";

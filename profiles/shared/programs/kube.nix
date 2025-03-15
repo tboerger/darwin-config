@@ -56,16 +56,22 @@ in
         kind
         ksops
         kubectl
+        kubectl-deprecations
         kubectl-get-all
         kubectl-images
         kubectl-ktop
         kubectl-neat
         kubectl-oomd
+        kubectl-outdated
         kubectl-pexec
+        kubectl-pod-lens
+        kubectl-rakkess
         kubectl-realname-diff
         kubectl-resource-versions
+        kubectl-rolesum
         kubectl-split-yaml
         kubectl-view-secret
+        kubectl-who-can
         kubectl-whoami
         kubectx
         kubelogin-oidc

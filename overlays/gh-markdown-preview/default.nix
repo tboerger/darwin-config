@@ -6,7 +6,7 @@
 
 buildGoModule rec {
   pname = "gh-markdown-preview";
-  version = "1.4.2";
+  version = "1.10.0";
 
   src = fetchFromGitHub {
     owner = "yusukebe";

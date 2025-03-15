@@ -6,7 +6,7 @@
 
 buildGoModule rec {
   pname = "kubectl-ktop";
-  version = "0.3.5";
+  version = "0.3.7";
 
   src = fetchFromGitHub {
     owner = "vladimirvivien";

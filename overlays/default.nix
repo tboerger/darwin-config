@@ -25,25 +25,25 @@ self: super:
     signageos.signageos-vscode-sops = self.vscode-utils.extensionFromVscodeMarketplace {
       name = "signageos-vscode-sops";
       publisher = "signageos";
-      version = "0.9.1";
+      version = "0.9.2";
       sha256 = "sha256-b1Gp+tL5/e97xMuqkz4EvN0PxI7cJOObusEkcp+qKfM=";
     };
     Vue.volar = self.vscode-utils.extensionFromVscodeMarketplace {
       name = "volar";
       publisher = "Vue";
-      version = "2.0.11";
+      version = "2.2.8";
       sha256 = "sha256-EyULg2yS/aqf0ipUQKFjW1WJIHECr26/JIQ+UuTPSLk=";
     };
     bradlc.vscode-tailwindcss = self.vscode-utils.extensionFromVscodeMarketplace {
       name = "vscode-tailwindcss";
       publisher = "bradlc";
-      version = "0.13.38";
+      version = "0.14.9";
       sha256 = "sha256-+YdPQ4XXLpjREatUimhP+CvJRtupolPHmarm51HLYGQ=";
     };
     Grafana.vscode-jsonnet = self.vscode-utils.extensionFromVscodeMarketplace {
       name = "vscode-jsonnet";
       publisher = "Grafana";
-      version = "0.6.1";
+      version = "0.7.2";
       sha256 = "sha256-8t/9EJs9Ly6C89jM6HdCbeAdIvjSfePKD2WQwBtuJI0=";
     };
     steoates.autoimport = self.vscode-utils.extensionFromVscodeMarketplace {
@@ -51,12 +51,6 @@ self: super:
       publisher = "steoates";
       version = "1.5.4";
       sha256 = "sha256-7iIwJJsoNbtTopc+BQ+195aSCLqdNAaGtMoxShyhBWY=";
-    };
-    grafana.vscode-jsonnet = self.vscode-utils.extensionFromVscodeMarketplace {
-      name = "vscode-jsonnet";
-      publisher = "grafana";
-      version = "0.6.1";
-      sha256 = "sha256-8t/9EJs9Ly6C89jM6HdCbeAdIvjSfePKD2WQwBtuJI0=";
     };
   };
 
@@ -83,8 +77,6 @@ self: super:
     };
   };
 
-  protoc-gen-openapiv2 = super.callPackage ./protoc-gen-openapiv2 { };
-
   gh-dash = super.callPackage ./gh-dash { };
   gh-markdown-preview = super.callPackage ./gh-markdown-preview { };
   gh-poi = super.callPackage ./gh-poi { };
@@ -93,7 +85,6 @@ self: super:
   kubectl-get-all = super.callPackage ./kubectl-get-all { };
   kubectl-images = super.callPackage ./kubectl-images { };
   kubectl-ktop = super.callPackage ./kubectl-ktop { };
-  kubectl-moco = super.callPackage ./kubectl-moco { };
   kubectl-neat = super.callPackage ./kubectl-neat { };
   kubectl-oomd = super.callPackage ./kubectl-oomd { };
   kubectl-outdated = super.callPackage ./kubectl-outdated { };
