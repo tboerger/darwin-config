@@ -59,6 +59,10 @@
             ];
           };
         };
+
+        home-manager = {
+          backupFileExtension = "backup";
+        };
       };
 
       mkComputer = configurationNix: systemName: extraModules: darwin.lib.darwinSystem {
