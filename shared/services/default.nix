@@ -1,7 +1,12 @@
-{ pkgs, lib, config, options, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  options,
+  ...
+}:
 
 {
   imports = [
-    ./daemon.nix
   ];
 }
