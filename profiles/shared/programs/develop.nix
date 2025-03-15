@@ -61,18 +61,8 @@ in
         yq-go
 
         python3
-
         ansible
-        # ansible-doctor
-        # ansible-later
         molecule
-
-        checkov
-        terraform
-        tflint
-        tfsec
-
-        nodejs_20
       ];
 
       file = {
