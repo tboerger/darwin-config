@@ -55,6 +55,7 @@ with lib;
         "microsoft-remote-desktop"
         "microsoft-teams"
         "nextcloud"
+        "ngrok"
         "obs"
         "orbstack"
         "prismlauncher"
