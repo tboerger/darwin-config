@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.3.0](https://github.com/tboerger/darwin-config/compare/v1.2.0...v1.3.0) (2025-03-17)
+
+
+### Features
+
+* add backup to homemamanger ([cab99ab](https://github.com/tboerger/darwin-config/commit/cab99ab20e6d49689da6cb8a2177996508c68fba))
+* add more fonts for starship ([5081d0f](https://github.com/tboerger/darwin-config/commit/5081d0f94cf1293826ba4a884da9252b60d7f6c7))
+* add more java versions and replace deezer with spotify ([00b1ac0](https://github.com/tboerger/darwin-config/commit/00b1ac0a0c61130a9cac771763ae1ba07681acb6))
+* add ngrok to brews ([4a7b6ab](https://github.com/tboerger/darwin-config/commit/4a7b6aba8a93dcb9ea48475af3ac760c3e318658))
+* minimize develop tools a little bit ([22085e0](https://github.com/tboerger/darwin-config/commit/22085e007dd34515a843fdba161eeda97489942f))
+* move vscode config into new place ([9b45fa0](https://github.com/tboerger/darwin-config/commit/9b45fa044d581d3d9274f5c2f06ad313d4ce2a38))
+* update flake and format all files ([80851bf](https://github.com/tboerger/darwin-config/commit/80851bf6aca2636a21db6ed378753451c44d8444))
+* upgrade all dependnecies ([42ec337](https://github.com/tboerger/darwin-config/commit/42ec337290e797382169dff4179c682935105a87))
+
+
+### Bugfixes
+
+* replace deprecated grep color env variable ([b8991fd](https://github.com/tboerger/darwin-config/commit/b8991fd1c7be31307e2637720535feaadf3a7625))
+* use correct non-deprecated nerd font replacement ([5070218](https://github.com/tboerger/darwin-config/commit/507021844f8f0088f088f4295f6ec098f00ae673))
+
 ## [1.2.0](https://github.com/tboerger/darwin-config/compare/v1.1.0...v1.2.0) (2024-12-16)
 
 
