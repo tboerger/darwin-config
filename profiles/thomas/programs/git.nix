@@ -138,6 +138,7 @@ in
           ".DS_Store"
           ".envrc"
           ".vscode"
+          ".idea"
         ];
 
         extraConfig = {

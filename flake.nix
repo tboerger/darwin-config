@@ -56,6 +56,11 @@
             '';
 
             settings = {
+              trusted-users = [
+                "root"
+                "thomas"
+              ];
+
               substituters = [
                 "https://cache.nixos.org"
                 "https://nix-community.cachix.org"
