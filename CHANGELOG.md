@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/tboerger/darwin-config/compare/v1.3.0...v1.4.0) (2025-04-07)
+
+
+### Features
+
+* improve vscode configs ([841f853](https://github.com/tboerger/darwin-config/commit/841f853e76a09d91022df22b44a099e57d3e4a04))
+
 ## [1.3.0](https://github.com/tboerger/darwin-config/compare/v1.2.0...v1.3.0) (2025-03-17)
 
 
