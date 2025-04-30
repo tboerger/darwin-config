@@ -12,7 +12,7 @@ buildGoModule rec {
     owner = "hhiroshell";
     repo = "kubectl-realname-diff";
     rev = "v${version}";
-    sha256 = "sha256-VgcG5Hptu65O2+WqUl6nsSvfJ4MN8TrlgoKKV3iMUss=";
+    sha256 = "sha256-Ej0O5tcHdXHzDSf6aHLgyeYGRv5RbXJMZcyHDyRjLV4=";
   };
 
   vendorHash = "sha256-XJZ9/JKj+WT3TffNP1Z0y5jws2wqZotzzV/1pk+AJkU=";
