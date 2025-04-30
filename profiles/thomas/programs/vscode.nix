@@ -38,6 +38,7 @@ in
             extensions = with pkgs.vscode-extensions; [
               bbenoist.nix
               bradlc.vscode-tailwindcss
+              clemenspeters.format-json
               continue.continue
               dracula-theme.theme-dracula
               dzhavat.bracket-pair-toggler
@@ -46,7 +47,6 @@ in
               golang.go
               Grafana.vscode-jsonnet
               hashicorp.terraform
-              meezilla.json
               mikestead.dotenv
               ms-azuretools.vscode-docker
               ms-kubernetes-tools.vscode-kubernetes-tools
