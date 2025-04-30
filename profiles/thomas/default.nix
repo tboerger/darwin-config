@@ -86,19 +86,10 @@ in
             path = "/Applications/Discord.app";
           }
           {
-            path = "/Applications/Element.app";
-          }
-          {
-            path = "/Applications/Skype.app";
-          }
-          {
             path = "/Applications/Signal.app";
           }
           {
-            path = "/Applications/WhatsApp.app";
-          }
-          {
-            path = "/Applications/Telegram.app";
+            path = "/Applications/Ferdium.app";
           }
           {
             path = "${homeDirectory}/Downloads/";
