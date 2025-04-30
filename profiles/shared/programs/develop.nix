@@ -61,8 +61,8 @@ in
         yq-go
 
         python3
-        ansible
-        molecule
+        # ansible
+        # molecule
       ];
 
       file = {
