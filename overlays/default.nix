@@ -32,25 +32,25 @@ self: super:
       name = "volar";
       publisher = "Vue";
       version = "2.2.8";
-      sha256 = "sha256-EyULg2yS/aqf0ipUQKFjW1WJIHECr26/JIQ+UuTPSLk=";
+      sha256 = "sha256-efEeTq/y4al38Tdut3bHVdluf3tUYqc6CFPX+ch1gLg=";
     };
     bradlc.vscode-tailwindcss = self.vscode-utils.extensionFromVscodeMarketplace {
       name = "vscode-tailwindcss";
       publisher = "bradlc";
       version = "0.14.9";
-      sha256 = "sha256-+YdPQ4XXLpjREatUimhP+CvJRtupolPHmarm51HLYGQ=";
+      sha256 = "sha256-hMR6Te7T+sDeTPhaMsK/TJDS2S6pCKS36solhvqfPfs=";
     };
     Grafana.vscode-jsonnet = self.vscode-utils.extensionFromVscodeMarketplace {
       name = "vscode-jsonnet";
       publisher = "Grafana";
       version = "0.7.2";
-      sha256 = "sha256-8t/9EJs9Ly6C89jM6HdCbeAdIvjSfePKD2WQwBtuJI0=";
+      sha256 = "sha256-Q8VzXzTdHo9h5+eCHHF1bPomPEbRsvouJcUfmFUDGMU=";
     };
-    meezilla.json = self.vscode-utils.extensionFromVscodeMarketplace {
-      name = "json";
-      publisher = "meezilla";
-      version = "0.1.2";
-      sha256 = "sha256-p3/3cfXIMeQVZ5zsWV3iAaZhIfXE2mR79IyV0f79hMQ=";
+    clemenspeters.format-json = self.vscode-utils.extensionFromVscodeMarketplace {
+      name = "format-json";
+      publisher = "clemenspeters";
+      version = "1.0.3";
+      sha256 = "sha256-r4IFZJsvLGtLQjOvXootjIB/Epuvst4CtO7laf4u9D8=";
     };
   };
 
