@@ -12,10 +12,10 @@ buildGoModule rec {
     owner = "mgoltzsche";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-S4+aNte+L5aPQga3543AeRuorpVtsTFHWGmcl5Djxd8=";
+    sha256 = "sha256-9h6OcLpOW8snGUfsRGMq+/PD/feMkNnGZroNiC4D2qU=";
   };
 
-  vendorHash = "sha256-lpJ+qcUnTW32j00/5MtwTojtfrlLysSkAArnUnjJQmU=";
+  vendorHash = "sha256-gh9jXv4jDkVb4Rty53V8G6GsvbzTgmz8QeWQm0XEtrQ=";
 
   doCheck = false;
 
