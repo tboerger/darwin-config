@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.5.0](https://github.com/tboerger/darwin-config/compare/v1.4.0...v1.5.0) (2025-05-05)
+
+
+### Features
+
+* replace used vscode extensions ([eec00b0](https://github.com/tboerger/darwin-config/commit/eec00b042a7818ede3822ccf4982a68956544742))
+* update checksum for khelm ([b58aafb](https://github.com/tboerger/darwin-config/commit/b58aafb03bdb4d608139296ff673cefbc44e1c2c))
+* update checksum for kubectl-realname-diff ([bb670d8](https://github.com/tboerger/darwin-config/commit/bb670d88008610604ec9bd200a530a5740129336))
+* update checksum for vscode extensions ([dd19766](https://github.com/tboerger/darwin-config/commit/dd197663b46a243fbc749ac20d5c28e1c6e352ee))
+* update list of dock apps ([d75fc83](https://github.com/tboerger/darwin-config/commit/d75fc83acf790cd17269ce62b315aa0656f02f77))
+
+
+### Bugfixes
+
+* comment out failing ansible install ([5013f77](https://github.com/tboerger/darwin-config/commit/5013f771a84d95d7bc9dfce624f50378d8c91184))
+* use changed options for lsd ([281df45](https://github.com/tboerger/darwin-config/commit/281df4571543e4e0d077f39884860350df298c5f))
+
 ## [1.4.0](https://github.com/tboerger/darwin-config/compare/v1.3.0...v1.4.0) (2025-04-07)
 
 
