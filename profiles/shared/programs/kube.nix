@@ -51,6 +51,7 @@ in
         kind
         ksops
         kubectl
+        kubectl-cnpg
         kubectl-get-all
         kubectl-images
         kubectl-ktop
