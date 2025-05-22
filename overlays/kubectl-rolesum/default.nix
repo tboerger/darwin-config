@@ -17,13 +17,12 @@ buildGoModule rec {
 
   vendorHash = "sha256-nt/GOG4kdUrmOsMnFs6fNwiBZDVXoa7OdwnZsD2cPy8=";
 
-  doCheck = false;
-  subPackages = [ "." ];
-
   meta = with lib; {
-    description = "A kubectl plugin to summarize RBAC roles";
-    homepage = "https://github.com/Ladicle/kubectl-rolesum/";
+    description = "Summarize Kubernetes RBAC roles for the specified subjects";
+    mainProgram = "kubectl-rolesum";
+    homepage = "https://github.com/Ladicle/kubectl-rolesum";
+    changelog = "https://github.com/Ladicle/kubectl-rolesum/releases/tag/v${version}";
     license = licenses.mit;
-    maintainers = with maintainers; [ tboerger ];
+    maintainers = [ maintainers.tboerger ];
   };
 }

@@ -17,13 +17,12 @@ buildGoModule rec {
 
   vendorHash = "sha256-RyeTTtJpnrpIhcfJrrmDP9TiTrwiTHlh4xjskaxG1Go=";
 
-  doCheck = false;
-  subPackages = [ "." ];
-
   meta = with lib; {
-    description = "A kubectl plugin that gets the subject name using the effective kubeconfig";
-    homepage = "https://github.com/rajatjindal/kubectl-whoami/";
+    description = "Get the subject name using the effective kubeconfig";
+    mainProgram = "kubectl-whoami";
+    homepage = "https://github.com/rajatjindal/kubectl-whoami";
+    changelog = "https://github.com/rajatjindal/kubectl-whoami/releases/tag/v${version}";
     license = licenses.asl20;
-    maintainers = with maintainers; [ tboerger ];
+    maintainers = [ maintainers.tboerger ];
   };
 }

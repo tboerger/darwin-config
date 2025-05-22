@@ -17,13 +17,16 @@ buildGoModule rec {
 
   vendorHash = "sha256-ifOKYXgIZcKT1jov5cGBtH3IdZBVBqHO/JNkMlDXops=";
 
-  doCheck = false;
-  subPackages = [ "." ];
+  postInstall = ''
+    mv $out/bin/kubectl-get-all $out/bin/kubectl-get_all
+  '';
 
   meta = with lib; {
-    description = "A kubectl plugin that shows really all resources";
-    homepage = "https://github.com/stackitcloud/kubectl-get-all/";
+    description = "Like kubectl get all, but get really all resources";
+    mainProgram = "kubectl-get_all";
+    homepage = "https://github.com/stackitcloud/kubectl-get-all";
+    changelog = "https://github.com/stackitcloud/kubectl-get-all/releases/tag/v${version}";
     license = licenses.asl20;
-    maintainers = with maintainers; [ tboerger ];
+    maintainers = [ maintainers.tboerger ];
   };
 }

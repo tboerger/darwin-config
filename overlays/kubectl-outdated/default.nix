@@ -17,7 +17,6 @@ buildGoModule rec {
 
   vendorHash = "sha256-EbLIsOqg4uQB6ER/H05zaFC6sTxCPIQUZUhRgW1i9KQ=";
 
-  doCheck = false;
   subPackages = [ "cmd/outdated" ];
 
   postInstall = ''
@@ -25,9 +24,11 @@ buildGoModule rec {
   '';
 
   meta = with lib; {
-    description = "A kubectl plugin to find and report outdated images";
-    homepage = "https://github.com/replicatedhq/outdated/";
+    description = "Find and report outdated images running in Kubernetes";
+    mainProgram = "kubectl-outdated";
+    homepage = "https://github.com/replicatedhq/outdated";
+    changelog = "https://github.com/replicatedhq/outdated/releases/tag/v${version}";
     license = licenses.asl20;
-    maintainers = with maintainers; [ tboerger ];
+    maintainers = [ maintainers.tboerger ];
   };
 }

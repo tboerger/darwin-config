@@ -17,13 +17,14 @@ buildGoModule rec {
 
   vendorHash = "sha256-XJZ9/JKj+WT3TffNP1Z0y5jws2wqZotzzV/1pk+AJkU=";
 
-  doCheck = false;
   subPackages = [ "cmd/kubectl-realname_diff" ];
 
   meta = with lib; {
-    description = "A kubectl plugin that diffs live and local resources ignoring Kustomize hash-suffixes";
-    homepage = "https://github.com/hhiroshell/kubectl-realname-diff/";
+    description = "Diff live and local resources ignoring Kustomize suffixes";
+    mainProgram = "kubectl-realname_diff";
+    homepage = "https://github.com/hhiroshell/kubectl-realname-diff";
+    changelog = "https://github.com/hhiroshell/kubectl-realname-diff/releases/tag/v${version}";
     license = licenses.asl20;
-    maintainers = with maintainers; [ tboerger ];
+    maintainers = [ maintainers.tboerger ];
   };
 }

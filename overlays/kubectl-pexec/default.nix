@@ -17,17 +17,22 @@ buildGoModule rec {
 
   vendorHash = "sha256-HmRwez3NFSF97Dc6fD/Tt78qNDjovkhlfqloYo2qG68=";
 
-  doCheck = false;
   subPackages = [ "cmd/kpexec" ];
+
+  ldflags = [
+    "-X github.com/ssup2/kpexec/pkg/cmd/kpexec.build=kubectlPlugin"
+  ];
 
   postInstall = ''
     mv $out/bin/kpexec $out/bin/kubectl-pexec
   '';
 
   meta = with lib; {
-    description = "A kubectl plugin to run commands in a container with high privileges";
-    homepage = "https://github.com/ssup2/kpexec/";
+    description = "Execute process with privileges in a pod";
+    mainProgram = "kubectl-pexec";
+    homepage = "https://github.com/ssup2/kpexec";
+    changelog = "https://github.com/ssup2/kpexec/releases/tag/v${version}";
     license = licenses.mit;
-    maintainers = with maintainers; [ tboerger ];
+    maintainers = [ maintainers.tboerger ];
   };
 }

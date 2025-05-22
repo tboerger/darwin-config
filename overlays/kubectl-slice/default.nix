@@ -17,13 +17,12 @@ buildGoModule rec {
 
   vendorHash = "sha256-Lly8gGLkpBAT+h1TJNkt39b5CCrn7xuVqrOjl7RWX7w=";
 
-  doCheck = false;
-  subPackages = [ "." ];
-
   meta = with lib; {
-    description = "A kubectl plugin to split Kubernetes files into smaller files";
-    homepage = "https://github.com/patrickdappollonio/kubectl-slice/";
+    description = "Split Kubernetes files into smaller files";
+    mainProgram = "kubectl-slice";
+    homepage = "https://github.com/patrickdappollonio/kubectl-slice";
+    changelog = "https://github.com/patrickdappollonio/kubectl-slice/releases/tag/v${version}";
     license = licenses.mit;
-    maintainers = with maintainers; [ tboerger ];
+    maintainers = [ maintainers.tboerger ];
   };
 }

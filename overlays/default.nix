@@ -43,6 +43,7 @@ self: super:
   kubectl-rolesum = super.callPackage ./kubectl-rolesum { };
   kubectl-slice = super.callPackage ./kubectl-slice { };
   kubectl-whoami = super.callPackage ./kubectl-whoami { };
+  kubectl-view-secret = super.callPackage ./kubectl-view-secret { };
 
   khelm = super.callPackage ./khelm { };
   ksops = super.callPackage ./ksops { };
