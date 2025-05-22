@@ -10,7 +10,6 @@
   imports = [
     ./git.nix
     ./github.nix
-    ./gopass.nix
     ./minio.nix
     ./netrc.nix
     ./ssh.nix

@@ -68,7 +68,7 @@ in
             path = "/System/Applications/Mail.app";
           }
           {
-            path = "${pkgs.vscode}/Applications/Visual Studio Code.app";
+            path = "/Users/thomas/Applications/Home Manager Apps/Visual Studio Code.app";
           }
           {
             path = "/Applications/ClickUp.app";
@@ -90,6 +90,9 @@ in
           }
           {
             path = "/Applications/Ferdium.app";
+          }
+          {
+            path = "/Applications/Spotify.app";
           }
           {
             path = "${homeDirectory}/Downloads/";
@@ -122,10 +125,6 @@ in
           {
             path = "${homeDirectory}/Developer";
             alias = "Developer";
-          }
-          {
-            path = "${homeDirectory}/Nextcloud";
-            alias = "Nextcloud";
           }
         ];
       };

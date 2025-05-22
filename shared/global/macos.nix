@@ -10,6 +10,8 @@ with lib;
 {
   config = {
     system = {
+      primaryUser = "thomas";
+
       defaults = {
         LaunchServices = {
           LSQuarantine = false;

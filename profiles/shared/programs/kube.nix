@@ -45,38 +45,26 @@ in
       };
 
       packages = with pkgs; [
-        argocd
-        chart-testing
-        clusterctl
-        fluxcd
         grafana-loki
-        helm-docs
         k9s
         khelm
         kind
         ksops
         kubectl
-        kubectl-deprecations
         kubectl-get-all
         kubectl-images
         kubectl-ktop
         kubectl-neat
-        kubectl-oomd
         kubectl-outdated
         kubectl-pexec
-        kubectl-pod-lens
-        kubectl-rakkess
         kubectl-realname-diff
-        kubectl-resource-versions
         kubectl-rolesum
-        kubectl-split-yaml
+        kubectl-slice
         kubectl-view-secret
-        kubectl-who-can
         kubectl-whoami
         kubectx
         kubelogin-oidc
         kubernetes-helm
-        kubevirt
         kustomize
         stern
       ];

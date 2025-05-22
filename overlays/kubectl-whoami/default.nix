@@ -10,7 +10,7 @@ buildGoModule rec {
 
   src = fetchFromGitHub {
     owner = "rajatjindal";
-    repo = "kubectl-whoami";
+    repo = pname;
     rev = "v${version}";
     sha256 = "sha256-Az8H0JL1DkFDj1qhm5lo8Vy5GyP6ubObBqZWHpNm+UQ=";
   };

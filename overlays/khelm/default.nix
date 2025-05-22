@@ -6,16 +6,16 @@
 
 buildGoModule rec {
   pname = "khelm";
-  version = "2.4.2";
+  version = "2.5.0";
 
   src = fetchFromGitHub {
     owner = "mgoltzsche";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-9h6OcLpOW8snGUfsRGMq+/PD/feMkNnGZroNiC4D2qU=";
+    sha256 = "sha256-WCneZIi70JJOAi8NeUNHa8Z4+9e0vn5YiHy6znCo8m8=";
   };
 
-  vendorHash = "sha256-gh9jXv4jDkVb4Rty53V8G6GsvbzTgmz8QeWQm0XEtrQ=";
+  vendorHash = "sha256-rAPdPORW+xvrKkhpCXKRyVUhD/5f10FgS3s/aBOGaPA=";
 
   doCheck = false;
 

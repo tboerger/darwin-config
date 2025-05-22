@@ -57,7 +57,7 @@ in
               naumovs.color-highlight
               redhat.vscode-yaml
               signageos.signageos-vscode-sops
-              Vue.volar
+              vue.volar
             ];
 
             userSettings = {

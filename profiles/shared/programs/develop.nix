@@ -35,34 +35,21 @@ in
   config = mkIf cfg.enable {
     home = {
       packages = with pkgs; [
-        cfssl
         coreutils
         gettext
         gnumake
         gnused
-        go-jsonnet
-        gomplate
         graphviz
         httpie
         ipcalc
         jq
-        jsonnet-bundler
-        mediainfo
         nmap
         p7zip
-        reflex
-        rsync
-        shellcheck
-        sops
-        upx
-        watch
-        yamale
-        yamllint
-        yq-go
-
         python3
-        # ansible
-        # molecule
+        rsync
+        sops
+        watch
+        yq-go
       ];
 
       file = {
