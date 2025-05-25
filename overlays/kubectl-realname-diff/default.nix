@@ -2,16 +2,17 @@
   lib,
   buildGoModule,
   fetchFromGitHub,
+  nix-update-script,
 }:
 
-buildGoModule rec {
+buildGoModule (finalAttrs: {
   pname = "kubectl-realname-diff";
   version = "0.4.0";
 
   src = fetchFromGitHub {
     owner = "hhiroshell";
     repo = "kubectl-realname-diff";
-    rev = "v${version}";
+    rev = "v${finalAttrs.version}";
     sha256 = "sha256-Ej0O5tcHdXHzDSf6aHLgyeYGRv5RbXJMZcyHDyRjLV4=";
   };
 
@@ -19,12 +20,14 @@ buildGoModule rec {
 
   subPackages = [ "cmd/kubectl-realname_diff" ];
 
-  meta = with lib; {
+  passthru.updateScript = nix-update-script { };
+
+  meta = {
     description = "Diff live and local resources ignoring Kustomize suffixes";
     mainProgram = "kubectl-realname_diff";
     homepage = "https://github.com/hhiroshell/kubectl-realname-diff";
-    changelog = "https://github.com/hhiroshell/kubectl-realname-diff/releases/tag/v${version}";
-    license = licenses.asl20;
-    maintainers = [ maintainers.tboerger ];
+    changelog = "https://github.com/hhiroshell/kubectl-realname-diff/releases/tag/v${finalAttrs.version}";
+    license = lib.licenses.asl20;
+    maintainers = [ lib.maintainers.tboerger ];
   };
-}
+})

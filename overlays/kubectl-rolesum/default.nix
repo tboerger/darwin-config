@@ -2,27 +2,40 @@
   lib,
   buildGoModule,
   fetchFromGitHub,
+  versionCheckHook,
+  nix-update-script,
 }:
 
-buildGoModule rec {
+buildGoModule (finalAttrs: {
   pname = "kubectl-rolesum";
   version = "1.5.6";
 
   src = fetchFromGitHub {
     owner = "Ladicle";
     repo = "kubectl-rolesum";
-    rev = "v${version}";
+    rev = "v${finalAttrs.version}";
     sha256 = "sha256-Nj4LyAruyDyX9NR0bTQzuAaLPBZNLeVWilobGlHop/o=";
   };
 
   vendorHash = "sha256-nt/GOG4kdUrmOsMnFs6fNwiBZDVXoa7OdwnZsD2cPy8=";
 
-  meta = with lib; {
+  ldflags = [
+    "-X github.com/Ladicle/kubectl-rolesum/cmd.version=${finalAttrs.version}"
+  ];
+
+  versionCheckProgramArg = [ "--version" ];
+  nativeInstallCheckInputs = [
+    versionCheckHook
+  ];
+
+  passthru.updateScript = nix-update-script { };
+
+  meta = {
     description = "Summarize Kubernetes RBAC roles for the specified subjects";
     mainProgram = "kubectl-rolesum";
     homepage = "https://github.com/Ladicle/kubectl-rolesum";
-    changelog = "https://github.com/Ladicle/kubectl-rolesum/releases/tag/v${version}";
-    license = licenses.mit;
-    maintainers = [ maintainers.tboerger ];
+    changelog = "https://github.com/Ladicle/kubectl-rolesum/releases/tag/v${finalAttrs.version}";
+    license = lib.licenses.mit;
+    maintainers = [ lib.maintainers.tboerger ];
   };
-}
+})
