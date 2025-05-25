@@ -36,6 +36,7 @@ with lib;
         "alfred"
         "alt-tab"
         "appcleaner"
+        "bambu-studio"
         "bartender"
         "battle-net"
         "bleunlock"
