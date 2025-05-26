@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.6.0](https://github.com/tboerger/darwin-config/compare/v1.5.0...v1.6.0) (2025-05-26)
+
+
+### Features
+
+* add bambu studio to brews ([9f3143e](https://github.com/tboerger/darwin-config/commit/9f3143e053ff559c7a37ec2d7433dc077c7a3893))
+* add kubectl cnpg plugin ([ab57dad](https://github.com/tboerger/darwin-config/commit/ab57dad4d6ef5da07f6345b7b6f7af48b5336b21))
+* define kubectl overlays as in nixpkgs ([8065b42](https://github.com/tboerger/darwin-config/commit/8065b425b28db417d0a4a336789de187808b899b))
+* refactor overlay packages ([6fa9d64](https://github.com/tboerger/darwin-config/commit/6fa9d6450b29dcbb6889aea33ec9e8729611d53d))
+* upgrade packages and do some cleanup ([b4441de](https://github.com/tboerger/darwin-config/commit/b4441de6df14e0b9fa2c66443227dc6294fe71e0))
+
+
+### Bugfixes
+
+* drop pastetoggle from neovim config ([4e724b1](https://github.com/tboerger/darwin-config/commit/4e724b17c852cc9cd48d7f00390572db5be028af))
+
 ## [1.5.0](https://github.com/tboerger/darwin-config/compare/v1.4.0...v1.5.0) (2025-05-05)
 
 
