@@ -23,7 +23,6 @@ buildGoModule (finalAttrs: {
     "-X main.version=${finalAttrs.version}"
   ];
 
-
   versionCheckProgramArg = [ "--version" ];
   nativeInstallCheckInputs = [
     versionCheckHook

@@ -92,7 +92,8 @@
             homemanager.darwinModules.home-manager
             agenix.nixosModules.default
             configurationNix
-          ] ++ extraModules;
+          ]
+          ++ extraModules;
 
           specialArgs = {
             inherit inputs;
