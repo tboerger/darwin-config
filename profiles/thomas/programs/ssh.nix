@@ -28,8 +28,7 @@ in
     programs = {
       ssh = {
         enable = true;
-        addKeysToAgent = "yes";
-        forwardAgent = true;
+        enableDefaultConfig = false;
 
         includes = [
           "~/.orbstack/ssh/config"
@@ -40,43 +39,59 @@ in
             hostname = "niflheim.boerger.ws";
             port = 22;
             user = "thomas";
+            addKeysToAgent = "yes";
+            forwardAgent = true;
           };
 
           "yggdrasil" = {
             hostname = "192.168.1.5";
             port = 22;
             user = "thomas";
+            addKeysToAgent = "yes";
+            forwardAgent = true;
           };
           "asgard" = {
             hostname = "192.168.1.10";
             port = 22;
             user = "thomas";
+            addKeysToAgent = "yes";
+            forwardAgent = true;
           };
           "utgard" = {
             hostname = "192.168.1.11";
             port = 22;
             user = "thomas";
+            addKeysToAgent = "yes";
+            forwardAgent = true;
           };
 
           "jumphost1.cloudpunks.io" = {
             user = "tboerger";
+            addKeysToAgent = "yes";
             forwardAgent = true;
           };
           "jumphost2.cloudpunks.io" = {
             user = "tboerger";
+            addKeysToAgent = "yes";
             forwardAgent = true;
           };
 
-          "*.cloudopserve.io !jumphost1.cloudpunks.io !jumphost2.cloudpunks.io" = lib.hm.dag.entryAfter [ "jumphost1.cloudpunks.io" "jumphost2.cloudpunks.io" ] {
-            user = "oper";
-            forwardAgent = true;
-            proxyJump = "tboerger@jumphost1.cloudpunks.io";
-          };
-          "*.cloudpunks.io !jumphost1.cloudpunks.io !jumphost2.cloudpunks.io" = lib.hm.dag.entryAfter [ "jumphost1.cloudpunks.io" "jumphost2.cloudpunks.io" ] {
-            user = "oper";
-            forwardAgent = true;
-            proxyJump = "tboerger@jumphost1.cloudpunks.io";
-          };
+          "*.cloudopserve.io !jumphost1.cloudpunks.io !jumphost2.cloudpunks.io" =
+            lib.hm.dag.entryAfter [ "jumphost1.cloudpunks.io" "jumphost2.cloudpunks.io" ]
+              {
+                user = "oper";
+                addKeysToAgent = "yes";
+                forwardAgent = true;
+                proxyJump = "tboerger@jumphost1.cloudpunks.io";
+              };
+          "*.cloudpunks.io !jumphost1.cloudpunks.io !jumphost2.cloudpunks.io" =
+            lib.hm.dag.entryAfter [ "jumphost1.cloudpunks.io" "jumphost2.cloudpunks.io" ]
+              {
+                user = "oper";
+                addKeysToAgent = "yes";
+                forwardAgent = true;
+                proxyJump = "tboerger@jumphost1.cloudpunks.io";
+              };
         };
       };
     };
