@@ -1,4 +1,5 @@
 ---
+# yaml-language-server: $schema=https://www.schemastore.org/github-workflow.json
 name: general
 
 "on":
@@ -8,7 +9,7 @@ name: general
       - master
 
 jobs:
-  check:
+  general:
     runs-on: macos-latest
 
     steps:
