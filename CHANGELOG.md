@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.7.0](https://github.com/tboerger/darwin-config/compare/v1.6.0...v1.7.0) (2025-10-20)
+
+
+### Features
+
+* add continue schema to vscode ([f028c21](https://github.com/tboerger/darwin-config/commit/f028c21d2012d7a0e705f07a61cf1b313198e9b6))
+* add firezone and rename tailscale ([a81f002](https://github.com/tboerger/darwin-config/commit/a81f002aa5ce654ee6b33adf7b531c14aee91a1c))
+* get rid of deprecated ssh options ([c4ec76a](https://github.com/tboerger/darwin-config/commit/c4ec76a13236758107440d8bd4c7625a36678337))
+* update available minio credentials ([4283edb](https://github.com/tboerger/darwin-config/commit/4283edb21733c9229bc3d0fb7da5c5559469b8e3))
+* update flake lock file ([27495a7](https://github.com/tboerger/darwin-config/commit/27495a757a230b7fc3567bf6e015465534ef1056))
+
+
+### Bugfixes
+
+* use previous path for vscode ([98e37dd](https://github.com/tboerger/darwin-config/commit/98e37dd892c0a465b98b191de179a8378028f739))
+
 ## [1.6.0](https://github.com/tboerger/darwin-config/compare/v1.5.0...v1.6.0) (2025-05-26)
 
 
