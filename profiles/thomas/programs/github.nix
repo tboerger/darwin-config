@@ -49,6 +49,7 @@ in
           file = ../secrets/github.age;
           path = "${config.home.homeDirectory}/.ghtoken";
           mode = "0600";
+          symlink = false;
         };
       };
     };

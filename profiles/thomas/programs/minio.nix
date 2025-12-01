@@ -37,6 +37,7 @@ in
           file = ../secrets/minio.age;
           path = "${config.home.homeDirectory}/.mc/config.json";
           mode = "0600";
+          symlink = false;
         };
       };
     };

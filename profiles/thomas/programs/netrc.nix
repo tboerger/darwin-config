@@ -31,6 +31,7 @@ in
           file = ../secrets/netrc.age;
           path = "${config.home.homeDirectory}/.netrc";
           mode = "0600";
+          symlink = false;
         };
       };
     };
