@@ -41,7 +41,6 @@ with lib;
         "battle-net"
         "bleunlock"
         "citrix-workspace"
-        "clickup"
         "clockify"
         "curseforge"
         "discord"
@@ -61,7 +60,6 @@ with lib;
         "microsoft-office"
         "microsoft-remote-desktop"
         "microsoft-teams"
-        "nextcloud"
         "obs"
         "orbstack"
         "prismlauncher"
@@ -80,7 +78,6 @@ with lib;
         "temurin@21"
         "temurin@8"
         "the-unarchiver"
-        "utm"
         "whatsapp"
       ];
 
@@ -92,7 +89,6 @@ with lib;
         "Adblock für Safari" = 1402042596;
         "Brother iPrint&Scan" = 1193539993;
         "Display Maid" = 450063525;
-        "LastPass Password Manager" = 926036361;
         "LimeChat" = 414030210;
         "Parallels Desktop" = 1085114709;
         "Xcode" = 497799835;
