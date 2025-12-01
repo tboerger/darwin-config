@@ -39,16 +39,16 @@ in
               bbenoist.nix
               bradlc.vscode-tailwindcss
               clemenspeters.format-json
-              continue.continue
               dracula-theme.theme-dracula
               dzhavat.bracket-pair-toggler
               editorconfig.editorconfig
+              github.copilot-chat
               github.vscode-github-actions
               golang.go
               Grafana.vscode-jsonnet
               hashicorp.terraform
               mikestead.dotenv
-              ms-azuretools.vscode-docker
+              ms-azuretools.vscode-containers
               ms-kubernetes-tools.vscode-kubernetes-tools
               ms-python.python
               ms-vscode-remote.remote-containers
@@ -103,7 +103,7 @@ in
               ];
 
               "yaml.schemas" = {
-                "/Users/thomas/.vscode/extensions/Continue.continue/config-yaml-schema.json" = [
+                "file:///Users/thomas/.vscode/extensions/Continue.continue/config-yaml-schema.json" = [
                   ".continue/**/*.yaml"
                 ];
               };
