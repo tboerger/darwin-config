@@ -85,63 +85,58 @@ in
       git = {
         enable = true;
 
-        userName = "Thomas Boerger";
-        userEmail = "thomas@webhippie.de";
-
         signing = {
           key = "0xF630596501026DB5";
           signByDefault = true;
         };
 
-        aliases = {
-          ci = "commit";
-          di = "diff";
-          st = "status";
-          co = "checkout";
-          br = "branch";
-          pu = "push";
-          pl = "pull";
-          cat = "cat-file -p";
-          rc = "rebase --continue";
-          rs = "rebase --skip";
+        settings = {
+          user = {
+            name = "Thomas Boerger";
+            email = "thomas@webhippie.de";
+          };
 
-          unstage = "reset HEAD";
-          uncommit = "reset --soft HEAD^";
+          alias = {
+            ci = "commit";
+            di = "diff";
+            st = "status";
+            co = "checkout";
+            br = "branch";
+            pu = "push";
+            pl = "pull";
+            cat = "cat-file -p";
+            rc = "rebase --continue";
+            rs = "rebase --skip";
 
-          stag = "tag -s";
-          tags = "tag -l";
-          branches = "branch -a";
-          remotes = "remote -v";
+            unstage = "reset HEAD";
+            uncommit = "reset --soft HEAD^";
 
-          fap = "fetch --all --prune";
+            stag = "tag -s";
+            tags = "tag -l";
+            branches = "branch -a";
+            remotes = "remote -v";
 
-          sma = "submodule add";
-          smi = "submodule init";
-          smu = "submodule update --init --recursive";
+            fap = "fetch --all --prune";
 
-          hist = "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short";
+            sma = "submodule add";
+            smi = "submodule init";
+            smu = "submodule update --init --recursive";
 
-          amend = "commit --amend -C HEAD";
+            hist = "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short";
 
-          assume = "!git update-index --assume-unchanged";
-          unassume = "!git update-index --no-assume-unchanged";
-          assumed = "!git ls-files -v | grep ^h | cut -c 3-";
+            amend = "commit --amend -C HEAD";
 
-          snapshot = "!git stash save \"snapshot: $(date)\" && git stash apply \"stash@{0}\"";
-          snapshots = "!git stash list --grep snapshot";
+            assume = "!git update-index --assume-unchanged";
+            unassume = "!git update-index --no-assume-unchanged";
+            assumed = "!git ls-files -v | grep ^h | cut -c 3-";
 
-          conflicts = "!git ls-files -u | awk '{print $4}' | sort -u";
-          resolve = "!git conflicts | xargs git add";
-        };
+            snapshot = "!git stash save \"snapshot: $(date)\" && git stash apply \"stash@{0}\"";
+            snapshots = "!git stash list --grep snapshot";
 
-        ignores = [
-          ".DS_Store"
-          ".envrc"
-          ".vscode"
-          ".idea"
-        ];
+            conflicts = "!git ls-files -u | awk '{print $4}' | sort -u";
+            resolve = "!git conflicts | xargs git add";
+          };
 
-        extraConfig = {
           color = {
             ui = "auto";
             branch = "auto";
@@ -179,6 +174,13 @@ in
             autoSetupRemote = true;
           };
         };
+
+        ignores = [
+          ".DS_Store"
+          ".envrc"
+          ".vscode"
+          ".idea"
+        ];
 
         lfs = {
           enable = true;
