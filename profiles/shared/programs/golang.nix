@@ -31,8 +31,11 @@ in
       go = {
         enable = true;
         package = pkgs.go;
-        goPath = "Golang";
-        goBin = "Golang/bin";
+
+        env = {
+          GOBIN = "${config.home.homeDirectory}/Golang/bin";
+          GOPATH = "${config.home.homeDirectory}/Golang";
+        };
       };
     };
   };
