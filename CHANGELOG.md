@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.8.0](https://github.com/tboerger/darwin-config/compare/v1.7.0...v1.8.0) (2025-12-08)
+
+
+### Features
+
+* do not symlink home secrets ([8495d21](https://github.com/tboerger/darwin-config/commit/8495d21ffc686bedaf9b0ef37e37e3ba2bf254a0))
+* drop unused programs ([c3c2eec](https://github.com/tboerger/darwin-config/commit/c3c2eec0c57a57cc1f3d46a9be32ea8a01808dda))
+* replace deprecated fonts ([fbade7f](https://github.com/tboerger/darwin-config/commit/fbade7f5bf3594510227d74a1247751cff3681e8))
+* replace deprecated git options ([cf2827f](https://github.com/tboerger/darwin-config/commit/cf2827fe2340e621cd843e0311b3b8e3b7b9cec4))
+* replace deprecated go attributes ([69f4bf3](https://github.com/tboerger/darwin-config/commit/69f4bf356e61bc051e38009e2837eea56561e790))
+* update list of used vscode extensions ([df276a7](https://github.com/tboerger/darwin-config/commit/df276a7ee422d71732aa32f86063fec670b1a58b))
+
 ## [1.7.0](https://github.com/tboerger/darwin-config/compare/v1.6.0...v1.7.0) (2025-10-20)
 
 
