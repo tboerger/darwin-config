@@ -8,6 +8,9 @@ name: general
     branches:
       - master
 
+permissions:
+  contents: read
+
 jobs:
   general:
     runs-on: macos-latest
