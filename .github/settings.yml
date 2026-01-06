@@ -51,10 +51,7 @@ rulesets:
             - context: general
               integration_id: 15368
     bypass_actors:
-      - actor_id: 1
-        actor_type: RepositoryRole
-        bypass_mode: always
-      - actor_id: 2
+      - actor_id: 5
         actor_type: RepositoryRole
         bypass_mode: always
 
@@ -78,10 +75,7 @@ rulesets:
           required_approving_review_count: 0
           required_review_thread_resolution: false
     bypass_actors:
-      - actor_id: 1
-        actor_type: RepositoryRole
-        bypass_mode: always
-      - actor_id: 2
+      - actor_id: 5
         actor_type: RepositoryRole
         bypass_mode: always
 
