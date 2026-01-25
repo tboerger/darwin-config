@@ -39,6 +39,7 @@ with lib;
         "bambu-studio"
         "battle-net"
         "bleunlock"
+        "chatgpt"
         "citrix-workspace"
         "clockify"
         "curseforge"
