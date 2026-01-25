@@ -34,6 +34,12 @@ self: super:
       version = "1.0.3";
       sha256 = "sha256-r4IFZJsvLGtLQjOvXootjIB/Epuvst4CtO7laf4u9D8=";
     };
+    openai.chatgpt = self.vscode-utils.extensionFromVscodeMarketplace {
+      name = "chatgpt";
+      publisher = "openai";
+      version = "0.5.66";
+      sha256 = "sha256-9aJAnOJxbcDhNLl6rWxlSp/I2PKKb3y4zh5GvlCT9g0=";
+    };
   };
 
   kubectl-get-all = super.callPackage ./kubectl-get-all { };
