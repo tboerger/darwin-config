@@ -56,9 +56,6 @@ in
 
         entries = [
           {
-            path = "/System/Applications/Launchpad.app";
-          }
-          {
             path = "/Applications/iTerm.app";
           }
           {
