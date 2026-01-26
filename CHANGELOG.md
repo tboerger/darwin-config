@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.9.0](https://github.com/tboerger/darwin-config/compare/v1.8.0...v1.9.0) (2026-01-26)
+
+### Features
+
+* add chatgpt cask ([bbb5fac](https://github.com/tboerger/darwin-config/commit/bbb5fac060b313b473bcd2ec4978c36203f10ad5))
+* add more files to editorconfig ([a6987b4](https://github.com/tboerger/darwin-config/commit/a6987b4423f6bb078f33312ff839ff497a53d5e9))
+* add openai.chatgpt to vscode ([6a0c384](https://github.com/tboerger/darwin-config/commit/6a0c384307dcb4c8ffc104ba9fed20b67ece6d9f))
+* do not pin github actions anymore ([6f2262e](https://github.com/tboerger/darwin-config/commit/6f2262e40aea526cb4e540a338aeefce5d7d7392))
+* drop legacy launchpad from dock ([78628e4](https://github.com/tboerger/darwin-config/commit/78628e45f9db4a0d8c27228f05bc569dc01444ac))
+* replace bartender with ice ([408942d](https://github.com/tboerger/darwin-config/commit/408942d82ef0059020abbc8d4e2f1ac1c5d7099f))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([35d1ee6](https://github.com/tboerger/darwin-config/commit/35d1ee6b94cb5d9a453742afa3dfd72cfaecc040))
+* **flake:** updated lockfile [skip ci] ([6beacc2](https://github.com/tboerger/darwin-config/commit/6beacc2842f2776088927b26120fced296736d42))
+* **flake:** updated lockfile [skip ci] ([2ea33b6](https://github.com/tboerger/darwin-config/commit/2ea33b62b46882228189b55ffacedc591c700e7e))
+* **flake:** updated lockfile [skip ci] ([a81cec8](https://github.com/tboerger/darwin-config/commit/a81cec8c33d9f44dedb5637cf5da94df950e2639))
+* **flake:** updated lockfile [skip ci] ([82b8fe9](https://github.com/tboerger/darwin-config/commit/82b8fe94b44f6d318c8c4f708a107e95d04dd6f0))
+* **flake:** updated lockfile [skip ci] ([35efedc](https://github.com/tboerger/darwin-config/commit/35efedc555411bcd2b7fa56a29b500fbf8915d39))
+* **flake:** updated lockfile [skip ci] ([5de4fc2](https://github.com/tboerger/darwin-config/commit/5de4fc2fdd8e85d69fe8698894316f992befc9c0))
+
 ## [1.8.0](https://github.com/tboerger/darwin-config/compare/v1.7.0...v1.8.0) (2025-12-08)
 
 
