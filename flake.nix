@@ -164,7 +164,7 @@
 
             git
             home-manager
-            nixfmt-rfc-style
+            nixfmt
             rage
           ];
         };
