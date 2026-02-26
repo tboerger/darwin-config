@@ -108,6 +108,8 @@ in
             rc = "rebase --continue";
             rs = "rebase --skip";
 
+            branch-cleanup = "!git branch | grep -v \"$(git branch --show-current)\" | grep -v \"$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|^refs/remotes/origin/||')\" | xargs -r git branch -D";
+
             unstage = "reset HEAD";
             uncommit = "reset --soft HEAD^";
 
