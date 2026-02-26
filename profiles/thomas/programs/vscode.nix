@@ -58,6 +58,7 @@ in
               openai.chatgpt
               redhat.vscode-yaml
               signageos.signageos-vscode-sops
+              tilt-dev.tiltfile
               vue.volar
             ];
 

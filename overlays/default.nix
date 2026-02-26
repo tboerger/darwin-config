@@ -40,6 +40,12 @@ self: super:
       version = "0.5.66";
       sha256 = "sha256-9aJAnOJxbcDhNLl6rWxlSp/I2PKKb3y4zh5GvlCT9g0=";
     };
+    tilt-dev.tiltfile = self.vscode-utils.extensionFromVscodeMarketplace {
+      name = "tiltfile";
+      publisher = "tilt-dev";
+      version = "0.0.4";
+      sha256 = "sha256-7DA099bQkortHHDgWS7mYOy3hlpdk8/+Sj1mMGYzzI8=";
+    };
   };
 
   kubectl-get-all = super.callPackage ./kubectl-get-all { };
