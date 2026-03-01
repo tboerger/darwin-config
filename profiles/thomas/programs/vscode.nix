@@ -103,12 +103,6 @@ in
                 "**/.svn/**"
                 "**/node_modules/**"
               ];
-
-              "yaml.schemas" = {
-                "file:///Users/thomas/.vscode/extensions/Continue.continue/config-yaml-schema.json" = [
-                  ".continue/**/*.yaml"
-                ];
-              };
             };
           };
         };

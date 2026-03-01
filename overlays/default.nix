@@ -25,8 +25,8 @@ self: super:
     Grafana.vscode-jsonnet = self.vscode-utils.extensionFromVscodeMarketplace {
       name = "vscode-jsonnet";
       publisher = "Grafana";
-      version = "0.7.2";
-      sha256 = "sha256-Q8VzXzTdHo9h5+eCHHF1bPomPEbRsvouJcUfmFUDGMU=";
+      version = "0.7.4";
+      sha256 = "sha256-oz+oRjea2/ZDZPHvOXRdmHMCingAWWzs3u1e1r0iUTw=";
     };
     clemenspeters.format-json = self.vscode-utils.extensionFromVscodeMarketplace {
       name = "format-json";
@@ -37,14 +37,20 @@ self: super:
     openai.chatgpt = self.vscode-utils.extensionFromVscodeMarketplace {
       name = "chatgpt";
       publisher = "openai";
-      version = "0.5.66";
-      sha256 = "sha256-9aJAnOJxbcDhNLl6rWxlSp/I2PKKb3y4zh5GvlCT9g0=";
+      version = "0.5.79";
+      sha256 = "sha256-R0KhjT+FHchlphQL/tntYRFiIDVl8AEfYV4GkDqCSCk=";
     };
     tilt-dev.tiltfile = self.vscode-utils.extensionFromVscodeMarketplace {
       name = "tiltfile";
       publisher = "tilt-dev";
       version = "0.0.4";
       sha256 = "sha256-7DA099bQkortHHDgWS7mYOy3hlpdk8/+Sj1mMGYzzI8=";
+    };
+    github.copilot-chat = self.vscode-utils.extensionFromVscodeMarketplace {
+      name = "copilot-chat";
+      publisher = "github";
+      version = "0.37.9";
+      sha256 = "sha256-AGfjenshM1yQ/rHDpCbCU2HDSS4cPGIPxe8MQ7O0/Dc=";
     };
   };
 
