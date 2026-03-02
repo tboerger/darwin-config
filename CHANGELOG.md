@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.10.0](https://github.com/tboerger/darwin-config/compare/v1.9.0...v1.10.0) (2026-03-02)
+
+### Features
+
+* add branch-cleanup git alias to config ([a9da263](https://github.com/tboerger/darwin-config/commit/a9da263bfe806b2166524adab4e5fb1ad1e6a05e))
+* add tilt extension to vscode ([798e461](https://github.com/tboerger/darwin-config/commit/798e4612bc19fb5ae0ee5e02baaca514e7753025))
+* enable automerge for lockfile maintenance prs ([804b149](https://github.com/tboerger/darwin-config/commit/804b149cfac3e94e88bdd9101b1b589003aa9083))
+* replace nix formatter ([31f5183](https://github.com/tboerger/darwin-config/commit/31f518383e2f19e55b8a9692cca047a47ecea629))
+* upgrade all vscode extensions ([5fbc73c](https://github.com/tboerger/darwin-config/commit/5fbc73c2f6008e510cd9f7461b48332dabc03fc5))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([d7e4659](https://github.com/tboerger/darwin-config/commit/d7e46597e0fa601d3410e013d3adcd4aa0cc37cc))
+* **flake:** updated lockfile [skip ci] ([eff0701](https://github.com/tboerger/darwin-config/commit/eff0701bd9d5b8357aa712cd37f44e027b157153))
+* **flake:** updated lockfile [skip ci] ([d597368](https://github.com/tboerger/darwin-config/commit/d5973680942c150c2cbf54b751eb8730d81110e9))
+* **flake:** updated lockfile [skip ci] ([50b6695](https://github.com/tboerger/darwin-config/commit/50b66953805ab5060257d75cb789cfde1486502a))
+* **flake:** updated lockfile [skip ci] ([a5d7232](https://github.com/tboerger/darwin-config/commit/a5d723221f86da47e552d7b315a1d2d7ca26db10))
+
 ## [1.9.0](https://github.com/tboerger/darwin-config/compare/v1.8.0...v1.9.0) (2026-01-26)
 
 ### Features
