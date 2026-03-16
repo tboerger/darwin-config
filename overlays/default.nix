@@ -34,12 +34,6 @@ self: super:
       version = "1.0.3";
       sha256 = "sha256-r4IFZJsvLGtLQjOvXootjIB/Epuvst4CtO7laf4u9D8=";
     };
-    openai.chatgpt = self.vscode-utils.extensionFromVscodeMarketplace {
-      name = "chatgpt";
-      publisher = "openai";
-      version = "0.5.79";
-      sha256 = "sha256-R0KhjT+FHchlphQL/tntYRFiIDVl8AEfYV4GkDqCSCk=";
-    };
     tilt-dev.tiltfile = self.vscode-utils.extensionFromVscodeMarketplace {
       name = "tiltfile";
       publisher = "tilt-dev";

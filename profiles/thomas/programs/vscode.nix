@@ -55,7 +55,6 @@ in
               ms-vscode-remote.remote-ssh
               ms-vscode.makefile-tools
               naumovs.color-highlight
-              openai.chatgpt
               redhat.vscode-yaml
               signageos.signageos-vscode-sops
               tilt-dev.tiltfile
