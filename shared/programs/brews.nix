@@ -42,6 +42,8 @@ with lib;
         "chatgpt"
         "citrix-workspace"
         "clockify"
+        "codex"
+        "copilot-cli"
         "curseforge"
         "discord"
         "element"
