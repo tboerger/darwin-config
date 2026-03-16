@@ -9,9 +9,9 @@
 {
   home = {
     packages = with pkgs; [
+      fastfetch
       htop
       iftop
-      neofetch
       silver-searcher
       tldr
       tree
