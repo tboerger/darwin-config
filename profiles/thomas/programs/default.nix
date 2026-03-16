@@ -8,6 +8,7 @@
 
 {
   imports = [
+    ./copilot.nix
     ./git.nix
     ./github.nix
     ./minio.nix
