@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.11.0](https://github.com/tboerger/darwin-config/compare/v1.10.0...v1.11.0) (2026-03-23)
+
+### Features
+
+* add code shell integration to zsh ([6eca0a9](https://github.com/tboerger/darwin-config/commit/6eca0a9375d122491bd7cff766ee7ea16de29bc8))
+* add copilot mcp config file ([75c6d89](https://github.com/tboerger/darwin-config/commit/75c6d8940a74bcdd8bcb003b82c378ce526e3efb))
+* drop chatgpt from vscode ([a198069](https://github.com/tboerger/darwin-config/commit/a19806948114d978a23022f1d7e6d31b69f2f032))
+* install codex and copilot cli ([d2123ef](https://github.com/tboerger/darwin-config/commit/d2123ef64340980f818bd6399568c23ee6605b9a))
+* replace neofetch with fastfetch ([39b65d1](https://github.com/tboerger/darwin-config/commit/39b65d1080d23afb34b2aabf09d9abdd3eaeffd0))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([d311698](https://github.com/tboerger/darwin-config/commit/d311698bee4e97ff297950ba6a130e5add606ae0))
+* **flake:** updated lockfile [skip ci] ([c3b8e11](https://github.com/tboerger/darwin-config/commit/c3b8e119138a173af1f8a5e08b4f7a1622be84c9))
+* **flake:** updated lockfile [skip ci] ([ee24097](https://github.com/tboerger/darwin-config/commit/ee2409744d70821d8179abb1727ff9c39b0c7e59))
+
 ## [1.10.0](https://github.com/tboerger/darwin-config/compare/v1.9.0...v1.10.0) (2026-03-02)
 
 ### Features
