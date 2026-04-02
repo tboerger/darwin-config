@@ -86,6 +86,7 @@ in
         enable = true;
 
         signing = {
+          format = "openpgp";
           key = "0xF630596501026DB5";
           signByDefault = true;
         };
