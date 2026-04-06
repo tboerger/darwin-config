@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.11.1](https://github.com/tboerger/darwin-config/compare/v1.11.0...v1.11.1) (2026-04-06)
+
+### Bugfixes
+
+* explicit definition of git singing format ([91a4a84](https://github.com/tboerger/darwin-config/commit/91a4a843a83f296000cbf11cdae1c0258b7ccd17))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([707bf34](https://github.com/tboerger/darwin-config/commit/707bf34d4a4608890414d6b9bd346e943a652a05))
+* **flake:** updated lockfile [skip ci] ([91478d3](https://github.com/tboerger/darwin-config/commit/91478d36af22ddd096aed76c8131e4b8ed840174))
+
 ## [1.11.0](https://github.com/tboerger/darwin-config/compare/v1.10.0...v1.11.0) (2026-03-23)
 
 ### Features
