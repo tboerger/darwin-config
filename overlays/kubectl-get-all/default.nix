@@ -8,16 +8,16 @@
 
 buildGoModule (finalAttrs: {
   pname = "kubectl-get-all";
-  version = "1.4.1";
+  version = "1.4.3";
 
   src = fetchFromGitHub {
     owner = "stackitcloud";
     repo = "kubectl-get-all";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-fVe9PY5MFX6Yc31dLi6C1bXZ39Em+Piq4EWoQce8srY=";
+    hash = "sha256-QkW6AO2Xzysg5iszMeYy/LJvgLbn9DR/7Rfdap527CY=";
   };
 
-  vendorHash = "sha256-ifOKYXgIZcKT1jov5cGBtH3IdZBVBqHO/JNkMlDXops=";
+  vendorHash = "sha256-gpjNzd78rELwvInDO/Z0R1JCxftSZyBQ20JvWVPZ5No=";
 
   ldflags = [
     "-X github.com/stackitcloud/kubectl-get-all/internal/version.Version=${finalAttrs.version}"

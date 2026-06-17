@@ -12,7 +12,7 @@
       fastfetch
       htop
       iftop
-      silver-searcher
+      ripgrep
       tldr
       tree
     ];

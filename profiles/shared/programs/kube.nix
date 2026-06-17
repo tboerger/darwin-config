@@ -45,18 +45,18 @@ in
       };
 
       packages = with pkgs; [
+        cilium-cli
         grafana-loki
+        hubble
         k9s
-        khelm
         kind
-        ksops
         kubectl
         kubectl-cnpg
+        kubectl-cost
         kubectl-get-all
         kubectl-images
         kubectl-ktop
         kubectl-neat
-        kubectl-outdated
         kubectl-pexec
         kubectl-realname-diff
         kubectl-rolesum
@@ -67,6 +67,7 @@ in
         kubelogin-oidc
         kubernetes-helm
         kustomize
+        kustomize-sops
         stern
       ];
     };

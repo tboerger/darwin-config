@@ -7,16 +7,16 @@
 
 buildGoModule (finalAttrs: {
   pname = "kubectl-realname-diff";
-  version = "0.4.0";
+  version = "0.4.2";
 
   src = fetchFromGitHub {
     owner = "hhiroshell";
     repo = "kubectl-realname-diff";
     rev = "v${finalAttrs.version}";
-    sha256 = "sha256-Ej0O5tcHdXHzDSf6aHLgyeYGRv5RbXJMZcyHDyRjLV4=";
+    sha256 = "sha256-cT5ffrTn66y6Z9ICoiVuQsrjlTtVCoy81LmAS3CrXbs=";
   };
 
-  vendorHash = "sha256-XJZ9/JKj+WT3TffNP1Z0y5jws2wqZotzzV/1pk+AJkU=";
+  vendorHash = "sha256-7O6JDhOTkAryFVvto2IkiPM9SkVF+wyDrY9kG4n4/SA=";
 
   subPackages = [ "cmd/kubectl-realname_diff" ];
 

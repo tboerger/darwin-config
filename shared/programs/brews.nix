@@ -81,11 +81,13 @@ with lib;
         "temurin@21"
         "temurin@8"
         "the-unarchiver"
+        "utm"
         "whatsapp"
       ];
 
       brews = [
         "mas"
+        "asciinema"
       ];
 
       masApps = {

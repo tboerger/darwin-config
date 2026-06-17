@@ -8,13 +8,13 @@
 
 buildGoModule (finalAttrs: {
   pname = "kubectl-pexec";
-  version = "0.4.1";
+  version = "0.4.6";
 
   src = fetchFromGitHub {
     owner = "ssup2";
     repo = "kpexec";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-WW3qI9D7+DtEsRJbKptw0sbgZMLIUgJd7ar1tmvd8C8=";
+    hash = "sha256-I9tI6WZOPNK6GiPfWMihmzNvTyamgCjq7bjZiNikvC8=";
   };
 
   vendorHash = "sha256-HmRwez3NFSF97Dc6fD/Tt78qNDjovkhlfqloYo2qG68=";

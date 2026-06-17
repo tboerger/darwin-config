@@ -168,6 +168,54 @@ in
             end
           '';
         };
+
+        ".local/bin/artifacthub-headlamp-plugins" = {
+          executable = true;
+          text = ''
+            #!/usr/bin/env bash
+            set -euo pipefail
+
+            LIMIT=60
+            OFFSET=0
+            KIND=21
+            BASE_URL="https://artifacthub.io/api/v1/packages/search"
+
+            TMPDIR=$(mktemp -d)
+            trap 'rm -rf "$TMPDIR"' EXIT
+
+            TOTAL=$(curl -sSL -D - \
+              -o /dev/null \
+              "$BASE_URL?limit=1&offset=0&kind=$KIND" \
+              | grep -i '^pagination-total-count:' \
+              | tr -d '[:space:]' \
+              | cut -d: -f2)
+
+            PAGE=0
+            while [ "$OFFSET" -lt "$TOTAL" ]; do
+              curl -sSL "$BASE_URL?limit=$LIMIT&offset=$OFFSET&kind=$KIND" \
+                > "$TMPDIR/page_$PAGE.json"
+
+              PAGE=$(( PAGE + 1 ))
+              OFFSET=$(( OFFSET + LIMIT ))
+            done
+
+            jq -s '[.[].packages[]]' "$TMPDIR"/page_*.json
+          '';
+        };
+
+        ".local/bin/each-workspace" = {
+          executable = true;
+          text = ''
+            #!/usr/bin/env bash
+
+            for DIR in $(jq -r '.folders[].path' *.code-workspace); do
+                echo "-----> $DIR"
+                pushd $DIR >/dev/null
+                "$@"
+                popd >/dev/null
+            done
+          '';
+        };
       };
     };
   };

@@ -34,63 +34,63 @@ in
           "~/.orbstack/ssh/config"
         ];
 
-        matchBlocks = {
-          "niflheim" = {
-            hostname = "niflheim.boerger.ws";
-            port = 22;
-            user = "thomas";
-            addKeysToAgent = "yes";
-            forwardAgent = true;
+        settings = {
+          "Host niflheim" = {
+            Hostname = "niflheim.boerger.ws";
+            Port = 22;
+            User = "thomas";
+            AddKeysToAgent = "yes";
+            ForwardAgent = true;
           };
 
-          "yggdrasil" = {
-            hostname = "192.168.1.5";
-            port = 22;
-            user = "thomas";
-            addKeysToAgent = "yes";
-            forwardAgent = true;
+          "Host yggdrasil" = {
+            Hostname = "192.168.1.5";
+            Port = 22;
+            User = "thomas";
+            AddKeysToAgent = "yes";
+            ForwardAgent = true;
           };
-          "asgard" = {
-            hostname = "192.168.1.10";
-            port = 22;
-            user = "thomas";
-            addKeysToAgent = "yes";
-            forwardAgent = true;
+          "Host asgard" = {
+            Hostname = "192.168.1.10";
+            Port = 22;
+            User = "thomas";
+            AddKeysToAgent = "yes";
+            ForwardAgent = true;
           };
-          "utgard" = {
-            hostname = "192.168.1.11";
-            port = 22;
-            user = "thomas";
-            addKeysToAgent = "yes";
-            forwardAgent = true;
-          };
-
-          "jumphost1.cloudpunks.io" = {
-            user = "tboerger";
-            addKeysToAgent = "yes";
-            forwardAgent = true;
-          };
-          "jumphost2.cloudpunks.io" = {
-            user = "tboerger";
-            addKeysToAgent = "yes";
-            forwardAgent = true;
+          "Host utgard" = {
+            Hostname = "192.168.1.11";
+            Port = 22;
+            User = "thomas";
+            AddKeysToAgent = "yes";
+            ForwardAgent = true;
           };
 
-          "*.cloudopserve.io !jumphost1.cloudpunks.io !jumphost2.cloudpunks.io" =
-            lib.hm.dag.entryAfter [ "jumphost1.cloudpunks.io" "jumphost2.cloudpunks.io" ]
+          "Host jumphost1.cloudpunks.io" = {
+            User = "tboerger";
+            AddKeysToAgent = "yes";
+            ForwardAgent = true;
+          };
+          "Host jumphost2.cloudpunks.io" = {
+            User = "tboerger";
+            AddKeysToAgent = "yes";
+            ForwardAgent = true;
+          };
+
+          "Host *.cloudopserve.io !jumphost1.cloudpunks.io !jumphost2.cloudpunks.io" =
+            lib.hm.dag.entryAfter [ "Host jumphost1.cloudpunks.io" "Host jumphost2.cloudpunks.io" ]
               {
-                user = "oper";
-                addKeysToAgent = "yes";
-                forwardAgent = true;
-                proxyJump = "tboerger@jumphost1.cloudpunks.io";
+                User = "oper";
+                AddKeysToAgent = "yes";
+                ForwardAgent = true;
+                ProxyJump = "tboerger@jumphost1.cloudpunks.io";
               };
-          "*.cloudpunks.io !jumphost1.cloudpunks.io !jumphost2.cloudpunks.io" =
-            lib.hm.dag.entryAfter [ "jumphost1.cloudpunks.io" "jumphost2.cloudpunks.io" ]
+          "Host *.cloudpunks.io !jumphost1.cloudpunks.io !jumphost2.cloudpunks.io" =
+            lib.hm.dag.entryAfter [ "Host jumphost1.cloudpunks.io" "Host jumphost2.cloudpunks.io" ]
               {
-                user = "oper";
-                addKeysToAgent = "yes";
-                forwardAgent = true;
-                proxyJump = "tboerger@jumphost1.cloudpunks.io";
+                User = "oper";
+                AddKeysToAgent = "yes";
+                ForwardAgent = true;
+                ProxyJump = "tboerger@jumphost1.cloudpunks.io";
               };
         };
       };

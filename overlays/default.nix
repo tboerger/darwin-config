@@ -1,14 +1,6 @@
 self: super:
 
 {
-  # citrix_workspace = super.citrix_workspace.overrideAttrs (old: {
-  #   src = super.fetchurl {
-  #     name = "linuxx64-24.2.0.65.tar.gz";
-  #     url = "https://dl.webhippie.de/misc/citrix-workspace-x64-24.2.0.65.tar.gz";
-  #     hash = "sha256-6utdO9B51OXJcH2mf196Jct2XhnDbQGGEpBlXb8qruQ=";
-  #   };
-  # });
-
   vscode-extensions = self.lib.recursiveUpdate super.vscode-extensions {
     dzhavat.bracket-pair-toggler = self.vscode-utils.extensionFromVscodeMarketplace {
       name = "bracket-pair-toggler";
@@ -43,22 +35,18 @@ self: super:
     github.copilot-chat = self.vscode-utils.extensionFromVscodeMarketplace {
       name = "copilot-chat";
       publisher = "github";
-      version = "0.37.9";
+      version = "0.48.1";
       sha256 = "sha256-AGfjenshM1yQ/rHDpCbCU2HDSS4cPGIPxe8MQ7O0/Dc=";
     };
   };
 
+  kubectl-cost = super.callPackage ./kubectl-cost { };
   kubectl-get-all = super.callPackage ./kubectl-get-all { };
-  kubectl-outdated = super.callPackage ./kubectl-outdated { };
   kubectl-pexec = super.callPackage ./kubectl-pexec { };
   kubectl-realname-diff = super.callPackage ./kubectl-realname-diff { };
   kubectl-rolesum = super.callPackage ./kubectl-rolesum { };
   kubectl-slice = super.callPackage ./kubectl-slice { };
   kubectl-whoami = super.callPackage ./kubectl-whoami { };
-  kubectl-view-secret = super.callPackage ./kubectl-view-secret { };
-
-  khelm = super.callPackage ./khelm { };
-  ksops = super.callPackage ./ksops { };
 
   zcustom = super.callPackage ./zcustom { };
 }

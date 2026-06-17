@@ -8,16 +8,16 @@
 
 buildGoModule (finalAttrs: {
   pname = "kubectl-whoami";
-  version = "0.0.46";
+  version = "0.0.48";
 
   src = fetchFromGitHub {
     owner = "rajatjindal";
     repo = "kubectl-whoami";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-Az8H0JL1DkFDj1qhm5lo8Vy5GyP6ubObBqZWHpNm+UQ=";
+    hash = "sha256-Gtf71bbTJpbz+a+BWHLD+VOiGQHPs7R6blwBwj/cdHU=";
   };
 
-  vendorHash = "sha256-RyeTTtJpnrpIhcfJrrmDP9TiTrwiTHlh4xjskaxG1Go=";
+  vendorHash = "sha256-KRgVIlLfq76ZQKaTOb+PnGiOd020uf+GmxBR10wsqgo=";
 
   ldflags = [
     "-X github.com/rajatjindal/kubectl-whoami/pkg/cmd.Version=${finalAttrs.version}"

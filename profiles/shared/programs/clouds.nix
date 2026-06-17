@@ -29,7 +29,6 @@ in
         awscli2
         azure-cli
         eksctl
-        google-cloud-sdk
         s3cmd
         hcloud
       ];
