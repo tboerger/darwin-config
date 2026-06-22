@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.12.0](https://github.com/tboerger/darwin-config/compare/v1.11.1...v1.12.0) (2026-06-22)
+
+### Features
+
+* update overlay and resolve issues because of updates ([a2a6ab1](https://github.com/tboerger/darwin-config/commit/a2a6ab161860b59fda9ecbb4aaacdd87afad0f8c))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([c27afdf](https://github.com/tboerger/darwin-config/commit/c27afdf9bf31f62907bf92ba5feebc0de886275b))
+* **flake:** updated lockfile [skip ci] ([aa75111](https://github.com/tboerger/darwin-config/commit/aa75111fb3f1d5f7a0f47f022085a1f76721543f))
+* **flake:** updated lockfile [skip ci] ([2097cc7](https://github.com/tboerger/darwin-config/commit/2097cc7f767f955df0aafe337bfa9a62e5a9b0fe))
+* **flake:** updated lockfile [skip ci] ([16264c2](https://github.com/tboerger/darwin-config/commit/16264c25cef2b8789266bfb5bbb852e973a211aa))
+* **flake:** updated lockfile [skip ci] ([8a04df9](https://github.com/tboerger/darwin-config/commit/8a04df9612dc843ec9037d1af4309b0ce0773bb0))
+* **flake:** updated lockfile [skip ci] ([d2aed6f](https://github.com/tboerger/darwin-config/commit/d2aed6f566df8d59c49dc9686f28ed3634aca1d6))
+* **flake:** updated lockfile [skip ci] ([1cddf84](https://github.com/tboerger/darwin-config/commit/1cddf846cfc1390cd83007a65e890e8f96bb77df))
+* **flake:** updated lockfile [skip ci] ([705e29c](https://github.com/tboerger/darwin-config/commit/705e29cb2281cd964debb8558b551b82ee19f229))
+* **flake:** updated lockfile [skip ci] ([69a6850](https://github.com/tboerger/darwin-config/commit/69a6850d6b94347b7c0f15de0ecb2a3b393893a4))
+* **flake:** updated lockfile [skip ci] ([b43b836](https://github.com/tboerger/darwin-config/commit/b43b836e53a12a010c88804bdc18fb666a2b21f9))
+* **flake:** updated lockfile [skip ci] ([b72c20a](https://github.com/tboerger/darwin-config/commit/b72c20a870ebff99757dbe188d8200abac71c9e0))
+
 ## [1.11.1](https://github.com/tboerger/darwin-config/compare/v1.11.0...v1.11.1) (2026-04-06)
 
 ### Bugfixes
