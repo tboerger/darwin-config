@@ -78,6 +78,27 @@ in
             rm -rf $workdir
           '';
         };
+        "Developer/cloudpunks/.gitconfig" = {
+          executable = false;
+          text = ''
+          [user]
+            name = "Thomas Boerger"
+            email = "tboerger@cloudpunks.de"
+            signingkey = "0xC4E1ABECC344E99E"
+          '';
+        };
+        "Developer/pradtke/.gitconfig" = {
+          executable = false;
+          text = ''
+          [core]
+            sshCommand = ssh -i ~/.ssh/pradtke_ed25519 -o IdentitiesOnly=yes
+
+          [user]
+            name = "Thomas Boerger"
+            email = "tboerger@cloudpunks.de"
+            signingkey = "0xC4E1ABECC344E99E"
+          '';
+        };
       };
     };
 
@@ -90,6 +111,17 @@ in
           key = "0xF630596501026DB5";
           signByDefault = true;
         };
+
+        includes = [
+          {
+            condition = "gitdir:~/Developer/cloudpunks/";
+            path = "~/Developer/cloudpunks/.gitconfig";
+          }
+          {
+            condition = "gitdir:~/Developer/pradtke/";
+            path = "~/Developer/pradtke/.gitconfig";
+          }
+        ];
 
         settings = {
           user = {
