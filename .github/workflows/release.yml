@@ -9,7 +9,6 @@ name: release
 
 permissions:
   contents: read
-  id-token: write
 
 jobs:
   release:
@@ -26,19 +25,14 @@ jobs:
         with:
           token: ${{ secrets.PERSONAL_TOKEN }}
 
-      - name: Setup nodejs
-        uses: actions/setup-node@v7
-        with:
-          node-version: 24.x
-
       - name: Install releaser
         run: |
           npm install -g \
-            semantic-release@25.0.2 \
+            semantic-release \
             @semantic-release/changelog \
             @semantic-release/git \
             @semantic-release/github \
-            conventional-changelog-conventionalcommits
+            conventional-changelog-conventionalcommits@9
 
       - name: Run releaser
         env:
@@ -48,14 +42,14 @@ jobs:
       - name: Write buildtime
         run: date >| .github/RELEASE
 
-      - name: Update repo
-        run: git pull --rebase --autostash
+      - name: Source rebase
+        run: git pull --autostash --rebase
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v11
         with:
           author_name: GitHub Actions
-          author_email: thomas@webhippie.de
+          author_email: github@webhippie.de
           add: .github/RELEASE
           message: "docs: automated release update [skip ci]"
           push: true
