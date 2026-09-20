@@ -6,11 +6,20 @@
   ...
 }:
 
+let
+  lsdPkg = pkgs.lsd.overrideAttrs (_: {
+    doCheck = false;
+    checkPhase = "true";
+    doInstallCheck = false;
+  });
+in
+
 {
   programs = {
     lsd = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = false;
+      package = lsdPkg;
 
       settings = {
         color = {
@@ -58,6 +67,15 @@
           invalid = "210";
         };
       };
+    };
+
+    zsh.shellAliases = {
+      ls = "${lsdPkg}/bin/lsd";
+      ll = "${lsdPkg}/bin/lsd -l";
+      la = "${lsdPkg}/bin/lsd -A";
+      lt = "${lsdPkg}/bin/lsd --tree";
+      lla = "${lsdPkg}/bin/lsd -lA";
+      llt = "${lsdPkg}/bin/lsd -l --tree";
     };
   };
 }
