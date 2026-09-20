@@ -47,6 +47,7 @@ in
               golang.go
               Grafana.vscode-jsonnet
               hashicorp.terraform
+              hverlin.mise-vscode
               mikestead.dotenv
               ms-azuretools.vscode-containers
               ms-kubernetes-tools.vscode-kubernetes-tools
@@ -58,6 +59,7 @@ in
               redhat.vscode-yaml
               signageos.signageos-vscode-sops
               tilt-dev.tiltfile
+              tombi-toml.tombi
               vue.volar
             ];
 
@@ -102,6 +104,13 @@ in
                 "**/.svn/**"
                 "**/node_modules/**"
               ];
+
+              "terminal.integrated.automationProfile.osx" = {
+                path = "/usr/bin/zsh";
+                args = ["--login" "--interactive"];
+              };
+
+              "mise.binPath" = "/etc/profiles/per-user/thomas/bin/mise";
             };
           };
         };

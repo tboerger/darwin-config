@@ -43,6 +43,7 @@ in
           [ -r ~/.orbstack/shell/init.zsh ] && source ~/.orbstack/shell/init.zsh
           [ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
           [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+          hash mise 2>/dev/null && eval "$(mise activate zsh)"
         '';
 
         history = {

@@ -38,6 +38,12 @@ self: super:
       version = "0.48.1";
       sha256 = "sha256-AGfjenshM1yQ/rHDpCbCU2HDSS4cPGIPxe8MQ7O0/Dc=";
     };
+    hverlin.mise-vscode = self.vscode-utils.extensionFromVscodeMarketplace {
+      name = "mise-vscode";
+      publisher = "hverlin";
+      version = "1.12.0";
+      sha256 = "sha256-BzsgDOBhfVPjm03XDFi6h6+BB/Y8woOzctas4EzewXs=";
+    };
   };
 
   kubectl-cost = super.callPackage ./kubectl-cost { };

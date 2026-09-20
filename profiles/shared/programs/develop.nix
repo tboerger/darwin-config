@@ -43,6 +43,7 @@ in
         httpie
         ipcalc
         jq
+        mise
         nmap
         p7zip
         python3
