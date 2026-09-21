@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.13.0](https://github.com/tboerger/darwin-config/compare/v1.12.0...v1.13.0) (2026-09-21)
+
+### Features
+
+* integrate custom git configs per folder ([53f3303](https://github.com/tboerger/darwin-config/commit/53f3303d3226cb8bf32ecc6d5c48d3899e272184))
+* integrate mise tools ([bc08026](https://github.com/tboerger/darwin-config/commit/bc08026323ef234766ad776d21768601f056bc00))
+
+### Bugfixes
+
+* flake should support aarch64 darwin only ([9bf4797](https://github.com/tboerger/darwin-config/commit/9bf479759aa0b83501ec39c0e6d72d8a2d85ba72))
+* resolve errors for lsd install ([e5b0a88](https://github.com/tboerger/darwin-config/commit/e5b0a88c27feee3f9aa656d6888c0adb22155502))
+
 ## [1.12.0](https://github.com/tboerger/darwin-config/compare/v1.11.1...v1.12.0) (2026-06-22)
 
 ### Features
