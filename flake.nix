@@ -122,7 +122,7 @@
 
       dagda = self.darwinConfigurations.dagda.system;
     }
-    // utils.lib.eachDefaultSystem (
+    // utils.lib.eachSystem [ "aarch64-darwin" ] (
       system:
       let
         pkgs = import nixpkgs {
