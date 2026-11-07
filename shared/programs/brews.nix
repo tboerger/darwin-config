@@ -41,6 +41,7 @@ with lib;
         "bleunlock"
         "chatgpt"
         "citrix-workspace"
+        "claude-code"
         "clockify"
         "codex"
         "copilot-cli"
