@@ -88,6 +88,7 @@ with lib;
       brews = [
         "mas"
         "asciinema"
+        "mise"
       ];
 
       masApps = {
