@@ -27,7 +27,6 @@ in
     home = {
       packages = with pkgs; [
         awscli2
-        azure-cli
         eksctl
         s3cmd
         hcloud

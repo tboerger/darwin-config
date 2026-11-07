@@ -35,6 +35,7 @@ with lib;
         "1password"
         "alfred"
         "alt-tab"
+        "azure-cli"
         "appcleaner"
         "bambu-studio"
         "battle-net"
