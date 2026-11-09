@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.15.0](https://github.com/tboerger/darwin-config/compare/v1.14.0...v1.15.0) (2026-11-09)
+
+### Features
+
+* install claude-code via brew ([1e7ef62](https://github.com/tboerger/darwin-config/commit/1e7ef62352a691192f9e3a934f32ce6c4260dfc6))
+* move mise ito brew instead of nix ([db0b8d3](https://github.com/tboerger/darwin-config/commit/db0b8d3b866b5a40e6848c882fb4219dc0a7c6ff))
+
+### Bugfixes
+
+* do not install dead minio cli anymore ([cb57459](https://github.com/tboerger/darwin-config/commit/cb5745911a1d5fef834860167affc6c18aae36e6))
+* it is now rg instead of ag ([d3f06a5](https://github.com/tboerger/darwin-config/commit/d3f06a5765a53ad81e9f599720441fbfe5588226))
+* move azure cli to brew instead of nix ([707f76e](https://github.com/tboerger/darwin-config/commit/707f76eaba6d717592e9632ef04f358551154181))
+
 ## [1.14.0](https://github.com/tboerger/darwin-config/compare/v1.13.0...v1.14.0) (2026-09-21)
 
 ### Features
