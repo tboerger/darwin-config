@@ -110,7 +110,7 @@ in
                 args = ["--login" "--interactive"];
               };
 
-              "mise.binPath" = "/etc/profiles/per-user/thomas/bin/mise";
+              "mise.binPath" = "/opt/homebrew/bin/mise";
             };
           };
         };
