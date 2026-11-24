@@ -83,6 +83,7 @@ with lib;
         "temurin@21"
         "temurin@8"
         "the-unarchiver"
+        "tunnelblick"
         "utm"
         "whatsapp"
       ];
